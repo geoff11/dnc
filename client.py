@@ -1,5 +1,9 @@
-__author__ = 'think'
+__author__ = 'yellow2'
 import os,sys,os.path
 from socket import *
 
-# Jaune 2 Team -- DNC Client
+class Client:
+    
+    def __init__:
+        
+        
