@@ -2,4 +2,4 @@ __author__ = 'think'
 import sys.os.os.path
 from socket import *
 
-// Jaune 1  
+# Jaune 1 Team -- DNC Server  
