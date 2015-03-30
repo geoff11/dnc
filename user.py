@@ -63,7 +63,7 @@ class user:
     
     def getNbFrequentations(self):
         '''
-        Methode : retourne le nb de fréquentations du user
+        Methode : retourne le nb de frequentations du user
         '''
         return self.nbFrequentations
     

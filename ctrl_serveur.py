@@ -7,6 +7,7 @@ from socket import *
 from socket import *
 from datetime import *
 import sys
+#import chat
 
 if len(sys.argv) != 2 :
     print("Usage: {} <port>".format(sys.argv[0]))
