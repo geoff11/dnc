@@ -2,4 +2,4 @@ __author__ = 'think'
 import sys.os.os.path
 from socket import *
 
-// Master Branch 
+# Jaune2 Team  -- DNC Server  
