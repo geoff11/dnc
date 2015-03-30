@@ -1,4 +1,3 @@
-__author__ = 'think'
 import os,sys,os.path
 from socket import *
 
@@ -48,6 +47,6 @@ with socket(AF_INET, SOCK_DGRAM) as sock:
             break
         sock.sendto(mess.encode(), (sys.argv[1], int(sys.argv[2])))
         reponse, _ = sock.recvfrom(TAILLE_TAMPON)
-        print("Réponse = " + reponse.decode())
+        print("Reponse = " + reponse.decode())
     
 sys.exit(0) # En cas de sortie de la boucle, fin du client. Normalement implicite 
