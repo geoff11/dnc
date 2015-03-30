@@ -14,10 +14,36 @@ if len(sys.argv) != 3:
     
 TAILLE_TAMPON = 256
 
+welcoming = "                              _______
+                            #--/        \
+                           |   \______   |
+                             - ---^^- / /
+                                     ||/
+                                     |||
+                                   .:'':.
+                             /^/^^\/     \
+                         0___O_\O_/       |
+                         |               /
+                         |       .._    /
+                          \ ____/   |  |               /
+                                    |  |             //
+                             ^^^^^  |  |            ||
+                          ^^^^^^^^^^|  \         __ /|
+                         ^^^^^^   ^^|   \       /     \
+                         ^^^^^    __|    \____/        |
+WELCOME                    ^^^    \    /               |
+TO                                 \-/          (_     \
+DNC                                  |  |\__________\   |
+                                    /|  |          \ \  |
+                            _____  | |  |     ______\ \  \
+                           /    ____/   |    /    ____/   \
+                           \(_ /         \   \(_ /        |
+                               \_(____.../       \_(_____/"
+
 
 with socket(AF_INET, SOCK_DGRAM) as sock:
     while True : 
-        mess = input("Entrez une commande (help pour la liste, quit pour quitter) : ")
+        mess = input(welcoming);
         if mess.lower() == "quit": 
             break
         sock.sendto(mess.encode(), (sys.argv[1], int(sys.argv[2])))
