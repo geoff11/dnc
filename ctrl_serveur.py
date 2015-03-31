@@ -7,7 +7,7 @@ from socket import *
 from socket import *
 from datetime import *
 import sys
-#import chat
+import chat
 
 if len(sys.argv) != 2 :
     print("Usage: {} <port>".format(sys.argv[0]))
@@ -21,15 +21,17 @@ logs = open("serveur.log", "w")
 maSock = socket(AF_INET,SOCK_DGRAM)
 maSock.bind(('',int(sys.argv[1])))
 print("Serveur en attente sur le port {} .".format(sys.argv[1],), file=logs)  # Ecriture du fichier de log 
+c = chat()
 
 while True:
     try:
         # Recuperation de la requete du client
         requete = maSock.recvfrom(TAILLE_TAMPON)
         
-        # Extraction du message et de l adresse sur le client
-        (mess, adr_client) = requete
+        # Extraction du message, de l adresse et du pseudo sur le client
+        (mess, adr_client, pseudo) = requete
         ip_client, port_client = adr_client
+        c.identifierClient(adr_client, pseudo)
 
         message = mess.decode().lower()
         
@@ -41,29 +43,29 @@ while True:
         # Construction de la reponse
         
         if message == "sleep":
-            reponse = self.sleep()
+            reponse = c.sleep()
         elif message == "list":
-            reponse = self.list()
+            reponse = c.list()
         elif message == "quit":
-            reponse = self.quit()
+            reponse = c.quit()
         elif message == "wake":
-            reponse = self.wake()
+            reponse = c.wake()
         elif message == "logchange":
-            reponse = self.logchange()
+            reponse = c.logchange()
         elif message == "private":
-            reponse = self.private()
+            reponse = c.private()
         elif message == "acceptpc":
-            reponse = self.acceptpc()
+            reponse = c.acceptpc()
         elif message == "denypc":
-            reponse = self.denypc()
+            reponse = c.denypc()
         elif message == "stoppc":
-            reponse = self.stoppc()
+            reponse = c.stoppc()
         elif message == "filesend":
-            reponse = self.filesend()
+            reponse = c.filesend()
         elif message == "fileacc":
-            reponse = self.fileacc()
+            reponse = c.fileacc()
         elif message == "fileden":
-            reponse = self.fileden()
+            reponse = c.fileden()
         
         # Envoi de la reponse au client
         maSock.sendto(reponse.encode(), adr_client)

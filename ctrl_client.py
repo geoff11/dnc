@@ -7,8 +7,8 @@ from socket import *
 from socket import *
 import sys
 
-if len(sys.argv) != 3:
-    print("Usage: {} <ip> <port>".format(sys.argv[0]))
+if len(sys.argv) != 4:
+    print("Usage: {} <ip> <port> <pseudo>".format(sys.argv[0]))
     sys.exit(1)
     
 TAILLE_TAMPON = 256
@@ -42,11 +42,14 @@ DNC                                  |  |\__________\   |
 
 with socket(AF_INET, SOCK_DGRAM) as sock:
     while True : 
-        mess = input(welcoming);
+        mess = input(welcoming)
+        
+        sock.sendto(mess.encode(), (sys.argv[1], int(sys.argv[2]), sys.argv[3]))
+        reponse, _ = sock.recvfrom(TAILLE_TAMPON)
+        
+        print("Reponse = " + reponse.decode())
+        
         if mess.lower() == "quit": 
             break
-        sock.sendto(mess.encode(), (sys.argv[1], int(sys.argv[2])))
-        reponse, _ = sock.recvfrom(TAILLE_TAMPON)
-        print("Reponse = " + reponse.decode())
     
 sys.exit(0) # En cas de sortie de la boucle, fin du client. Normalement implicite 

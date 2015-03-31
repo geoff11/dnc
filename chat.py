@@ -2,13 +2,17 @@
 class chat:
     
     '''
-    Classe chat : gere les differents messages du user
+    Classe chat : gere les differentes actions du user
     '''
     
     def __init__(self):
         '''
             Initialisation du chat
         '''
+    
+    
+    """"""""""""""""""""""""""""""
+    #RFC
     
     def list(self):
     
@@ -31,3 +35,8 @@ class chat:
     def fileacc(self):
         
     def fileden(self):
+        
+    """"""""""""""""""""""""""""""
+    
+    def identifierClient(self, adr, pseudo):
+        # if non connecte = ajoute
