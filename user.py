@@ -5,7 +5,7 @@ class user:
     Classe user : utilisateur du chat
     '''
     
-    def __init__(self, id, pseudo, mdp, port):
+    def __init__(self, id, pseudo, port, state = None):
         '''
             Initialisation du user
         '''
@@ -14,6 +14,11 @@ class user:
         self.pseudo = pseudo
         self.mdp = mdp
         self.port = port
+        
+        if state :
+            self.state = state
+        else
+            self.state = 0
         
     def getId(self):
         '''
@@ -41,11 +46,22 @@ class user:
         '''
         return self.port
     
+    def getState(self):
+        '''
+        Methode : retourne l etat du user
+                0 = out
+                1 = online
+                2 = sleeping
+        '''
+        if state == 0 :
+            state = self.pseudo + " is out"
+        elif state == 1 :
+            state = self.pseudo + " is online"
+        elif state == 2 :
+            state = self.pseudo + " is sleeping"
     
     """"""""""""""""""""""""""""""
     #RFC
-    
-    def list(self):
     
     def quit(self):
         
