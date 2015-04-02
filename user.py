@@ -12,7 +12,6 @@ class user:
           
         self.id = id 
         self.pseudo = pseudo
-        self.mdp = mdp
         self.port = port
         
         if state :
@@ -31,13 +30,6 @@ class user:
         Methode : retourne le pseudo du user
         '''
         return self.pseudo
-    
-    
-    def getMdp(self):
-        '''
-        Methode : retourne le mdp du user
-        '''
-        return self.mdp
     
      
     def getPort(self):

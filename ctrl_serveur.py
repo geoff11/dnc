@@ -32,7 +32,11 @@ while True:
         # Extraction du message, de l adresse et du pseudo sur le client
         (mess, adr_client, pseudo) = requete
         ip_client, port_client = adr_client
-        user = chat.identifierClient(adr_client, pseudo)
+        user = chat.identifierClient(port_client, pseudo)
+        
+        while (user == 0):
+            print("Log already exists ! Please choose another one")
+            user = chat.identifierClient(port_client, pseudo)
 
         message = mess.decode().lower().split() # on découpe le message en tableau de mots
         cmd = message[0]
@@ -42,7 +46,6 @@ while True:
         format(ip_client, len(mess)), file=logs)      # Ecriture du fichier de log   
         
         # Construction de la reponse
-        
         
         if cmd == "sleep":
             reponse = user.sleep()
