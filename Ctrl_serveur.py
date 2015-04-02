@@ -7,7 +7,7 @@ from socket import *
 from socket import *
 from datetime import *
 import sys
-import chat
+import Chat
 
 if len(sys.argv) != 2 :
     print("Usage: {} <port>".format(sys.argv[0]))
@@ -22,7 +22,7 @@ maSock = socket(AF_INET,SOCK_DGRAM)
 maSock.bind(('',int(sys.argv[1])))
 print("Serveur en attente sur le port {} .".format(sys.argv[1],), file=logs)  # Ecriture du fichier de log 
 
-chat = chat() # création du chat
+chat = Chat() # création du chat
 
 while True:
     try:

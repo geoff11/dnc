@@ -1,10 +1,10 @@
-import user
+import User
 from IPython.core.tests.test_inputsplitter import pseudo_input
 
-class chat:
+class Chat:
     
     '''
-    Classe chat : gere les differentes actions du user
+    Classe Chat : gere les differentes actions du user
     '''
     
     def __init__(self):
@@ -17,8 +17,14 @@ class chat:
         for guy in listeClients :
             if guy.pseudo == pseudo :
                 return 0
-        return user(self.listeClients.length, pseudo, port, 1)
+        
+        client = User(self.listeClients.length, pseudo, port, 1)
+        self.listeClients.append(client)
+        return client
         
     
     def list(self):
-        for (c in 
+        all_user = ""
+        for u in listeClients :
+             all_user += u.pseudo
+        return all_user

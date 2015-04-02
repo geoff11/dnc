@@ -1,8 +1,8 @@
 
-class user:
+class User:
     
     '''
-    Classe user : utilisateur du chat
+    Classe User : utilisateur du chat
     '''
     
     def __init__(self, id, pseudo, port, state = None):
