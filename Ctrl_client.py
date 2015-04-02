@@ -7,12 +7,13 @@ from socket import *
 from socket import *
 import sys
 
-if len(sys.argv) != 4:
-    print("Usage: {} <ip> <port> <pseudo>".format(sys.argv[0]))
+if len(sys.argv) != 3:
+    print("Usage: {} <ip> <port>".format(sys.argv[0]))
     sys.exit(1)
     
 TAILLE_TAMPON = 256
 
+'''
 welcoming = "                              _______
                             #--/        \
                            |   \______   |
@@ -38,14 +39,15 @@ DNC                                  |  |\__________\   |
                            /    ____/   |    /    ____/   \
                            \(_ /         \   \(_ /        |
                                \_(____.../       \_(_____/"
-
+'''
 
 with socket(AF_INET, SOCK_DGRAM) as sock:
+    #print(welcoming)
+    print("Renseigner votre login : ")
     
-    while True : 
-        mess = input(welcoming)
-        
-        sock.sendto(mess.encode(), (sys.argv[1], int(sys.argv[2]), sys.argv[3]))
+    while True :
+        mess = input()
+        sock.sendto(mess.encode(), (sys.argv[1], int(sys.argv[2])))
         reponse, _ = sock.recvfrom(TAILLE_TAMPON)
         
         print("Reponse = " + reponse.decode())

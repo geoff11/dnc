@@ -1,5 +1,4 @@
 import User
-from IPython.core.tests.test_inputsplitter import pseudo_input
 
 class Chat:
     
@@ -13,18 +12,30 @@ class Chat:
         '''
         self.listeClients = []
     
-    def identifierClient(self, port, pseudo):
-        for guy in listeClients :
+    
+    def identifierClient(self, ip, port, pseudo):
+        '''
+            Identification du client, renvoi un objet client instancié ou 0 si pseudo deja utilise
+        '''
+        
+        for guy in self.listeClients :
             if guy.pseudo == pseudo :
                 return 0
         
-        client = User(self.listeClients.length, pseudo, port, 1)
+        client = User.User(len(self.listeClients)+1, pseudo, ip, port, 1)
         self.listeClients.append(client)
         return client
         
     
     def list(self):
+        '''
+            liste des pseudos connectes
+        '''
+        
         all_user = ""
-        for u in listeClients :
+        for u in self.listeClients :
              all_user += u.pseudo
         return all_user
+    
+    def quit(self, pseudo):
+        return pseudo + " leaved the chat"
