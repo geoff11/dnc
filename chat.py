@@ -20,5 +20,5 @@ class chat:
         return user(self.listeClients.length, pseudo, port, 1)
         
     
-   # def list(self):
-    #    for (c in 
+    def list(self):
+        for (c in 
