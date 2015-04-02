@@ -41,6 +41,7 @@ DNC                                  |  |\__________\   |
 
 
 with socket(AF_INET, SOCK_DGRAM) as sock:
+    
     while True : 
         mess = input(welcoming)
         

@@ -21,7 +21,8 @@ logs = open("serveur.log", "w")
 maSock = socket(AF_INET,SOCK_DGRAM)
 maSock.bind(('',int(sys.argv[1])))
 print("Serveur en attente sur le port {} .".format(sys.argv[1],), file=logs)  # Ecriture du fichier de log 
-c = chat()
+
+chat = chat() # création du chat
 
 while True:
     try:
@@ -31,43 +32,42 @@ while True:
         # Extraction du message, de l adresse et du pseudo sur le client
         (mess, adr_client, pseudo) = requete
         ip_client, port_client = adr_client
-        c.identifierClient(adr_client, pseudo)
+        user = chat.identifierClient(adr_client, pseudo)
 
-        message = mess.decode().lower()
+        message = mess.decode().lower().split() # on découpe le message en tableau de mots
+        cmd = message[0]
         
         
         print("Requete provenant de {}. Longueur = {}". \
-        format(ip_client, len(mess)), file=logs)      # Ecriture du fichier de log 
-        
+        format(ip_client, len(mess)), file=logs)      # Ecriture du fichier de log   
         
         # Construction de la reponse
-        message = 
         
         
-        if message == "sleep":
-            reponse = c.sleep()
-        elif message == "list":
-            reponse = c.list()
-        elif message == "quit":
-            reponse = c.quit()
-        elif message == "wake":
-            reponse = c.wake()
-        elif message == "logchange":
-            reponse = c.logchange()
-        elif message.contains  "private":
-            reponse = c.private()
-        elif message == "acceptpc":
-            reponse = c.acceptpc()
-        elif message == "denypc":
-            reponse = c.denypc()
-        elif message == "stoppc":
-            reponse = c.stoppc()
-        elif message == "filesend":
-            reponse = c.filesend()
-        elif message == "fileacc":
-            reponse = c.fileacc()
-        elif message == "fileden":
-            reponse = c.fileden()
+        if cmd == "sleep":
+            reponse = user.sleep()
+        elif cmd == "list":
+            reponse = user.list()
+        elif cmd == "quit":
+            reponse = user.quit()
+        elif cmd == "wake":
+            reponse = user.wake()
+        elif cmd == "logchange":
+            reponse = user.logchange()
+        elif cmd ==  "private":
+            reponse = user.private()
+        elif cmd == "acceptpc":
+            reponse = user.acceptpc()
+        elif cmd == "denypc":
+            reponse = user.denypc()
+        elif cmd == "stoppc":
+            reponse = user.stoppc()
+        elif cmd == "filesend":
+            reponse = user.filesend()
+        elif cmd == "fileacc":
+            reponse = user.fileacc()
+        elif cmd == "fileden":
+            reponse = user.fileden()
         
         # Envoi de la reponse au client
         maSock.sendto(reponse.encode(), adr_client)

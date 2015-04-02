@@ -40,3 +40,32 @@ class user:
         Methode : retourne le port du user
         '''
         return self.port
+    
+    
+    """"""""""""""""""""""""""""""
+    #RFC
+    
+    def list(self):
+    
+    def quit(self):
+        
+    def wake(self):
+    
+    def logchange(self):
+    
+    def private(self):
+    
+    def acceptpc(self, port):
+        # penser au port du user
+    
+    def denypc(self):
+         
+    def stoppc(self):
+   
+    def filesend(self):
+        
+    def fileacc(self):
+        
+    def fileden(self):
+        
+    """"""""""""""""""""""""""""""
