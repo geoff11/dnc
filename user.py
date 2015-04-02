@@ -5,19 +5,15 @@ class user:
     Classe user : utilisateur du chat
     '''
     
-    def __init__(self, id, nom, prenom, adresse, mail, tel, nbFreq):
+    def __init__(self, id, pseudo, mdp, port):
         '''
             Initialisation du user
         '''
           
         self.id = id 
-        self.nom = nom
-        self.prenom = prenom
-        self.adresse = adresse
-        self.mail = mail
-        self.tel = tel
-        self.nbFrequentations = nbFreq
-        
+        self.pseudo = pseudo
+        self.mdp = mdp
+        self.port = port
         
     def getId(self):
         '''
@@ -25,45 +21,22 @@ class user:
         '''
         return self.id
     
-    def getNom(self):
+    def getPseudo(self):
         '''
-        Methode : retourne le nom du user
+        Methode : retourne le pseudo du user
         '''
-        return self.nom
+        return self.pseudo
     
     
-    
-    def getPrenom(self):
+    def getMdp(self):
         '''
-        Methode : retourne le prenom du user
+        Methode : retourne le mdp du user
         '''
-        return self.prenom
+        return self.mdp
     
      
-    def getMail(self):
+    def getPort(self):
         '''
-        Methode : retourne le mail du user
+        Methode : retourne le port du user
         '''
-        return self.mail
-    
-    
-    def getTel(self):
-        '''
-        Methode : retourne le tel du user
-        '''
-        return self.tel
-    
-    
-    def getAdresse(self):
-        '''
-        Methode : retourne l adresse du user
-        '''
-        return self.adresse    
-    
-    
-    def getNbFrequentations(self):
-        '''
-        Methode : retourne le nb de frequentations du user
-        '''
-        return self.nbFrequentations
-    
+        return self.port

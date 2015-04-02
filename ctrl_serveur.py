@@ -41,6 +41,8 @@ while True:
         
         
         # Construction de la reponse
+        message = 
+        
         
         if message == "sleep":
             reponse = c.sleep()
@@ -52,7 +54,7 @@ while True:
             reponse = c.wake()
         elif message == "logchange":
             reponse = c.logchange()
-        elif message == "private":
+        elif message.contains  "private":
             reponse = c.private()
         elif message == "acceptpc":
             reponse = c.acceptpc()

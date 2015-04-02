@@ -25,6 +25,7 @@ class chat:
     def private(self):
     
     def acceptpc(self):
+        # penser au port du user
     
     def denypc(self):
          
