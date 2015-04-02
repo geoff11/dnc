@@ -26,4 +26,20 @@ class DNC(object) :
         #creer le Frame
         self.frame=[]
         self.frame.append(Frame())
+        self.frame.append(Frame())
+
+        # Barre de defilement de zone de liste de sortie de message
+        self.slbar = Scrollbar(self.frame[0])
+        self.slbar.pack(side=RIGHT , fill=Y)
+
+        #creer la boite de sortie de message, et puis lier le barre de defilement
+        self.MessageOut = Listbox(self.frame[0],height = 25, fg ='red')
+        self.MessageOut['yscrollcommand']=self.slbar.set
+        self.MessageOut.pack(expand=1,fill=BOTH)
+        self.slbar['command']=self.MessageOut.yview
+        self.frame[0].pack(expand=1,fill=BOTH)
+
+
+
+
 
