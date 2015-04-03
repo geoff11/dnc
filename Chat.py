@@ -37,5 +37,5 @@ class Chat:
              all_user += u.pseudo
         return all_user
     
-    def quit(self, pseudo):
-        return pseudo + " leaved the chat"
+    def quit(self, pseudo, msgPerso=""):
+        return pseudo.decode() + " leaved the chat" + msgPerso

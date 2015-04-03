@@ -33,6 +33,9 @@ class Ctrl_serveur:
                 (mess, adr_client) = requete
                 ip_client, port_client = adr_client
                 user = self.chat.identifierClient(ip_client, port_client, mess)
+                # FIXME : Le passage systematique dans identifierClient induit des problemes comportementaux
+                # TODO : Modulariser le Login par une fonction, 
+                # le chat fait que de la merde en passant toujours par le login xD
                 
                 while (user == 0):
                     # Envoi de la reponse negative de log au client
@@ -44,9 +47,19 @@ class Ctrl_serveur:
                     (mess, adr_client) = requete
                     ip_client, port_client = adr_client
                     user = self.chat.identifierClient(ip_client, port_client, mess)
+                    
+                if user != 0:
+                    repLogOK = "Login successful !!"
+                    self.maSock.sendto(repLogOK.encode(), adr_client)
+                # SOME SHIT : Cet envoi doit se faire une seule fois 
             
                 message = mess.decode().lower().split() # on découpe le message en tableau de mots
-                cmd = message[0]
+                #Gestion du cas ou le client ne tape rien
+                if len(message)>0:
+                    cmd = message[0]
+                else:
+                    error = "Error : please type something"
+                    self.maSock.sendto(error.encode(), adr_client)
                 reponseAll = ""
                 
                 
@@ -61,10 +74,10 @@ class Ctrl_serveur:
                     reponseClient = self.chat.list()
                 elif cmd == "quit":
                     reponseClient = user.quit()
-                    if message.length > 1:
-                        reponseAll = self.chat.quit(message[1])
+                    if len(message) > 1:
+                        reponseAll = self.chat.quit(user.getPseudo(),message[1])
                     else:
-                        reponseAll = self.chat.quit()
+                        reponseAll = self.chat.quit(user.getPseudo())
                 elif cmd == "wake":
                     reponseClient = user.wake()
                 elif cmd == "logchange":
@@ -84,13 +97,16 @@ class Ctrl_serveur:
                 elif cmd == "fileden":
                     reponseClient = user.fileden()
                 else :
+                    reponseClient=""    # Si la reponse concerne tout le monde, elle ne concerne pas le client seul CQF
                     self.sendToAll(mess)
                 
                 # Envoi de la reponseClient au client
-                self.maSock.sendto(reponseClient.encode(), adr_client)
+                # !! Si une reponse doit etre envoyee a un seul client
+                if reponseClient != "":
+                    self.maSock.sendto(reponseClient.encode(), adr_client)
                 
                 if reponseAll != "" :
-                    self.sendToAll(reponseAll)
+                    self.sendToAll(reponseAll.encode())
                 
             except KeyboardInterrupt: break
         

@@ -50,7 +50,7 @@ with socket(AF_INET, SOCK_DGRAM) as sock:
         sock.sendto(mess.encode(), (sys.argv[1], int(sys.argv[2])))
         reponse, _ = sock.recvfrom(TAILLE_TAMPON)
         
-        print("Reponse = " + reponse.decode())
+        print(reponse.decode())
         
         if mess.lower() == "quit": 
             break

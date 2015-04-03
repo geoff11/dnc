@@ -14,8 +14,11 @@ class User:
         self.pseudo = pseudo
         self.ip = ip
         self.port = port
-        self.adr = str(ip) + " " + str(port)
+        #self.adr = str(ip) + " " + str(port)
+        #Une adresse doit etre definie en tant que tuple, pas de string (pour les sockets)
+        self.adr=(ip,port)
         
+                
         if state :
             self.state = state
         else :
@@ -79,6 +82,8 @@ class User:
         '''
             le client reste connecte, mais ne reçoit plus les messages
         '''
+        return "You are now sleepping"
+        # TODO : Implementer le fait que les sleepers ne recoivent plus les messages de sendToAll
            
     def wake(self):
         '''
