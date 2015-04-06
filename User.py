@@ -5,7 +5,7 @@ class User:
     Classe User : utilisateur du chat
     '''
     
-    def __init__(self, id, pseudo, ip, port, state = None):
+    def __init__(self, id, pseudo, ip, port, state = 0): #User offline par defaut
         '''
             Initialisation du user
         '''
@@ -17,8 +17,7 @@ class User:
         #self.adr = str(ip) + " " + str(port)
         #Une adresse doit etre definie en tant que tuple, pas de string (pour les sockets)
         self.adr=(ip,port)
-        
-                
+  
         if state :
             self.state = state
         else :
@@ -67,6 +66,8 @@ class User:
             state = self.pseudo + " is online"
         elif state == 2 :
             state = self.pseudo + " is sleeping"
+        elif state == 3 :
+            state = self.pseudo + " is online but in private chat"
     
     """"""""""""""""""""""""""""""
     #RFC
@@ -75,13 +76,14 @@ class User:
         '''
             le client met fin à la connexion
         '''
-        
+        self.state = 0
         return "Vous avez ete correctement deconnecte"
         
     def sleep(self):
         '''
             le client reste connecte, mais ne reçoit plus les messages
         '''
+        self.state=2
         return "You are now sleepping"
         # TODO : Implementer le fait que les sleepers ne recoivent plus les messages de sendToAll
            
@@ -89,11 +91,16 @@ class User:
         '''
             le client qui etait « sleep » redevient actif
         '''
+        self.state=1
+        return self.pseudo+" is back"
         
     def logchange(self, newPseudo):
         '''
             le client change de pseudo
         '''
+        oldLog = self.pseudo 
+        self.pseudo=newPseudo
+        return oldLog + "Changed his log with: "+self.pseudo
     
     def private(self, pseudoDest):
         '''
@@ -102,21 +109,29 @@ class User:
             S’il l’accepte et jusqu’au message /cmd7 emis par l’une des deux parties,
             les messages entre ces deux clients ne seront plus diffuses aux autres.
         '''
+        return self.pseudo + " Wants to chat with you in private. acceptpc/denypc ? "
+        
     
     def acceptpc(self, pseudoDest):
         '''
             Le user autorise un autre user a communiquer avec lui en "private"
         '''
+        self.state=3 # passe en state "private"
+        return "yes"
     
     def denypc(self, pseudoDest):
         '''
             Le user interdit un autre user a communiquer avec lui en "private"
         '''
+        return "no"
          
     def stoppc(self, pseudoDest):
         '''
             Le user met fin aux conversations "private"
         '''
+        self.state=1
+        #TODO : Passer le state du pseudoDest a 1 : impossible avec cette architecture, acces au chat impossible
+        return self.pseudo + "is back in public chat"
    
     def filesend(self, pseudoDest, fic, port):
         '''

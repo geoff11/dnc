@@ -34,7 +34,7 @@ class Chat:
         
         all_user = ""
         for u in self.listeClients :
-             all_user += u.pseudo
+             all_user += " " + u.pseudo.decode()
         return all_user
     
     def quit(self, pseudo, msgPerso=""):
