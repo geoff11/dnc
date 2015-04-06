@@ -88,7 +88,7 @@ class DNCservGUI(object) :
             self.MessageOut.insert(END,'')
             self.MessageIn.delete(0,self.send_data.__len__())
             self.ChatClitSock.send(self.send_data)
-        elif
+        elif :
             cmd == "SLEEP"
             reponce
     #socket communication
