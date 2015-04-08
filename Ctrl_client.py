@@ -44,7 +44,7 @@ DNC                                  |  |\__________\   |
 with socket(AF_INET, SOCK_DGRAM) as sock:
     print(welcoming)
     print("Renseigner votre login : ")
-    mess = "start"
+    mess = "serveurcrypteauthentificationclient1234569876newclient"
     sock.sendto(mess.encode(), (sys.argv[1], int(sys.argv[2])))
     
     while True :

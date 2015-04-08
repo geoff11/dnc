@@ -87,7 +87,7 @@ class Ctrl_serveur:
                 
                 reponseClient = ""
                 
-                if cmd == "start":
+                if cmd == "serveurcrypteauthentificationclient1234569876newclient":
                     self.identifyClient()
                 elif cmd == "sleep":
                     reponseClient = self.userActif.sleep()
