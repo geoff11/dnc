@@ -13,8 +13,8 @@ if len(sys.argv) != 3:
     
 TAILLE_TAMPON = 256
 
-'''
-welcoming = "                              _______
+
+welcoming = """
                             #--/        \
                            |   \______   |
                              - ---^^- / /
@@ -38,11 +38,11 @@ DNC                                  |  |\__________\   |
                             _____  | |  |     ______\ \  \
                            /    ____/   |    /    ____/   \
                            \(_ /         \   \(_ /        |
-                               \_(____.../       \_(_____/"
-'''
+                               \_(____.../       \_(_____/"""
+
 
 with socket(AF_INET, SOCK_DGRAM) as sock:
-    #print(welcoming)
+    print(welcoming)
     print("Renseigner votre login : ")
     
     while True :
