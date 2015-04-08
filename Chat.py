@@ -13,15 +13,18 @@ class Chat:
         self.listeClients = []
     
     
-    def identifierClient(self, ip, port, pseudo):
+    def verifLogin(self, ip, port, pseudo):
         '''
             Identification du client, renvoi un objet client instancié ou 0 si pseudo deja utilise
         '''
         
         for guy in self.listeClients :
             if guy.pseudo == pseudo :
-                return 0
-        
+                return False
+        return True
+    
+    
+    def addClient(self, ip, port, pseudo):
         client = User.User(len(self.listeClients)+1, pseudo, ip, port, 1)
         self.listeClients.append(client)
         return client
