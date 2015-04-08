@@ -21,38 +21,50 @@ class Ctrl_serveur:
         '''
         self.chat = Chat.Chat() # création du chat
         self.maSock = sock
+        
+    
+    def identifyClient(self):
+        # Recuperation de la requete du client
+        log = self.maSock.recvfrom(TAILLE_TAMPON)
+                
+        # Extraction du pseudo, de l adresse  sur le client
+        (pseudo, adr_client) = log
+        ip_client, port_client = adr_client
+        logDispo = self.chat.verifLogin(ip_client, port_client, pseudo)
+        if logDispo:
+            client = self.chat.addClient(ip_client, port_client, pseudo)
+            repLogOK = "Login successful !! Let's get started"
+            self.maSock.sendto(repLogOK.encode(), adr_client)
+            return client
+
+                
+        while (not logDispo):
+            # Envoi de la reponse negative de log au client
+            repLog = "Log already used ! Please choose another one"
+            self.maSock.sendto(repLog.encode(), adr_client)
+            # Recuperation du Nieme essai
+            log = self.maSock.recvfrom(TAILLE_TAMPON)
+            # Extraction du message, de l adresse et du pseudo sur le client
+            (pseudo, adr_client) = log
+            ip_client, port_client = adr_client
+            logDispo = self.chat.verifLogin(ip_client, port_client, pseudo)
+            if logDispo:
+                client = self.chat.addClient(ip_client, port_client, pseudo)
+                repLogOK = "Login successful !! Let's get started"
+                self.maSock.sendto(repLogOK.encode(), adr_client)
+                return client
+    
 
 
-    def manageCommands(self):
+    def manageCommands(self,user):
         while True:
             try:
-                # Recuperation de la requete du client
+                # Recuperation de la commande
                 requete = self.maSock.recvfrom(TAILLE_TAMPON)
-                
                 # Extraction du message, de l adresse et du pseudo sur le client
                 (mess, adr_client) = requete
                 ip_client, port_client = adr_client
-                user = self.chat.identifierClient(ip_client, port_client, mess)
-                # FIXME : Le passage systematique dans identifierClient induit des problemes comportementaux
-                # TODO : Modulariser le Login par une fonction, 
-                # le chat fait que de la merde en passant toujours par le login xD
                 
-                while (user == 0):
-                    # Envoi de la reponse negative de log au client
-                    repLog = "Log already used ! Please choose another one"
-                    self.maSock.sendto(repLog.encode(), adr_client)
-                    # Recuperation du 2eme essai
-                    requete = self.maSock.recvfrom(TAILLE_TAMPON)
-                    # Extraction du message, de l adresse et du pseudo sur le client
-                    (mess, adr_client) = requete
-                    ip_client, port_client = adr_client
-                    user = self.chat.identifierClient(ip_client, port_client, mess)
-                    
-                if user != 0:
-                    repLogOK = "Login successful !!"
-                    self.maSock.sendto(repLogOK.encode(), adr_client)
-                # SOME SHIT : Cet envoi doit se faire une seule fois 
-            
                 message = mess.decode().lower().split() # on découpe le message en tableau de mots
                 #Gestion du cas ou le client ne tape rien
                 if len(message)>0:
@@ -140,7 +152,8 @@ if __name__ == '__main__':
     print("Serveur en attente sur le port {} .".format(sys.argv[1],), file=logs)  # Ecriture du fichier de log  
         
     ctrl = Ctrl_serveur(maSock)
-    ctrl.manageCommands()   
+    user = ctrl.identifyClient()
+    ctrl.manageCommands(user)   
         
     maSock.close()
     print("Arret du serveur", file=logs)
