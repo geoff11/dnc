@@ -1,3 +1,2 @@
-- empecher ctrl c client
-- boucle pour messages
-- quit suppr client de la liste
+- empecher ctrl c client => obligé a quit
+- thread pour messages : AIE AIE AIE

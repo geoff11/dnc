@@ -97,9 +97,9 @@ class Ctrl_serveur:
                 elif cmd == "quit":
                     reponseClient = self.userActif.quit()
                     if len(message) > 1:
-                        reponseAll = self.chat.quit(self.userActif.getPseudo(),message[1])
+                        reponseAll = self.chat.quit(self.userActif,message[1])
                     else:
-                        reponseAll = self.chat.quit(self.userActif.getPseudo())
+                        reponseAll = self.chat.quit(self.userActif)
                 elif cmd == "wake":
                     reponseClient = self.userActif.wake()
                 elif cmd == "logchange":
@@ -139,8 +139,8 @@ class Ctrl_serveur:
         '''
             Envoi du message a tout le monde
         '''
-        for user in self.chat.listeClients:
-            self.maSock.sendto(user.getPseudo() + ": ".encode() + message, user.getAdr())
+        for u in self.chat.listeClients:
+            self.maSock.sendto(u.getPseudo() + ": ".encode() + message, u.getAdr())
         
         
 
