@@ -77,6 +77,7 @@ class Ctrl_serveur:
                 else:
                     error = "Error : please type something"
                     self.maSock.sendto(error.encode(), adr_client)
+                    
                 reponseAll = ""
                 
                 
@@ -138,10 +139,8 @@ class Ctrl_serveur:
         '''
             Envoi du message a tout le monde
         '''
-        for item in self.chat.listeClients:
-            self.maSock.sendto(message, item.getAdr())
-            
-        
+        for user in self.chat.listeClients:
+            self.maSock.sendto(user.getPseudo() + ": ".encode() + message, user.getAdr())
         
         
 
