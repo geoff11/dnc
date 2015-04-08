@@ -17,25 +17,27 @@ class Ctrl_serveur:
     
     def __init__(self, sock):
         '''
-            Initialisation du user
+            
         '''
         self.chat = Chat.Chat() # création du chat
         self.maSock = sock
+        self.userActif = ""
         
     
     def identifyClient(self):
         # Recuperation de la requete du client
         log = self.maSock.recvfrom(TAILLE_TAMPON)
-                
         # Extraction du pseudo, de l adresse  sur le client
         (pseudo, adr_client) = log
         ip_client, port_client = adr_client
         logDispo = self.chat.verifLogin(ip_client, port_client, pseudo)
+        
+        
         if logDispo:
             client = self.chat.addClient(ip_client, port_client, pseudo)
             repLogOK = "Login successful !! Let's get started"
             self.maSock.sendto(repLogOK.encode(), adr_client)
-            return client
+            self.userActif = client
 
                 
         while (not logDispo):
@@ -44,19 +46,20 @@ class Ctrl_serveur:
             self.maSock.sendto(repLog.encode(), adr_client)
             # Recuperation du Nieme essai
             log = self.maSock.recvfrom(TAILLE_TAMPON)
-            # Extraction du message, de l adresse et du pseudo sur le client
+            # Extraction du message, de l adresse sur le client
             (pseudo, adr_client) = log
             ip_client, port_client = adr_client
             logDispo = self.chat.verifLogin(ip_client, port_client, pseudo)
+            
             if logDispo:
                 client = self.chat.addClient(ip_client, port_client, pseudo)
                 repLogOK = "Login successful !! Let's get started"
                 self.maSock.sendto(repLogOK.encode(), adr_client)
-                return client
+                self.userActif = client
     
 
 
-    def manageCommands(self,user):
+    def manageCommands(self):
         while True:
             try:
                 # Recuperation de la commande
@@ -66,8 +69,10 @@ class Ctrl_serveur:
                 ip_client, port_client = adr_client
                 
                 message = mess.decode().lower().split() # on découpe le message en tableau de mots
+                
+                
                 #Gestion du cas ou le client ne tape rien
-                if len(message)>0:
+                if len(message) > 0:
                     cmd = message[0]
                 else:
                     error = "Error : please type something"
@@ -80,34 +85,38 @@ class Ctrl_serveur:
                 
                 # Construction de la reponseClient
                 
-                if cmd == "sleep":
-                    reponseClient = user.sleep()
+                reponseClient = ""
+                
+                if cmd == "start":
+                    self.identifyClient()
+                elif cmd == "sleep":
+                    reponseClient = self.userActif.sleep()
                 elif cmd == "list":
                     reponseClient = self.chat.list()
                 elif cmd == "quit":
-                    reponseClient = user.quit()
+                    reponseClient = self.userActif.quit()
                     if len(message) > 1:
-                        reponseAll = self.chat.quit(user.getPseudo(),message[1])
+                        reponseAll = self.chat.quit(self.userActif.getPseudo(),message[1])
                     else:
-                        reponseAll = self.chat.quit(user.getPseudo())
+                        reponseAll = self.chat.quit(self.userActif.getPseudo())
                 elif cmd == "wake":
-                    reponseClient = user.wake()
+                    reponseClient = self.userActif.wake()
                 elif cmd == "logchange":
-                    reponseClient = user.logchange()
+                    reponseClient = self.userActif.logchange()
                 elif cmd ==  "private":
-                    reponseClient = user.private()
+                    reponseClient = self.userActif.private()
                 elif cmd == "acceptpc":
-                    reponseClient = user.acceptpc()
+                    reponseClient = self.userActif.acceptpc()
                 elif cmd == "denypc":
-                    reponseClient = user.denypc()
+                    reponseClient = self.userActif.denypc()
                 elif cmd == "stoppc":
-                    reponseClient = user.stoppc()
+                    reponseClient = self.userActif.stoppc()
                 elif cmd == "filesend":
-                    reponseClient = user.filesend()
+                    reponseClient = self.userActif.filesend()
                 elif cmd == "fileacc":
-                    reponseClient = user.fileacc()
+                    reponseClient = self.userActif.fileacc()
                 elif cmd == "fileden":
-                    reponseClient = user.fileden()
+                    reponseClient = self.userActif.fileden()
                 else :
                     reponseClient=""    # Si la reponse concerne tout le monde, elle ne concerne pas le client seul CQF
                     self.sendToAll(mess)
@@ -152,8 +161,7 @@ if __name__ == '__main__':
     print("Serveur en attente sur le port {} .".format(sys.argv[1],), file=logs)  # Ecriture du fichier de log  
         
     ctrl = Ctrl_serveur(maSock)
-    user = ctrl.identifyClient()
-    ctrl.manageCommands(user)   
+    ctrl.manageCommands()   
         
     maSock.close()
     print("Arret du serveur", file=logs)
