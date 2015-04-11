@@ -13,7 +13,7 @@ class Chat:
         self.listeClients = []
     
     
-    def verifLogin(self, ip, port, pseudo):
+    def verifLogin(self, pseudo):
         '''
             Verifie si le log est deja attribue : renvoi faux si pseudo deja utilise sinon vrai
         '''
@@ -24,15 +24,13 @@ class Chat:
         return True
     
     
-    def addClient(self, ip, port, pseudo):
-        client = User.User(len(self.listeClients)+1, pseudo, ip, port, 1)
+    def addClient(self, pseudo, canal):
+        client = User.User(len(self.listeClients)+1, pseudo, canal, 1)
         self.listeClients.append(client)
         return client
     
     def deleteClient(self, client):
-        for u in self.listeClients :
-            if u.getPseudo() == client.getPseudo() :
-                self.listeClients.remove(u)
+        self.listeClients.remove(client)
         
     
     def list(self):
@@ -46,7 +44,6 @@ class Chat:
         return all_user
     
     def quit(self, user, msgPerso = None):
-        self.deleteClient(user)
         if msgPerso:
             return " leaved the chat saying : " + msgPerso
         else:

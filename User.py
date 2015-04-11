@@ -5,18 +5,14 @@ class User:
     Classe User : utilisateur du chat
     '''
     
-    def __init__(self, id, pseudo, ip, port, state = 0): #User offline par defaut
+    def __init__(self, id, pseudo, canal, state = 0): #User offline par defaut
         '''
             Initialisation du user
         '''
           
         self.id = id 
         self.pseudo = pseudo
-        self.ip = ip
-        self.port = port
-        #self.adr = str(ip) + " " + str(port)
-        #Une adresse doit etre definie en tant que tuple, pas de string (pour les sockets)
-        self.adr=(ip,port)
+        self.canal = canal # thread
   
         if state :
             self.state = state
@@ -35,23 +31,6 @@ class User:
         '''
         return self.pseudo
     
-    def getIp(self):
-        '''
-        Methode : retourne l ip du user
-        '''
-        return self.ip
-     
-    def getPort(self):
-        '''
-        Methode : retourne le port du user
-        '''
-        return self.port
-    
-    def getAdr(self):
-        '''
-        Methode : retourne l adresse du user
-        '''
-        return self.adr
     
     def getState(self):
         '''
@@ -68,6 +47,9 @@ class User:
             state = self.pseudo + " is sleeping"
         elif state == 3 :
             state = self.pseudo + " is online but in private chat"
+    
+    def getThread(self):
+        return self.canal
     
     """"""""""""""""""""""""""""""
     #RFC

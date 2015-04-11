@@ -1,4 +1,4 @@
-import os,sys
+import os,sys,threading
 from socket import *
 
 # Jaune 1 Team -- DNC Server  
@@ -9,66 +9,71 @@ from datetime import *
 import Chat
 
 
-class Ctrl_serveur:
+class Ctrl_serveur(threading.Thread):
     
     '''
     Classe Ctrl_serveur
     '''
     
-    def __init__(self, sock):
+    def __init__(self, port, sock):
         '''
             
         '''
+        self.port = port
         self.chat = Chat.Chat() # création du chat
         self.maSock = sock
-        self.userActif = ""
+        threading.Thread.__init__(self)
         
-    
-    def identifyClient(self):
+    def run(self):
+        print('Waiting for connections on port %s' % (self.port))
+        
+        # Nouvelle connexion= nouveau thread
+        
+        while True:
+            conn, addr = self.maSock.accept()
+            threading.Thread(target=self.manageCommands, args=(conn, addr)).start()
+        
+        conn.close() # fermeture du thread
+            
+                
+    def identifyClient(self, conn):
         # Recuperation de la requete du client
-        log = self.maSock.recvfrom(TAILLE_TAMPON)
-        # Extraction du pseudo, de l adresse  sur le client
-        (pseudo, adr_client) = log
-        ip_client, port_client = adr_client
-        logDispo = self.chat.verifLogin(ip_client, port_client, pseudo)
+        pseudo = conn.recv(TAILLE_TAMPON)
+        logDispo = self.chat.verifLogin(pseudo)
         
         
         if logDispo:
-            client = self.chat.addClient(ip_client, port_client, pseudo)
             repLogOK = "Login successful !! Let's get started"
-            self.maSock.sendto(repLogOK.encode(), adr_client)
-            self.userActif = client
+            conn.sendall(repLogOK.encode())
+            return self.chat.addClient(pseudo, conn)
 
                 
         while (not logDispo):
             # Envoi de la reponse negative de log au client
             repLog = "Log already used ! Please choose another one"
-            self.maSock.sendto(repLog.encode(), adr_client)
+            conn.send(repLog.encode())
             # Recuperation du Nieme essai
-            log = self.maSock.recvfrom(TAILLE_TAMPON)
-            # Extraction du message, de l adresse sur le client
-            (pseudo, adr_client) = log
-            ip_client, port_client = adr_client
-            logDispo = self.chat.verifLogin(ip_client, port_client, pseudo)
+            pseudo = conn.recv(TAILLE_TAMPON)
+            logDispo = self.chat.verifLogin(pseudo)
             
             if logDispo:
-                client = self.chat.addClient(ip_client, port_client, pseudo)
                 repLogOK = "Login successful !! Let's get started"
-                self.maSock.sendto(repLogOK.encode(), adr_client)
-                self.userActif = client
+                conn.sendall(repLogOK.encode())
+                return self.chat.addClient(pseudo, conn)
     
 
 
-    def manageCommands(self):
+    def manageCommands(self, conn, addr):
+        
+        print('Client connected with ' + addr[0] + ':' + str(addr[1]))
+        userActif = self.identifyClient(conn)
+        self.sendToAll(userActif, "is online")
+        
         while True:
             try:
                 # Recuperation de la commande
-                requete = self.maSock.recvfrom(TAILLE_TAMPON)
-                # Extraction du message, de l adresse et du pseudo sur le client
-                (mess, adr_client) = requete
-                ip_client, port_client = adr_client
-                
-                message = mess.decode().lower().split() # on découpe le message en tableau de mots
+                recu = conn.recv(TAILLE_TAMPON)
+                message = recu.decode().lower().split() # on découpe le message en tableau de mots
                 
                 
                 #Gestion du cas ou le client ne tape rien
@@ -76,71 +81,70 @@ class Ctrl_serveur:
                     cmd = message[0]
                 else:
                     error = "Error : please type something"
-                    self.maSock.sendto(error.encode(), adr_client)
+                    userActif.getThread().sendall(error.encode())
                     
                 reponseAll = ""
-                
-                
-                print("Requete provenant de {}. Longueur = {}". \
-                format(ip_client, len(mess)), file=logs)      # Ecriture du fichier de log   
                 
                 # Construction de la reponseClient
                 
                 reponseClient = ""
                 
-                if cmd == "serveurcrypteauthentificationclient1234569876newclient":
-                    self.identifyClient()
-                elif cmd == "sleep":
-                    reponseClient = self.userActif.sleep()
+                if cmd == "sleep":
+                    reponseClient = userActif.sleep()
                 elif cmd == "list":
                     reponseClient = self.chat.list()
                 elif cmd == "quit":
-                    reponseClient = self.userActif.quit()
+                    reponseClient = userActif.quit()
                     if len(message) > 1:
-                        reponseAll = self.chat.quit(self.userActif,message[1])
+                        reponseAll = self.chat.quit(userActif, message[1])
                     else:
-                        reponseAll = self.chat.quit(self.userActif)
+                        reponseAll = self.chat.quit(userActif)
                 elif cmd == "wake":
-                    reponseClient = self.userActif.wake()
+                    reponseClient = userActif.wake()
                 elif cmd == "logchange":
-                    reponseClient = self.userActif.logchange()
+                    reponseClient = userActif.logchange()
                 elif cmd ==  "private":
-                    reponseClient = self.userActif.private()
+                    reponseClient = userActif.private()
                 elif cmd == "acceptpc":
-                    reponseClient = self.userActif.acceptpc()
+                    reponseClient = userActif.acceptpc()
                 elif cmd == "denypc":
-                    reponseClient = self.userActif.denypc()
+                    reponseClient = userActif.denypc()
                 elif cmd == "stoppc":
-                    reponseClient = self.userActif.stoppc()
+                    reponseClient = userActif.stoppc()
                 elif cmd == "filesend":
-                    reponseClient = self.userActif.filesend()
+                    reponseClient = userActif.filesend()
                 elif cmd == "fileacc":
-                    reponseClient = self.userActif.fileacc()
+                    reponseClient = userActif.fileacc()
                 elif cmd == "fileden":
-                    reponseClient = self.userActif.fileden()
+                    reponseClient = userActif.fileden()
                 else :
-                    reponseClient=""    # Si la reponse concerne tout le monde, elle ne concerne pas le client seul CQF
-                    self.sendToAll(mess)
+                    reponseClient = ""    # Si la reponse concerne tout le monde, elle ne concerne pas le client seul CQF
+                    reponseAll = cmd
                 
+                
+                # dabord rep a tlm en cas de deconnexion
+                if reponseAll != "" :
+                    self.sendToAll(userActif, reponseAll)
+                    
                 # Envoi de la reponseClient au client
                 # !! Si une reponse doit etre envoyee a un seul client
                 if reponseClient != "":
-                    self.maSock.sendto(reponseClient.encode(), adr_client)
+                    userActif.getThread().sendall(reponseClient.encode())
                 
-                if reponseAll != "" :
-                    self.sendToAll(reponseAll.encode())
+                
                 
             except KeyboardInterrupt: break
         
+        self.chat.deleteClient(userActif)
     
     
-    
-    def sendToAll(self, message):
+    def sendToAll(self, userActif, message):
         '''
             Envoi du message a tout le monde
         '''
         for u in self.chat.listeClients:
-            self.maSock.sendto(u.getPseudo() + ": ".encode() + message, u.getAdr())
+            if u != userActif:
+                u.getThread().sendall(userActif.getPseudo() + ": ".encode() + message.encode())
         
         
 
@@ -155,12 +159,18 @@ if __name__ == '__main__':
     # Ouverture en ecriture du fichier de log
     logs = open("serveur.log", "w")
         
-    maSock = socket(AF_INET,SOCK_DGRAM)
-    maSock.bind(('',int(sys.argv[1])))
+    maSock = socket(AF_INET, SOCK_STREAM)
+    try:
+        maSock.bind(('', int(sys.argv[1])))
+    except socket.error:
+        print('Bind failed %s' % (socket.error))
+        sys.exit()
+            
+    maSock.listen(100) # 100 clients peuvent se connecter en meme temps maxi
     print("Serveur en attente sur le port {} .".format(sys.argv[1],), file=logs)  # Ecriture du fichier de log  
         
-    ctrl = Ctrl_serveur(maSock)
-    ctrl.manageCommands()   
+    server = Ctrl_serveur(sys.argv[0], maSock)
+    server.run()
         
     maSock.close()
     print("Arret du serveur", file=logs)
