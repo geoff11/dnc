@@ -10,7 +10,7 @@ class Chat:
         '''
             Initialisation du chat
         '''
-        self.listeClients = []
+        self.listeClients = [] # TODO : mettre sous forme de dictionnaire ak les connexions
     
     
     def verifLogin(self, pseudo):
@@ -48,3 +48,9 @@ class Chat:
             return " leaved the chat saying : " + msgPerso
         else:
             return " leaved the chat"
+    
+    def sleep(self, user, msgPerso = None):
+        if msgPerso:
+            return " is sleeping saying : " + msgPerso
+        else:
+            return " is sleeping"

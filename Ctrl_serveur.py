@@ -8,6 +8,7 @@ from socket import *
 from datetime import *
 import Chat
 
+conn_client = {} # TODO : mettre dans chat
 
 class Thread_client(threading.Thread):
     
@@ -28,10 +29,10 @@ class Thread_client(threading.Thread):
         
         conn = self.conn
         addr = self.adr
-        nomThread = self.getName()
         
         print('Client connected with ' + addr[0] + ':' + str(addr[1]))
         userActif = self.identifyClient()
+        conn_client[userActif] = self.conn # une connexion par user
         self.sendToAll(userActif, "is online")
         
         while True:
@@ -39,11 +40,15 @@ class Thread_client(threading.Thread):
                 # Recuperation de la commande
                 recu = conn.recv(TAILLE_TAMPON)
                 message = recu.decode().lower().split() # on découpe le message en tableau de mots
-                mess = ""
                 
                 # Gestion du cas ou le client ne tape rien
                 if len(message) > 0:
                     self.manageCommands(userActif, message)
+                    
+                    if message[0] == "/quit":
+                        conn.send("/quit".encode())
+                        break;
+                    
                 else:
                     error = "Error : please type something"
                     conn.send(error.encode())
@@ -53,10 +58,10 @@ class Thread_client(threading.Thread):
         
         # Fermeture de la connexion :
         self.conn.close()      # couper la connexion côté serveur
-        del conn_client[nomThread]        # supprimer son entrée dans le dictionnaire
+        del conn_client[userActif]        # supprimer son entrée dans le dictionnaire
         self.chat.deleteClient(userActif)
-        print ("Client %s logs out" % nomThread)
-        # Le thread se termine ici    
+        print ("Client %s logs out" % userActif)
+        # Le thread se termine ici
             
                 
     def identifyClient(self):
@@ -141,12 +146,12 @@ class Thread_client(threading.Thread):
     
     def sendToAll(self, userActif, message):
         '''
-            Envoi du message a tout le monde
+            Envoi du message a tous les users actifs excepte l'emetteur
         '''
         
-        for cle in conn_client:
-            if cle != self.getName() :      # ne pas le renvoyer à l'émetteur
-                conn_client[cle].send(userActif.getPseudo() + ": ".encode() + message.encode())
+        for u in conn_client:
+            if userActif != u and u.getNumState() == 1 :
+                conn_client[u].send(userActif.getPseudo() + ": ".encode() + message.encode())
         
         
 
@@ -184,27 +189,10 @@ if __name__ == '__main__':
         # Créer un nouvel objet thread pour gérer la connexion :
         th = Thread_client(adresse, connexion, chat)
         th.start()
-        # Mémoriser la connexion dans le dictionnaire : 
-        idThread = th.getName()        # identifiant du thread
-        conn_client[idThread] = connexion
-        print ("Client %s connecté, adresse IP %s, port %s." %\
-            (idThread, adresse[0], adresse[1]))
+         
+        print ("Nouveau client : adresse IP %s, port %s." %\
+            (adresse[0], adresse[1]))
     
     
-    
-    ###########################
-    
-    '''
-    server = Ctrl_serveur(sys.argv[0], maSock)
-    server.run()
-        
-    maSock.shutdown(SHUT_RDWR)
-    print("Arret du serveur", file=logs)
-    logs.close()
-    
-    for t in threading.enumerate(): # fermeture de tous les thread encore presents
-        if t != threading.main_thread() : t.join()
-        
     sys.exit(0)
-    '''
 

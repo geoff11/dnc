@@ -37,15 +37,22 @@ class User:
                 0 = out
                 1 = online
                 2 = sleeping
+                3 = online but in private chat
         '''
-        if state == 0 :
-            state = self.pseudo + " is out"
-        elif state == 1 :
-            state = self.pseudo + " is online"
-        elif state == 2 :
-            state = self.pseudo + " is sleeping"
-        elif state == 3 :
-            state = self.pseudo + " is online but in private chat"
+        if self.state == 0 :
+            return "is out"
+        elif self.state == 1 :
+            return "is online"
+        elif self.state == 2 :
+            return "is sleeping"
+        elif self.state == 3 :
+            return "is online but in private chat"
+    
+    def getNumState(self):
+        '''
+        Methode : retourne l etat du user sous forme numerique : 0,1,2,3
+        '''
+        return self.state
     
     """"""""""""""""""""""""""""""
     #RFC
@@ -61,7 +68,7 @@ class User:
         '''
             le client reste connecte, mais ne reçoit plus les messages
         '''
-        self.state=2
+        self.state = 2
         return "You are now sleepping"
         # TODO : Implementer le fait que les sleepers ne recoivent plus les messages de sendToAll
            
@@ -69,8 +76,8 @@ class User:
         '''
             le client qui etait « sleep » redevient actif
         '''
-        self.state=1
-        return self.pseudo+" is back"
+        self.state = 1
+        return "You are back in the chat"
         
     def logchange(self, newPseudo):
         '''
