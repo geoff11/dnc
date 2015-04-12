@@ -5,13 +5,14 @@ class User:
     Classe User : utilisateur du chat
     '''
     
-    def __init__(self, id, pseudo, state = 0): #User offline par defaut
+    def __init__(self, id, pseudo, conn, state = 0): #User offline par defaut
         '''
             Initialisation du user
         '''
           
         self.id = id 
         self.pseudo = pseudo
+        self.conn = conn
   
         if state :
             self.state = state
@@ -30,6 +31,12 @@ class User:
         '''
         return self.pseudo
     
+    def getConn(self):
+        '''
+        Methode : retourne le thread du user
+        '''
+        
+        return self.conn
     
     def getState(self):
         '''
@@ -68,16 +75,21 @@ class User:
         '''
             le client reste connecte, mais ne reçoit plus les messages
         '''
-        self.state = 2
-        return "You are now sleepping"
-        # TODO : Implementer le fait que les sleepers ne recoivent plus les messages de sendToAll
+        if self.state == 1:
+            self.state = 2
+            return "You are now sleeping"
+        
+        return "Sleep mode is impossible"
            
     def wake(self):
         '''
             le client qui etait « sleep » redevient actif
         '''
-        self.state = 1
-        return "You are back in the chat"
+        if self.state == 2:
+            self.state = 1
+            return "You are back in the chat"
+    
+        return "Wake mode is impossible"   
         
     def logchange(self, newPseudo):
         '''

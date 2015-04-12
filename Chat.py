@@ -24,8 +24,8 @@ class Chat:
         return True
     
     
-    def addClient(self, pseudo):
-        client = User.User(len(self.listeClients)+1, pseudo, 1)
+    def addClient(self, pseudo, conn):
+        client = User.User(len(self.listeClients)+1, pseudo, conn, 1)
         self.listeClients.append(client)
         return client
     
@@ -45,12 +45,24 @@ class Chat:
     
     def quit(self, user, msgPerso = None):
         if msgPerso:
-            return " leaved the chat saying : " + msgPerso
+            return "leaved the chat saying : " + msgPerso
         else:
-            return " leaved the chat"
+            return "leaved the chat"
     
     def sleep(self, user, msgPerso = None):
-        if msgPerso:
-            return " is sleeping saying : " + msgPerso
+        if user.getNumState() == 1:
+            if msgPerso:
+                return "is sleeping saying : " + msgPerso
+            else:
+                return "is sleeping"
         else:
-            return " is sleeping"
+            return ""
+    
+    def wake(self, user, msgPerso = None):
+        if user.getNumState() == 2:
+            if msgPerso:
+                return "is back on the chat saying : " + msgPerso
+            else:
+                return "is back"
+        else:
+            return ""

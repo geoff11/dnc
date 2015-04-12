@@ -8,7 +8,7 @@ from socket import *
 from datetime import *
 import Chat
 
-conn_client = {} # TODO : mettre dans chat
+#conn_client = {} # TODO : mettre dans chat
 
 class Thread_client(threading.Thread):
     
@@ -32,7 +32,7 @@ class Thread_client(threading.Thread):
         
         print('Client connected with ' + addr[0] + ':' + str(addr[1]))
         userActif = self.identifyClient()
-        conn_client[userActif] = self.conn # une connexion par user
+        #conn_client[userActif] = self.conn # une connexion par user
         self.sendToAll(userActif, "is online")
         
         while True:
@@ -58,9 +58,9 @@ class Thread_client(threading.Thread):
         
         # Fermeture de la connexion :
         self.conn.close()      # couper la connexion côté serveur
-        del conn_client[userActif]        # supprimer son entrée dans le dictionnaire
+        print ("Client %s logs out" % userActif.getPseudo().decode())
+        #del conn_client[userActif]        # supprimer son entrée dans le dictionnaire
         self.chat.deleteClient(userActif)
-        print ("Client %s logs out" % userActif)
         # Le thread se termine ici
             
                 
@@ -73,7 +73,7 @@ class Thread_client(threading.Thread):
         if logDispo:
             repLogOK = "Login successful !! Let's get started"
             self.conn.send(repLogOK.encode())
-            return self.chat.addClient(pseudo)
+            return self.chat.addClient(pseudo, self.conn)
 
                 
         while (not logDispo):
@@ -87,7 +87,7 @@ class Thread_client(threading.Thread):
             if logDispo:
                 repLogOK = "Login successful !! Let's get started"
                 self.conn.send(repLogOK.encode())
-                return self.chat.addClient(pseudo)
+                return self.chat.addClient(pseudo, self.conn)
     
 
 
@@ -104,6 +104,10 @@ class Thread_client(threading.Thread):
             
             if cmd == "sleep":
                 reponseClient = userActif.sleep()
+                if len(message) > 1:
+                    reponseAll = self.chat.sleep(userActif, message[1])
+                else:
+                    reponseAll = self.chat.sleep(userActif)
             elif cmd == "list":
                 reponseClient = self.chat.list()
             elif cmd == "quit":
@@ -114,6 +118,10 @@ class Thread_client(threading.Thread):
                     reponseAll = self.chat.quit(userActif)
             elif cmd == "wake":
                 reponseClient = userActif.wake()
+                if len(message) > 1:
+                    reponseAll = self.chat.wake(userActif, message[1])
+                else:
+                    reponseAll = self.chat.wake(userActif)
             elif cmd == "logchange":
                 reponseClient = userActif.logchange()
             elif cmd ==  "private":
@@ -149,9 +157,9 @@ class Thread_client(threading.Thread):
             Envoi du message a tous les users actifs excepte l'emetteur
         '''
         
-        for u in conn_client:
-            if userActif != u and u.getNumState() == 1 :
-                conn_client[u].send(userActif.getPseudo() + ": ".encode() + message.encode())
+        for u in self.chat.listeClients:
+            if userActif != u and userActif.getNumState() == 1 :
+                u.getConn().send(userActif.getPseudo() + ": ".encode() + message.encode())
         
         
 
@@ -176,23 +184,14 @@ if __name__ == '__main__':
     
     maSock.listen(4)
     
-    ################
-    
     print('Waiting for connections on port %s' % (int(sys.argv[1])))
-    
-    # Attente et prise en charge des connexions demandées par les clients :
-    conn_client = {}                # dictionnaire des connexions clients
     chat = Chat.Chat() # création du chat
     
     while True :    
         connexion, adresse = maSock.accept()
         # Créer un nouvel objet thread pour gérer la connexion :
         th = Thread_client(adresse, connexion, chat)
-        th.start()
-         
-        print ("Nouveau client : adresse IP %s, port %s." %\
-            (adresse[0], adresse[1]))
-    
+        th.start()    
     
     sys.exit(0)
 

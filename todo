@@ -1,2 +1,6 @@
-- empecher ctrl c client => obligé a quit
-- thread pour messages : AIE AIE AIE
+todo:
+- empecher ctrl c client => obliger a quit
+
+to fix:
+- quit : serveur : ok, client : boucle infini
+- sleep, wake : clientactif : ok, otherclients : pas de msg qui préviennent que "user_actif" a changé d'état
