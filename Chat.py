@@ -24,8 +24,8 @@ class Chat:
         return True
     
     
-    def addClient(self, pseudo, canal):
-        client = User.User(len(self.listeClients)+1, pseudo, canal, 1)
+    def addClient(self, pseudo):
+        client = User.User(len(self.listeClients)+1, pseudo, 1)
         self.listeClients.append(client)
         return client
     

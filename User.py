@@ -5,14 +5,13 @@ class User:
     Classe User : utilisateur du chat
     '''
     
-    def __init__(self, id, pseudo, canal, state = 0): #User offline par defaut
+    def __init__(self, id, pseudo, state = 0): #User offline par defaut
         '''
             Initialisation du user
         '''
           
         self.id = id 
         self.pseudo = pseudo
-        self.canal = canal # thread
   
         if state :
             self.state = state
@@ -47,9 +46,6 @@ class User:
             state = self.pseudo + " is sleeping"
         elif state == 3 :
             state = self.pseudo + " is online but in private chat"
-    
-    def getThread(self):
-        return self.canal
     
     """"""""""""""""""""""""""""""
     #RFC
