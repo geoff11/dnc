@@ -3,4 +3,4 @@ todo:
 
 to fix:
 - quit : serveur : ok, client : boucle infini
-- sleep, wake : clientactif : ok, otherclients : pas de msg qui préviennent que "user_actif" a changé d'état
+- sleep msg all

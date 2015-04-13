@@ -95,9 +95,9 @@ class User:
         '''
             le client change de pseudo
         '''
-        oldLog = self.pseudo 
-        self.pseudo=newPseudo
-        return oldLog + "Changed his log with: "+self.pseudo
+        
+        self.pseudo = newPseudo
+        return "Congrats, your new pseudo is " + self.pseudo
     
     def private(self, pseudoDest):
         '''
@@ -106,7 +106,7 @@ class User:
             S’il l’accepte et jusqu’au message /cmd7 emis par l’une des deux parties,
             les messages entre ces deux clients ne seront plus diffuses aux autres.
         '''
-        return self.pseudo + " Wants to chat with you in private. acceptpc/denypc ? "
+        return "Waiting an answer from " + pseudoDest
         
     
     def acceptpc(self, pseudoDest):

@@ -40,7 +40,7 @@ class Chat:
         
         all_user = ""
         for u in self.listeClients :
-             all_user += " " + u.pseudo.decode()
+             all_user += " " + u.pseudo
         return all_user
     
     def quit(self, user, msgPerso = None):
@@ -65,4 +65,28 @@ class Chat:
             else:
                 return "is back"
         else:
+            return ""
+    
+    def logchange(self, user, newPseudo):
+        '''
+            le client change de pseudo
+        '''
+        if self.verifLogin(newPseudo):
+            oldLog = user.getPseudo()
+            return "is the new pseudo of the old " + oldLog
+        else :
+            return ""
+        
+    
+    def private(self, pseudoEm, pseudoDest):
+        '''
+            le client met en place un echange prive avec le client ayant le pseudo indique.
+            Le destinataire (pseudo) peut autoriser ou non cet echange.
+            S’il l’accepte et jusqu’au message /cmd7 emis par l’une des deux parties,
+            les messages entre ces deux clients ne seront plus diffuses aux autres.
+        '''
+        
+        if self.verifLogin(pseudoDest) == False and pseudoDest != pseudoEm : # s il n est pas dispo, c est qu il existe
+            return "Wants to chat with you in private. [A]cceptpc/[D]enypc ? "
+        else :
             return ""

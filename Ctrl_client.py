@@ -52,7 +52,7 @@ class ThreadReception(threading.Thread):
    
     def run(self):
         #print(welcoming)
-        print("Renseigner votre login : ")
+        print("Login : ")
         
         while True :
             message_recu = self.connexion.recv(TAILLE_TAMPON).decode()
@@ -64,7 +64,7 @@ class ThreadReception(threading.Thread):
         # Le thread <réception> se termine ici.
         # On force la fermeture du thread <émission> :
         th_E._Thread__stop()
-        print ("Client arrêté. Connexion interrompue.")
+        print ("Client stopped. Connexion interrupt.")
         self.connexion.close()
         sys.exit()
         
@@ -93,10 +93,10 @@ port = int(sys.argv[2])
 try:
     connexion.connect((host, port))
 except socket.error:
-    print ("La connexion a échoué.")
+    print ("LConnexion failed")
     sys.exit()    
 
-print ("Connexion établie avec le serveur.")
+print ("Connexion OK")
             
 # Dialogue avec le serveur : on lance deux threads pour gérer
 # indépendamment l'émission et la réception des messages :

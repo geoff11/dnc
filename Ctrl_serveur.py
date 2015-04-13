@@ -58,7 +58,7 @@ class Thread_client(threading.Thread):
         
         # Fermeture de la connexion :
         self.conn.close()      # couper la connexion côté serveur
-        print ("Client %s logs out" % userActif.getPseudo().decode())
+        print ("Client %s logs out" % userActif.getPseudo())
         #del conn_client[userActif]        # supprimer son entrée dans le dictionnaire
         self.chat.deleteClient(userActif)
         # Le thread se termine ici
@@ -66,7 +66,7 @@ class Thread_client(threading.Thread):
                 
     def identifyClient(self):
         # Recuperation de la requete du client
-        pseudo = self.conn.recv(TAILLE_TAMPON)
+        pseudo = self.conn.recv(TAILLE_TAMPON).decode()
         logDispo = self.chat.verifLogin(pseudo)
         
         
@@ -81,7 +81,7 @@ class Thread_client(threading.Thread):
             repLog = "Log already used ! Please choose another one"
             self.conn.send(repLog.encode())
             # Recuperation du Nieme essai
-            pseudo = self.conn.recv(TAILLE_TAMPON)
+            pseudo = self.conn.recv(TAILLE_TAMPON).decode()
             logDispo = self.chat.verifLogin(pseudo)
             
             if logDispo:
@@ -94,8 +94,9 @@ class Thread_client(threading.Thread):
     def manageCommands(self, userActif, message):
                 
         reponseAll = "" # Construction de la reponse pour tous les clients
-        reponseClient = "" # Construction de la reponseClient        
-        
+        reponseClient = "" # Construction de la reponse au client actif   
+        reponseSpecifyClient = "" # Construction de la reponse d un client specifique : mp 
+        pseudoDest = ""
         mess = message[0]
                     
         if len(mess) > 0 and str(mess[0]) == "/" :
@@ -103,41 +104,69 @@ class Thread_client(threading.Thread):
             cmd = str(mess[1:])
             
             if cmd == "sleep":
-                reponseClient = userActif.sleep()
                 if len(message) > 1:
                     reponseAll = self.chat.sleep(userActif, message[1])
                 else:
                     reponseAll = self.chat.sleep(userActif)
+                reponseClient = userActif.sleep()
+                
             elif cmd == "list":
                 reponseClient = self.chat.list()
+                
             elif cmd == "quit":
-                reponseClient = userActif.quit()
                 if len(message) > 1:
                     reponseAll = self.chat.quit(userActif, message[1])
                 else:
                     reponseAll = self.chat.quit(userActif)
+                reponseClient = userActif.quit()
+                
             elif cmd == "wake":
-                reponseClient = userActif.wake()
                 if len(message) > 1:
                     reponseAll = self.chat.wake(userActif, message[1])
                 else:
                     reponseAll = self.chat.wake(userActif)
+                reponseClient = userActif.wake()
+                
             elif cmd == "logchange":
-                reponseClient = userActif.logchange()
+                if len(message) > 1:
+                    newPseudo = message[1]
+                    reponseAll = self.chat.logchange(userActif, newPseudo)
+                    if reponseAll != "" :
+                        reponseClient = userActif.logchange(newPseudo)
+                    else:
+                        reponseClient = "Pseudo already used, please choose another one"
+                else :
+                    reponseClient = "Please specify your new pseudo"
+                    
             elif cmd ==  "private":
-                reponseClient = userActif.private()
+                if len(message) > 1:
+                    pseudoDest = message[1]
+                    reponseSpecifyClient = self.chat.private(userActif.getPseudo, pseudoDest)
+                    if reponseSpecifyClient == "":
+                        reponseClient = pseudoDest + " is not present in the chat"
+                    else:
+                        reponseClient = userActif.private(pseudoDest)
+                else :
+                    reponseClient = "Please specify a pseudo"
+                
             elif cmd == "acceptpc":
                 reponseClient = userActif.acceptpc()
+                
             elif cmd == "denypc":
                 reponseClient = userActif.denypc()
+                
             elif cmd == "stoppc":
                 reponseClient = userActif.stoppc()
+                
             elif cmd == "filesend":
                 reponseClient = userActif.filesend()
+                
             elif cmd == "fileacc":
                 reponseClient = userActif.fileacc()
+                
             elif cmd == "fileden":
                 reponseClient = userActif.fileden()
+                
         else :
             reponseAll = mess
         
@@ -150,6 +179,9 @@ class Thread_client(threading.Thread):
         # !! Si une reponse doit etre envoyee a un seul client
         if reponseClient != "":
             self.conn.send(reponseClient.encode())
+        
+        if reponseSpecifyClient != "":
+            self.sendToAClient(userActif.getPseudo(), pseudoDest, reponseSpecifyClient)
                 
     
     def sendToAll(self, userActif, message):
@@ -158,10 +190,16 @@ class Thread_client(threading.Thread):
         '''
         
         for u in self.chat.listeClients:
-            if userActif != u and userActif.getNumState() == 1 :
-                u.getConn().send(userActif.getPseudo() + ": ".encode() + message.encode())
+            if userActif != u and u.getNumState() == 1 and userActif.getNumState() == 1 :
+                u.getConn().send(userActif.getPseudo().encode() + ": ".encode() + message.encode())
+    
+    def sendToAClient(self, pseudoEm, pseudoDest, msg):
         
-        
+        for u in self.chat.listeClients:
+            if pseudoDest == u.getPseudo() :
+                u.getConn().send(pseudoDest.encode() + ": ".encode() + msg.encode())
+                # faire une boucle pour la reponse / gerer thread
+                
 
 if __name__ == '__main__':
   
