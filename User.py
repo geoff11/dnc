@@ -13,6 +13,8 @@ class User:
         self.id = id 
         self.pseudo = pseudo
         self.conn = conn
+        self.usersPrivate = [] # liste de users pour les messages privees
+        self.usersWouldBecomePrivate = []
   
         if state :
             self.state = state
@@ -44,7 +46,6 @@ class User:
                 0 = out
                 1 = online
                 2 = sleeping
-                3 = online but in private chat
         '''
         if self.state == 0 :
             return "is out"
@@ -52,14 +53,24 @@ class User:
             return "is online"
         elif self.state == 2 :
             return "is sleeping"
-        elif self.state == 3 :
-            return "is online but in private chat"
     
     def getNumState(self):
         '''
-        Methode : retourne l etat du user sous forme numerique : 0,1,2,3
+        Methode : retourne l etat du user sous forme numerique : 0,1,2
         '''
         return self.state
+    
+    def getUsersPrivate(self):
+        '''
+        Methode : retourne les users privees en communication avec le user actif
+        '''
+        return self.usersPrivate
+    
+    def getUsersWBP(self):
+        '''
+        Methode : retourne les users privees voulant etre en communication privee avec le user actif
+        '''
+        return self.usersWouldBecomePrivate
     
     """"""""""""""""""""""""""""""
     #RFC
@@ -99,41 +110,75 @@ class User:
         self.pseudo = newPseudo
         return "Congrats, your new pseudo is " + self.pseudo
     
-    def private(self, pseudoDest):
+    def private(self, userDest):
         '''
             le client met en place un echange prive avec le client ayant le pseudo indique.
             Le destinataire (pseudo) peut autoriser ou non cet echange.
             S’il l’accepte et jusqu’au message /cmd7 emis par l’une des deux parties,
             les messages entre ces deux clients ne seront plus diffuses aux autres.
         '''
-        return "Waiting an answer from " + pseudoDest
+        
+        
+        if self in userDest.getUsersWBP() :
+            return "Your request was already sent, please wait the answer"
+        elif self in userDest.getUsersPrivate() :
+            return "Conversation is steal alive with " + userDest.getPseudo()
+        else :
+            return ""
         
     
-    def acceptpc(self, pseudoDest):
+    def acceptpc(self, userEm):
         '''
-            Le user autorise un autre user a communiquer avec lui en "private"
+            Le userDest autorise un autre user a communiquer avec lui en "private"
         '''
-        self.state=3 # passe en state "private"
-        return "yes"
+        
+        if userEm in self.usersWouldBecomePrivate :
+            self.usersWouldBecomePrivate.remove(userEm)
+            self.usersPrivate.append(userEm)
+            userEm.getUsersPrivate().append(self)
+            return "Now, you can speak to '" + userEm.getPseudo() + "' in private with : /mp " + userEm.getPseudo() + "<msg>"
+        
+        return ""
     
-    def denypc(self, pseudoDest):
+    def denypc(self, userEm):
         '''
             Le user interdit un autre user a communiquer avec lui en "private"
         '''
-        return "no"
+        
+        if userEm in self.usersWouldBecomePrivate :
+            self.usersWouldBecomePrivate.remove(userEm)
+            return "You have denied the request of private conversation"
+        
+        return ""
          
-    def stoppc(self, pseudoDest):
+    def stoppc(self, otherUser):
         '''
-            Le user met fin aux conversations "private"
+            Le user met fin a une conversation "private" avec un autre user
         '''
-        self.state=1
-        #TODO : Passer le state du pseudoDest a 1 : impossible avec cette architecture, acces au chat impossible
-        return self.pseudo + "is back in public chat"
+        
+        if otherUser in self.getUsersPrivate() :
+            self.usersPrivate.remove(otherUser)
+            otherUser.getUsersPrivate().remove(self)
+            return "End of conversation with '" + otherUser.getPseudo() + "'"
+        
+        return ""
+    
+    def mp(self, otherUser):
+        '''
+            Le user envoi un message privee a l autre user, une fois la connexion private etablie
+        '''
+        
+        if otherUser in self.getUsersPrivate() :
+            return "MP was sent to '" + otherUser.getPseudo() + "' successfully"
+        
+        return ""
+    
    
     def filesend(self, pseudoDest, fic, port):
         '''
             le client indique à pseudo qu’il desire lui envoyer un fichier sur un port au choix
         '''
+        
         
     def fileacc(self):
         '''

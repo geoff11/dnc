@@ -32,7 +32,6 @@ class Thread_client(threading.Thread):
         
         print('Client connected with ' + addr[0] + ':' + str(addr[1]))
         userActif = self.identifyClient()
-        #conn_client[userActif] = self.conn # une connexion par user
         self.sendToAll(userActif, "is online")
         
         while True:
@@ -59,7 +58,6 @@ class Thread_client(threading.Thread):
         # Fermeture de la connexion :
         self.conn.close()      # couper la connexion côté serveur
         print ("Client %s logs out" % userActif.getPseudo())
-        #del conn_client[userActif]        # supprimer son entrée dans le dictionnaire
         self.chat.deleteClient(userActif)
         # Le thread se termine ici
             
@@ -96,76 +94,129 @@ class Thread_client(threading.Thread):
         reponseAll = "" # Construction de la reponse pour tous les clients
         reponseClient = "" # Construction de la reponse au client actif   
         reponseSpecifyClient = "" # Construction de la reponse d un client specifique : mp 
-        pseudoDest = ""
+        otherPseudo = ""
+        myPseudo = userActif.getPseudo()
         mess = message[0]
                     
         if len(mess) > 0 and str(mess[0]) == "/" :
             
-            cmd = str(mess[1:])
-            
-            if cmd == "sleep":
-                if len(message) > 1:
-                    reponseAll = self.chat.sleep(userActif, message[1])
-                else:
-                    reponseAll = self.chat.sleep(userActif)
-                reponseClient = userActif.sleep()
+            if mess == "/" :
+                reponseClient = "With '/' you can use : sleep, list, quit, wake, logchange, private, acceptpc, denypc, mp, stoppc, filesend, fileacc, fileden"
+            else :
+                cmd = str(mess[1:])
                 
-            elif cmd == "list":
-                reponseClient = self.chat.list()
                 
-            elif cmd == "quit":
-                if len(message) > 1:
-                    reponseAll = self.chat.quit(userActif, message[1])
-                else:
-                    reponseAll = self.chat.quit(userActif)
-                reponseClient = userActif.quit()
-                
-            elif cmd == "wake":
-                if len(message) > 1:
-                    reponseAll = self.chat.wake(userActif, message[1])
-                else:
-                    reponseAll = self.chat.wake(userActif)
-                reponseClient = userActif.wake()
-                
-            elif cmd == "logchange":
-                if len(message) > 1:
-                    newPseudo = message[1]
-                    reponseAll = self.chat.logchange(userActif, newPseudo)
-                    if reponseAll != "" :
-                        reponseClient = userActif.logchange(newPseudo)
+                if cmd == "sleep":
+                    if len(message) > 1:
+                        reponseAll = self.chat.sleep(userActif, message[1])
                     else:
-                        reponseClient = "Pseudo already used, please choose another one"
-                else :
-                    reponseClient = "Please specify your new pseudo"
+                        reponseAll = self.chat.sleep(userActif)
+                    reponseClient = userActif.sleep()
                     
-            elif cmd ==  "private":
-                if len(message) > 1:
-                    pseudoDest = message[1]
-                    reponseSpecifyClient = self.chat.private(userActif.getPseudo, pseudoDest)
-                    if reponseSpecifyClient == "":
-                        reponseClient = pseudoDest + " is not present in the chat"
+                elif cmd == "list":
+                    reponseClient = self.chat.list()
+                    
+                elif cmd == "quit":
+                    if len(message) > 1:
+                        reponseAll = self.chat.quit(userActif, message[1])
                     else:
-                        reponseClient = userActif.private(pseudoDest)
-                else :
-                    reponseClient = "Please specify a pseudo"
+                        reponseAll = self.chat.quit(userActif)
+                    reponseClient = userActif.quit()
+                    
+                elif cmd == "wake":
+                    if len(message) > 1:
+                        reponseAll = self.chat.wake(userActif, message[1])
+                    else:
+                        reponseAll = self.chat.wake(userActif)
+                    reponseClient = userActif.wake()
+                    
+                elif cmd == "logchange":
+                    if len(message) > 1:
+                        newPseudo = message[1]
+                        reponseAll = self.chat.logchange(userActif, newPseudo)
+                        if reponseAll != "" :
+                            reponseClient = userActif.logchange(newPseudo)
+                        else:
+                            reponseClient = "Pseudo already used, please choose another one"
+                    else :
+                        reponseClient = "Usage : /logchange <newpseudo>"
+                        
+                elif cmd ==  "private":
+                    if len(message) == 2:
+                        otherPseudo = message[1] # destinataire
+                        userDest = self.chat.getClientByPseudo(otherPseudo)
+                        
+                        if userDest :
+                            reponseClient = userActif.private(userDest)
+                        
+                            if reponseClient == "" : # bien passe
+                                
+                                reponseSpecifyClient = self.chat.private(myPseudo, otherPseudo)
+                                
+                                if reponseSpecifyClient == "":
+                                    reponseClient = otherPseudo + " is not present in the chat"
+                                else:
+                                    reponseClient = "Your request has been sent to " + otherPseudo
+                                
+                    else :
+                        reponseClient = "Usage : /private <pseudo>"
+                       
+                elif cmd == "acceptpc":
+                     if len(message) == 2:
+                        otherPseudo = message[1] # emetteur
+                        userEm = self.chat.getClientByPseudo(otherPseudo)
+                        reponseClient = userActif.acceptpc(userEm)
+                        
+                        if reponseClient != "" :
+                            reponseSpecifyClient = "Private connexion opened between " + myPseudo + " and you"
+                     else :
+                        reponseClient = "Usage : /acceptpc <pseudo>"
+                    
+                elif cmd == "denypc":
+                    if len(message) == 2:
+                        otherPseudo = message[1] # emetteur
+                        userEm = self.chat.getClientByPseudo(otherPseudo)
+                        reponseClient = userActif.denypc(userEm)
+                        
+                        if reponseClient != "" :
+                            reponseSpecifyClient = "Private connexion was denied by " + myPseudo
+                            
+                    else :
+                        reponseClient = "Usage : /denypc <pseudo>"
+                    
+                elif cmd == "stoppc":
+                    
+                    if len(message) == 2:
+                        otherPseudo = message[1] # peut etre l emetteur ou le recepteur d origine
+                        user2 = self.chat.getClientByPseudo(otherPseudo)
+                        reponseClient = userActif.stoppc(user2)
+                        
+                        if reponseClient != "" :
+                            reponseSpecifyClient = "Private connexion was closed by " + myPseudo
+                        
+                    else :
+                        reponseClient = "Usage : /stoppc <pseudo>"
                 
-            elif cmd == "acceptpc":
-                reponseClient = userActif.acceptpc()
-                
-            elif cmd == "denypc":
-                reponseClient = userActif.denypc()
-                
-            elif cmd == "stoppc":
-                reponseClient = userActif.stoppc()
-                
-            elif cmd == "filesend":
-                reponseClient = userActif.filesend()
-                
-            elif cmd == "fileacc":
-                reponseClient = userActif.fileacc()
-                
-            elif cmd == "fileden":
-                reponseClient = userActif.fileden()
+                elif cmd == "mp":
+                    if len(message) == 3:
+                        otherPseudo = message[1] # peut etre l emetteur ou le recepteur d origine
+                        user2 = self.chat.getClientByPseudo(otherPseudo)
+                        reponseClient = userActif.mp(user2)
+                        
+                        if reponseClient != "":
+                            reponseSpecifyClient = "MP => " + message[2]
+                    else :
+                        reponseClient = "Usage : /mp <pseudo> <msg>"
+                        
+                        
+                elif cmd == "filesend":
+                    reponseClient = userActif.filesend()
+                    
+                elif cmd == "fileacc":
+                    reponseClient = userActif.fileacc()
+                    
+                elif cmd == "fileden":
+                    reponseClient = userActif.fileden()
                 
         else :
             reponseAll = mess
@@ -181,24 +232,25 @@ class Thread_client(threading.Thread):
             self.conn.send(reponseClient.encode())
         
         if reponseSpecifyClient != "":
-            self.sendToAClient(userActif.getPseudo(), pseudoDest, reponseSpecifyClient)
+            self.sendToAClient(myPseudo, otherPseudo, reponseSpecifyClient)
                 
     
     def sendToAll(self, userActif, message):
         '''
             Envoi du message a tous les users actifs excepte l'emetteur
         '''
+        myPseudo = userActif.getPseudo()
         
         for u in self.chat.listeClients:
             if userActif != u and u.getNumState() == 1 and userActif.getNumState() == 1 :
-                u.getConn().send(userActif.getPseudo().encode() + ": ".encode() + message.encode())
+                u.getConn().send(myPseudo.encode() + ": ".encode() + message.encode())
     
-    def sendToAClient(self, pseudoEm, pseudoDest, msg):
+    def sendToAClient(self, pseudoEm, otherPseudo, msg):
         
         for u in self.chat.listeClients:
-            if pseudoDest == u.getPseudo() :
-                u.getConn().send(pseudoDest.encode() + ": ".encode() + msg.encode())
-                # faire une boucle pour la reponse / gerer thread
+            if otherPseudo == u.getPseudo() :
+                u.getConn().send(pseudoEm.encode() + ": ".encode() + msg.encode())
+    
                 
 
 if __name__ == '__main__':

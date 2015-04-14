@@ -23,7 +23,7 @@ class Chat:
                 return False
         return True
     
-    
+
     def addClient(self, pseudo, conn):
         client = User.User(len(self.listeClients)+1, pseudo, conn, 1)
         self.listeClients.append(client)
@@ -31,7 +31,12 @@ class Chat:
     
     def deleteClient(self, client):
         self.listeClients.remove(client)
-        
+     
+    def getClientByPseudo(self, pseudo):
+        for guy in self.listeClients :
+            if guy.pseudo == pseudo :
+                return guy
+        return False
     
     def list(self):
         '''
@@ -82,11 +87,17 @@ class Chat:
         '''
             le client met en place un echange prive avec le client ayant le pseudo indique.
             Le destinataire (pseudo) peut autoriser ou non cet echange.
-            S’il l’accepte et jusqu’au message /cmd7 emis par l’une des deux parties,
+            S’il l’accepte et jusqu’au message /stoppc emis par l’une des deux parties,
             les messages entre ces deux clients ne seront plus diffuses aux autres.
         '''
         
-        if self.verifLogin(pseudoDest) == False and pseudoDest != pseudoEm : # s il n est pas dispo, c est qu il existe
-            return "Wants to chat with you in private. [A]cceptpc/[D]enypc ? "
+        if not self.verifLogin(pseudoDest) and pseudoDest != pseudoEm : # s il n est pas dispo, c est qu il existe
+            
+            userEmetteur = self.getClientByPseudo(pseudoEm)
+            userDest = self.getClientByPseudo(pseudoDest)
+            
+            userDest.getUsersWBP().append(userEmetteur)
+            return "wants to chat with you in private for the session. /acceptpc '"+pseudoEm+" or /denypc "+pseudoEm+" ? "
+        
         else :
             return ""
