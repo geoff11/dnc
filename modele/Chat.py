@@ -45,7 +45,8 @@ class Chat:
         
         all_user = ""
         for u in self.listeClients :
-             all_user += " " + u.pseudo
+            if u.state!=0:
+                all_user += " " + u.pseudo
         return all_user
     
     def quit(self, user, msgPerso = None):

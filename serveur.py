@@ -43,9 +43,8 @@ class Thread_client(threading.Thread):
                 if len(message) > 0:
                     self.manageCommands(userActif, message)
                     
-                    if message[0] == "/quit":
-                        conn.send("/quit".encode())
-                        break;
+                    #if message[0] == "/quit":
+                    #    conn.send("/quit".encode())
                     
                 else:
                     error = "Error : please type something"

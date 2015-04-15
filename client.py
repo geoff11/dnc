@@ -1,8 +1,7 @@
 import socket, sys, threading
-from PyQt4 import QtCore,QtGui
-from controleur import CtrlInterface
+#from PyQt4 import QtCore,QtGui     #  Uniquement pour version graphique
+#from controleur import CtrlInterface
 import sys
-
 # Jaune 1 Team -- DNC Client 
    
 # Définition d'un client réseau gérant en parallèle l'émission
@@ -17,24 +16,24 @@ class Thread_Reception(threading.Thread):
     def __init__(self, conn):
         threading.Thread.__init__(self)
         self.connexion = conn           # réf. du socket de connexion
+        self.over=False
    
     def run(self):
         #print(welcoming)
         print("Login : ")
         
-        while True :
+        while not self.over :
             message_recu = self.connexion.recv(TAILLE_TAMPON).decode()
-            print ("*" + message_recu + "*")
-            
-            if message_recu.lower() == "/quit":
-                break
-            
-        # Le thread <réception> se termine ici.
-        # On force la fermeture du thread <émission> :
-        th_E._Thread__stop()
-        print ("Client stopped. Connexion interrupt.")
-        self.connexion.close()
-        sys.exit()
+            if message_recu.lower() == "termcode25658745522_5455termcode456325478":
+                print("logout successful")
+                self.connexion.close()
+                self.stop()
+            else:
+                print ("*" + message_recu + "*")
+        
+    def stop(self):
+        self.over=True
+        #Gerer la fin du programme avec un siginterupt 
         
             
 class Thread_Emission(threading.Thread):
@@ -86,11 +85,12 @@ if __name__ == '__main__':
     th_E.start()
     th_R.start()
     
+    
     ''' Lancement interface '''
     '''
     app = QtGui.QApplication(["DNC"])
     appli = CtrlInterface.CtrlInterface()
     appli.iniFenPrincipale()
-    run = app.exec_()
+    r = app.exec_()
     '''
     
