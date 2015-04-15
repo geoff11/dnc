@@ -87,8 +87,10 @@ if __name__ == '__main__':
     th_R.start()
     
     ''' Lancement interface '''
+    '''
     app = QtGui.QApplication(["DNC"])
     appli = CtrlInterface.CtrlInterface()
     appli.iniFenPrincipale()
     run = app.exec_()
+    '''
     

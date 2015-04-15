@@ -207,14 +207,50 @@ class Thread_client(threading.Thread):
             elif cmd == "filesend":
                 if len(message) == 3:
                     otherPseudo = message[1]
-                    user2 = self.chat.getClientByPseudo
-                    reponseClient = userActif.filesend()
+                    fic = message[2]
+                    user2 = self.chat.getClientByPseudo(otherPseudo)
+                    
+                    if user2 :
+                        reponseClient = userActif.filesend(user2)
+                        
+                        if reponseClient == "" : # bien passe
+                            reponseSpecifyClient = self.chat.filesend(myPseudo, otherPseudo, fic)
+                            if reponseSpecifyClient != "" : # bien passe
+                                reponseClient = "Your request has been sent to '" + otherPseudo + "'"
+                    else :
+                        reponseClient = otherPseudo + " is not present in the chat"
+                            
+                else :
+                    reponseClient = "Usage : /filesend <pseudo> <path>"
                 
             elif cmd == "fileacc":
-                reponseClient = userActif.fileacc()
+                if len(message) == 2:
+                    otherPseudo = message[1]
+                    user2 = self.chat.getClientByPseudo(otherPseudo)
+                    
+                    if user2 :
+                        reponseClient = userActif.fileacc(otherPseudo)
+                        
+                        if reponseClient != "" :
+                            reponseSpecifyClient = "allows download. Great 100%."
+                        
+                else :
+                    reponseClient = "Usage : /fileacc <pseudo>"
                 
             elif cmd == "fileden":
-                reponseClient = userActif.fileden()
+                if len(message) == 2:
+                    otherPseudo = message[1]
+                    user2 = self.chat.getClientByPseudo(otherPseudo)
+                    
+                    if user2 :
+                        reponseClient = userActif.fileden(otherPseudo)
+                        
+                        if reponseClient != "" :
+                            reponseSpecifyClient = "denied download"
+                        
+                else :
+                    reponseClient = "Usage : /fileden <pseudo>"
+                    
             else :
                 reponseClient = "With '/' you can use : sleep, list, quit, wake, logchange, private, acceptpc, denypc, mp, stoppc, filesend, fileacc, fileden"
                 

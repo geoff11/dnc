@@ -97,7 +97,27 @@ class Chat:
             userDest = self.getClientByPseudo(pseudoDest)
             
             userDest.getUsersWBP().append(userEmetteur)
-            return "wants to chat with you in private for the session. /acceptpc '"+pseudoEm+" or /denypc "+pseudoEm+" ? "
+            return "wants to chat with you in private for the session. /acceptpc "+pseudoEm+" or /denypc "+pseudoEm+" ? "
+        
+        else :
+            return ""
+    
+    def filesend(self, pseudoEm, pseudoDest, fic):
+        '''
+            le client tente d envoyer un fichier 
+        '''
+        
+        if not self.verifLogin(pseudoDest) and pseudoDest != pseudoEm : # s il n est pas dispo, c est qu il existe
+            
+            userEmetteur = self.getClientByPseudo(pseudoEm)
+            userDest = self.getClientByPseudo(pseudoDest)
+            
+            with open(fic, 'rb') as content_file :
+                ficBinary = content_file.read()
+            
+            userDest.getUsersWSF().append({pseudoEm:ficBinary}) # liste de dictionnaire contenant (user, fic)  
+                       
+            return "wants to share a file with you. /fileacc "+pseudoEm+" or /fileden "+pseudoEm+" ?"
         
         else :
             return ""

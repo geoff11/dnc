@@ -15,6 +15,7 @@ class User:
         self.conn = conn
         self.usersPrivate = [] # liste de users pour les messages privees
         self.usersWouldBecomePrivate = []
+        self.usersWouldSendFiles = [] # dictionnaire du type : [{ user1 : fic1}, {user2 : fic2}...]
   
         if state :
             self.state = state
@@ -72,6 +73,12 @@ class User:
         '''
         return self.usersWouldBecomePrivate
     
+    def getUsersWSF(self):
+        '''
+        Methode : retourne les users voulant envoyer des fichiers au user actif
+        '''
+        return self.usersWouldSendFiles
+    
     """"""""""""""""""""""""""""""
     #RFC
     
@@ -119,7 +126,7 @@ class User:
         '''
         
         
-        if self in userDest.getUsersWBP() :
+        if self in userDest.getUsersWBP() or userDest in self.usersWouldBecomePrivate :
             return "Your request was already sent, please wait the answer"
         elif self in userDest.getUsersPrivate() :
             return "Conversation is steal alive with " + userDest.getPseudo()
@@ -156,7 +163,7 @@ class User:
             Le user met fin a une conversation "private" avec un autre user
         '''
         
-        if otherUser in self.getUsersPrivate() :
+        if otherUser in self.usersPrivate :
             self.usersPrivate.remove(otherUser)
             otherUser.getUsersPrivate().remove(self)
             return "End of conversation with '" + otherUser.getPseudo() + "'"
@@ -174,22 +181,60 @@ class User:
         return ""
     
    
-    def filesend(self, pseudoDest, fic, port):
+    def filesend(self, userDest):
         '''
-            le client indique à pseudo qu’il desire lui envoyer un fichier sur un port au choix
+            le client indique à userDest qu’il desire lui envoyer un fichier sur un port au choix
         '''
         
+        if self in userDest.getUsersWSF() :
+            return "Your request was already sent, please wait the answer"
+        else :
+            return ""
         
-    def fileacc(self):
+        
+    def fileacc(self, pseudoEm):
         '''
             le destinataire autorise un transfert de fichier
             Le transfert demarre immediatement (fichier considere comme du binaire)
             Le protocole doit donc gerer la connexion directe entre deux clients (choix du port et du protocole de transfert, notamment)
         '''
         
-    def fileden(self):
+        file = ""
+        
+        for couple in self.usersWouldSendFiles:
+            if couple[pseudoEm]:
+                file = couple[pseudoEm]
+                coupleASuppr = couple
+        
+        if file : # if exist
+            f = open('file_'+ pseudoEm,'wb') #open in binary
+            f.write(file)
+            f.close()
+            #del self.usersWouldSendFiles[userEmd]
+            self.usersWouldSendFiles.remove(coupleASuppr)
+            return "File download with success !"
+        
+        return ""
+    
+        
+    def fileden(self, pseudoEm):
         '''
             le destinataire annule un transfert de fichier
         '''
+        
+        file = ""
+        
+        for couple in self.usersWouldSendFiles:
+            if couple[pseudoEm]:
+                file = couple[pseudoEm]
+                coupleASuppr = couple
+        
+        if file : # if exist
+            #del self.usersWouldSendFiles[userEmd]
+            self.usersWouldSendFiles.remove(coupleASuppr)
+            return "You have denied the download"
+        
+        return ""
+        
         
     """"""""""""""""""""""""""""""
