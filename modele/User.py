@@ -87,7 +87,7 @@ class User:
             le client met fin à la connexion
         '''
         self.state = 0
-        return "termcode25658745522_5455termcode456325478"
+        return "/quit"
         
     def sleep(self):
         '''

@@ -7,6 +7,7 @@ from socket import *
 from socket import *
 from datetime import *
 from modele import Chat
+import signal
 
 
 class Thread_client(threading.Thread):
@@ -23,6 +24,7 @@ class Thread_client(threading.Thread):
         self.chat = pChat
         self.conn = pConn
         threading.Thread.__init__(self)
+        
         
     def run(self):
         
@@ -41,14 +43,21 @@ class Thread_client(threading.Thread):
                 
                 # Gestion du cas ou le client ne tape rien
                 if len(message) > 0:
-                    self.manageCommands(userActif, message)
+                    self.manageCommands(userActif, message) 
                     
-                    #if message[0] == "/quit":
-                    #    conn.send("/quit".encode())
-                    
+                    if message[0] == "/quit":
+                        if len(message) > 1:
+                            reponseAll = self.chat.quit(userActif, message[1])
+                        else:
+                            reponseAll = self.chat.quit(userActif)
+                        reponseClient = userActif.quit()
+                        self.conn.send(reponseClient.encode())
+                        self.sendToAll(userActif, reponseAll)
+                        break   
                 else:
                     error = "Error : please type something"
                     conn.send(error.encode())
+                    
             
             except KeyboardInterrupt: break
         
@@ -109,13 +118,6 @@ class Thread_client(threading.Thread):
                 
             elif cmd == "list":
                 reponseClient = self.chat.list()
-                
-            elif cmd == "quit":
-                if len(message) > 1:
-                    reponseAll = self.chat.quit(userActif, message[1])
-                else:
-                    reponseAll = self.chat.quit(userActif)
-                reponseClient = userActif.quit()
                 
             elif cmd == "wake":
                 if len(message) > 1:
@@ -296,14 +298,15 @@ if __name__ == '__main__':
     
     TAILLE_TAMPON = 1024
     
+    
     # Ouverture en ecriture du fichier de log
     logs = open("serveur.log", "w")
     maSock = socket(AF_INET, SOCK_STREAM)
     
     try:
         maSock.bind(('', int(sys.argv[1])))
-    except socket.error:
-        print('Bind failed %s' % (socket.error))
+    except error:
+        print('Bind failed %s' % (error))
         sys.exit()
     
     maSock.listen(4)
@@ -315,7 +318,9 @@ if __name__ == '__main__':
         connexion, adresse = maSock.accept()
         # Créer un nouvel objet thread pour gérer la connexion :
         th = Thread_client(adresse, connexion, chat)
-        th.start()    
+        #signal.signal(32,signal.SIG_IGN) # On ignore les SIGPIPE (Cas ou le serveur repond a un client deconnecte) 
+        th.start() 
+           
     
     sys.exit(0)
 

@@ -16,24 +16,22 @@ class Thread_Reception(threading.Thread):
     def __init__(self, conn):
         threading.Thread.__init__(self)
         self.connexion = conn           # réf. du socket de connexion
-        self.over=False
+        
    
     def run(self):
         #print(welcoming)
         print("Login : ")
         
-        while not self.over :
-            message_recu = self.connexion.recv(TAILLE_TAMPON).decode()
-            if message_recu.lower() == "termcode25658745522_5455termcode456325478":
+        while True:
+            recu = self.connexion.recv(TAILLE_TAMPON).decode()
+            message = recu.lower().split() # on découpe le message en tableau de mots
+            if message[0] == "/quit": # A Mon avis la on est pas loin du fuck a resoudre 
                 print("logout successful")
                 self.connexion.close()
-                self.stop()
+                break
             else:
-                print ("*" + message_recu + "*")
+                print ("*" + recu + "*")
         
-    def stop(self):
-        self.over=True
-        #Gerer la fin du programme avec un siginterupt 
         
             
 class Thread_Emission(threading.Thread):
