@@ -205,7 +205,10 @@ class Thread_client(threading.Thread):
                     
                     
             elif cmd == "filesend":
-                reponseClient = userActif.filesend()
+                if len(message) == 3:
+                    otherPseudo = message[1]
+                    user2 = self.chat.getClientByPseudo
+                    reponseClient = userActif.filesend()
                 
             elif cmd == "fileacc":
                 reponseClient = userActif.fileacc()
@@ -260,7 +263,6 @@ if __name__ == '__main__':
     
     # Ouverture en ecriture du fichier de log
     logs = open("serveur.log", "w")
-        
     maSock = socket(AF_INET, SOCK_STREAM)
     
     try:

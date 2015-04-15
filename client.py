@@ -66,11 +66,6 @@ if __name__ == '__main__':
     TAILLE_TAMPON = 1024
     
     
-    ''' Lancement interface '''
-    app=QtGui.QApplication(["DNC"])
-    appli=CtrlInterface.CtrlInterface()
-    app.exec()
-    
     ''' Lancement de la socket '''
     connexion = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
     host = sys.argv[1]
@@ -80,7 +75,7 @@ if __name__ == '__main__':
         connexion.connect((host, port))
     except socket.error:
         print ("Connexion failed")
-        sys.exit()    
+        sys.exit()
     
     print ("Connexion OK")
             
@@ -90,4 +85,10 @@ if __name__ == '__main__':
     th_R = Thread_Reception(connexion)
     th_E.start()
     th_R.start()
+    
+    ''' Lancement interface '''
+    app = QtGui.QApplication(["DNC"])
+    appli = CtrlInterface.CtrlInterface()
+    appli.iniFenPrincipale()
+    run = app.exec_()
     

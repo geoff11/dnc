@@ -9,7 +9,6 @@ class CtrlInterface(QWidget):
         
         QWidget.__init__(self)
         self.fenPrincipale=QMainWindow()
-        #self.fenPrincipale=QWidget()
         self.ui1 = FenClient.Ui_FenClient()
         self.ui1.setupUi(self.fenPrincipale)
         

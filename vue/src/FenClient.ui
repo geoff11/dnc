@@ -6,7 +6,7 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>800</width>
+    <width>777</width>
     <height>587</height>
    </rect>
   </property>
@@ -14,22 +14,6 @@
    <string>DNC</string>
   </property>
   <widget class="QWidget" name="centralwidget">
-   <widget class="QTextEdit" name="listeMessages">
-    <property name="geometry">
-     <rect>
-      <x>9</x>
-      <y>103</y>
-      <width>491</width>
-      <height>361</height>
-     </rect>
-    </property>
-    <property name="readOnly">
-     <bool>true</bool>
-    </property>
-    <property name="tabStopWidth">
-     <number>80</number>
-    </property>
-   </widget>
    <widget class="QWidget" name="layoutWidget">
     <property name="geometry">
      <rect>
@@ -43,7 +27,7 @@
      <item>
       <widget class="QLabel" name="label_ip">
        <property name="text">
-        <string>IP du serveur :</string>
+        <string>Server's IP adress :</string>
        </property>
       </widget>
      </item>
@@ -63,7 +47,7 @@
      <item>
       <widget class="QLabel" name="label_port">
        <property name="text">
-        <string>Port du serveur :</string>
+        <string>Server's Port :</string>
        </property>
       </widget>
      </item>
@@ -82,7 +66,7 @@
         <number>65535</number>
        </property>
        <property name="value">
-        <number>8002</number>
+        <number>8000</number>
        </property>
       </widget>
      </item>
@@ -108,7 +92,7 @@
      <item>
       <widget class="QLabel" name="label_pseudo">
        <property name="text">
-        <string>Pseudo :</string>
+        <string>Login :</string>
        </property>
       </widget>
      </item>
@@ -116,6 +100,12 @@
       <widget class="QLineEdit" name="pseudo">
        <property name="enabled">
         <bool>false</bool>
+       </property>
+       <property name="sizePolicy">
+        <sizepolicy hsizetype="Preferred" vsizetype="Fixed">
+         <horstretch>0</horstretch>
+         <verstretch>0</verstretch>
+        </sizepolicy>
        </property>
        <property name="maximumSize">
         <size>
@@ -145,7 +135,7 @@
      <item>
       <widget class="QPushButton" name="btnEnvoyer">
        <property name="text">
-        <string>Envoyer</string>
+        <string>Send</string>
        </property>
        <property name="icon">
         <iconset>
@@ -158,9 +148,9 @@
    <widget class="QLabel" name="title">
     <property name="geometry">
      <rect>
-      <x>280</x>
+      <x>10</x>
       <y>10</y>
-      <width>221</width>
+      <width>751</width>
       <height>31</height>
      </rect>
     </property>
@@ -176,16 +166,6 @@
     </property>
     <property name="alignment">
      <set>Qt::AlignCenter</set>
-    </property>
-   </widget>
-   <widget class="QTableWidget" name="tableWidget">
-    <property name="geometry">
-     <rect>
-      <x>510</x>
-      <y>140</y>
-      <width>256</width>
-      <height>141</height>
-     </rect>
     </property>
    </widget>
    <widget class="QLabel" name="label_online">
@@ -232,7 +212,17 @@
      <set>Qt::AlignCenter</set>
     </property>
    </widget>
-   <widget class="QTableWidget" name="tableWidget_2">
+   <widget class="QListWidget" name="ecranOnline">
+    <property name="geometry">
+     <rect>
+      <x>510</x>
+      <y>140</y>
+      <width>256</width>
+      <height>141</height>
+     </rect>
+    </property>
+   </widget>
+   <widget class="QListWidget" name="ecranPrivate">
     <property name="geometry">
      <rect>
       <x>510</x>
@@ -242,13 +232,45 @@
      </rect>
     </property>
    </widget>
+   <widget class="QTextBrowser" name="ecranMain">
+    <property name="geometry">
+     <rect>
+      <x>10</x>
+      <y>140</y>
+      <width>491</width>
+      <height>321</height>
+     </rect>
+    </property>
+   </widget>
+   <widget class="QLabel" name="label_all">
+    <property name="geometry">
+     <rect>
+      <x>10</x>
+      <y>110</y>
+      <width>491</width>
+      <height>32</height>
+     </rect>
+    </property>
+    <property name="font">
+     <font>
+      <weight>75</weight>
+      <bold>true</bold>
+     </font>
+    </property>
+    <property name="text">
+     <string>All messages</string>
+    </property>
+    <property name="alignment">
+     <set>Qt::AlignCenter</set>
+    </property>
+   </widget>
   </widget>
   <widget class="QMenuBar" name="menubar">
    <property name="geometry">
     <rect>
      <x>0</x>
      <y>0</y>
-     <width>800</width>
+     <width>777</width>
      <height>23</height>
     </rect>
    </property>
