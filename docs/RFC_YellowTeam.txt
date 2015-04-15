@@ -1,0 +1,500 @@
+﻿--------------------------------------------------------------------------------------------------
+Network Project Yellow Group
+TOROND Damien
+ZHANG Liwen
+SENTOST Geoffrey
+ROBERT Guillaume 
+
+
+DOG IS NOT A CHAT Protocol  -- DNC/1.1
+
+
+--------------------------------------------------------------------------------------------------
+
+
+Status of this memo 
+
+
+  This document specifies the DNC protocol, including a list of available commands.
+
+
+Copyright Notice
+
+  Licence free, Licence MIASHS, Université Toulouse II Jean Jaurès.
+
+
+Response codes definition :
+
+
+  In a general way, responses from a DNC server are supplied with a code, which defines a status :
+
+
+        1xx : Successful and allowed process
+        2xx : Successful but turned down process
+        666 : Process fatal fail 
+
+
+
+
+__________________________________________________________________________________________________
+
+
+Yellow Team           Standards Track                     [Page 2]
+
+RFC 9999                       DNC/1.1                      April 2015
+
+
+Table of Contents
+
+
+1   Introduction
+  1.1   Abstract……………………………………...3
+  
+
+
+2 Use of DNC
+   2.1    Commands
+      2.1.1 SLEEP………………………………………..........4
+      2.1.2 LIST…………………………………………..........4
+      2.1.3 QUIT ………………………………………..........5
+      2.1.4 WAKE ………………………………………..........6
+      2.1.5 LOGCHANGE……………………………..........7
+      2.1.6 PRIVATE…………………………………..........8
+      2.1.7 ACCEPTPC……………………………………........9
+      2.1.8 DENYPC……………………………………….........9
+      2.1.9 STOPPC……………………………………..........10
+      2.1.10 FILESEND…………………………………........10
+      2.1.11 FILEACC……………………………………........11
+      2.1.12 FILEDEN……………………………………........11
+
+
+__________________________________________________________________________________________________
+
+
+
+Yellow Team           Standards Track                     [Page 3]
+
+RFC 9999                       DNC/1.1                      April 2015
+
+
+
+
+Abstract
+
+
+Dog is Not a Chat is a chat protocol, which allow the user to get connected to a DNC server and
+then, chat with other people on this one. This chat using a TCP connexion . 
+This protocol is designed to chat publicly, but it allows to chat privately also.
+
+
+A DNC server waits for connexions from clients, who have to set a login. 
+If this login is available (not choosen yet), the server connects the entering client and
+alerts other clients that a new login is connected. 
+When a client logs out, server alerts also other clients from this action. 
+
+
+Connected clients can send messages to the server, which broadcast them to all connected clients.
+ This broadcasting MUST contains the text of the message and the user which have written it,
+ in order to supply this information to all clients.
+
+
+DNC allows also to exchange files.
+
+
+Connected clients CAN also send “control messages”. They MUST start by the “/” character. 
+These control messages are not case sensitive, but their parametres are. 
+
+
+
+__________________________________________________________________________________________________
+
+
+
+
+Yellow Team           Standards Track                     [Page 4]
+
+RFC 9999                       DNC/1.1                      April 2015
+
+
+1. The SLEEP state
+        
+        The user stay connected but he can't receive any messages on  
+        his screen. The server stop every messages in the client
+	direction. The other persons will see a message of the
+        change statement.
+                
+        Arguments : message (optional)
+                
+Possible responses:
+
++100 The user is sleeping
+- 666 you are not log
+                
+Examples :
+
+C: SLEEP
+S: +100 user 'pseudo' is sleeping (I come back)
+
+
+-----------------------------------------------------------------------------------------------
+      
+2. The LIST state
+        
+                The user can see all the users connected on the chat.
+                The list is composed of the pseudo and his state.
+                
+                Arguments: none
+                
+Possible responses:
+
++100 Connected users : titi,toto,tata,jack,gilles,michel……..
+- 666 you are not logged
+                
+Examples :
+
+C: LIST
+S: +100 LIST
+ DarkAvengers - connected
+ RollingDeep - connected
+ CuttyCat - sleep
+ GrasDuBide - connected
+
+								 
+								 
+__________________________________________________________________________________________________
+
+
+
+
+Yellow Team           Standards Track                     [Page 5]
+
+RFC 9999                       DNC/1.1                      April 2015
+
+
+
+3. The QUIT State
+
+
+	Once the user would close the TCP connection, the DNC
+        server issues a one line greeting. 
+
+
+           Arguments : message (optional)
+
+
+Possible Response:
+
++100: user 'name' logs out (message)
+
+
+Examples:
+C: QUIT
+S: 100 user 'toto' logs out
+
+C: QUIT (bye bye)
+S: 100 user 'toto' logs out (bye bye)
+
+
+The DNC session is now closed. The user is disconnected, 
+and the others see his message.
+
+
+
+__________________________________________________________________________________________________
+
+
+
+
+
+Yellow Team           Standards Track                     [Page 6]
+
+RFC 9999                       DNC/1.1                      April 2015
+
+
+
+
+4.  The WAKE State
+
+
+           Once the client is sleeping, he could changes his state
+           in WAKE. Also, the user reintegrates the chat.
+
+
+           Arguments : message (optional)
+
+
+Possible Responses:
+
++100: user 'toto' wakes up (message)
+- 666: you are already alive
+
+
+Examples:
+
+C: WAKE
+S: 100 user 'toto' wakes up
+
+C: WAKE (i am back)
+S: 100 user 'toto' wakes up (i am back)
+
+
+__________________________________________________________________________________________________
+
+
+
+
+Yellow Team           Standards Track                     [Page 7]
+
+RFC 9999                       DNC/1.1                      April 2015
+
+
+
+
+5. The LOGCHANGE State
+
+
+	The user changes his login. It occurs an 666 or if the
+	new chosen login is already used 
+
+
+	Argument :new login 
+
+
+Possible Responses:
++100: user 'toto' changed to ‘titi’
+- 666:’titi’ is already defined
+
+
+Examples:
+
+C: LOGCHANGE tutu
+S: 100 user ‘toto’ changed to ‘tutu’
+
+C: LOGCHANGE tata
+S: 200 ’tata’ is already defined
+
+
+
+
+__________________________________________________________________________________________________
+
+
+
+
+Yellow Team           Standards Track                     [Page 8]
+
+RFC 9999                       DNC/1.1                      April 2015
+
+
+
+
+6. The PRIVATE State
+
+
+	The user asks a private exchange with another user. 
+	Waits for the ACCEPT state from the receiver.
+
+
+	Arguments : receiver’s login 
+
+
+Possible Responses:
+
++100: user 'toto' is on private chat with you 
+-200: user ‘toto’ turned down your request
+-666: connexion fail 
+
+
+Examples:
+
+C: PRIVATE toto
+S: 100 user 'toto' is on private chat with you
+
+C: PRIVATE toto
+S: 200 user ‘toto’ turned down your request
+
+
+
+
+
+
+__________________________________________________________________________________________________
+
+
+
+
+Yellow Team           Standards Track                     [Page 9]
+
+RFC 9999                       DNC/1.1                      April 2015
+
+
+7. The ACCEPTPC State
+
+
+	The user allows another user to speak with him in private mode 
+
+
+	Arguments : none
+
+
+Possible Responses:
+
++100: user 'toto' is on private chat with you 
+- 666: failed to open private chat 
+
+
+Examples:
+
+S: Requested private chat from toto. accept or deny ?  
+C: ACCEPT 
+S: 100 user 'toto' is on private chat with you
+
+
+
+-----------------------------------------------------------------------------------------------
+
+
+8. The DENYPC State
+
+
+	The user forbid another user to speak with him in private mode 
+
+
+	Arguments : none
+
+
+Possible Responses:
+
++100: user 'toto' has been forbidden to chat with you in privacy.
+-666: fail
+
+
+Examples:
+
+S: Requested private chat from toto. accept or deny ?  
+C: DENY
+S: 200 user 'toto' has been forbidden to chat with you in privacy.
+
+
+
+
+__________________________________________________________________________________________________
+
+
+
+
+
+Yellow Team           Standards Track                     [Page 10]
+
+RFC 9999                       DNC/1.1                      April 2015
+
+
+
+
+9. The STOPPC State
+
+
+        The user ends a private chat 
+
+
+        Arguments: none
+
+
+Possible Responses:
+
++100: Private chat ended 
+-666: fail
+
+
+Examples:
+
+C: STOPPC
+S: 100 Private chat ended
+			  
+
+---------------------------------------------------------------------------------
+
+
+10. The FILESEND State
+
+
+	The user asks to send a file to another user and waits for a response 
+
+
+	Arguments: user, file to send 
+
+
+Possible Responses:
+
++100: Request allowed. file transfert…
+- 200 : Request denied. canceling...
+- 666: failed to send the request 
+
+
+Examples:
+
+C: FILESEND titi photo.jpg
+S:100 Private chat ended
+
+
+
+
+__________________________________________________________________________________________________
+
+
+
+
+
+Yellow Team           Standards Track                     [Page 11]
+
+RFC 9999                       DNC/1.1                      April 2015
+
+
+11. The FILEACC State
+
+
+	The user accepts to receive a file from an identified user. 
+	Once the transfert is allowed, it works via peer to peer, there 
+	is no direct broadcast on the chat server.
+
+
+	Arguments: none
+
+
+Possible Responses:
+
++100: Transfert processing...
+- 200 :canceling...
+- 666: fail
+
+
+Examples:
+
+S: user ‘titi’ asks to send ‘photo.jpg’ file. FILEACC or FILEDEN ?
+C: FILEACC
+S:100 Transfert processing…
+			  
+			  
+-----------------------------------------------------------------------------------------------
+
+
+12. The FILEDEN State
+
+
+        The user refuses to receive a file from an identified user. 
+
+
+	Arguments: none
+
+
+Possible Responses:
+
++100: Transfert cancel…
+- 666: fail
+
+
+Examples:
+
+S: user ‘titi’ asks to send ‘photo.jpg’ file. FILEACC or FILEDEN ?
+C: FILEDEN 
+S: 200 Transfert cancel…

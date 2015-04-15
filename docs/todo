@@ -1,0 +1,6 @@
+todo:
+- empecher ctrl c client => obliger a quit
+
+to fix:
+- quit : serveur : ok, client : boucle infini
+- sleep msg all
