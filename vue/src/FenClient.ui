@@ -26,7 +26,7 @@
     <property name="font">
      <font>
       <family>Showcard Gothic</family>
-      <pointsize>16</pointsize>
+      <pointsize>18</pointsize>
       <weight>50</weight>
       <italic>true</italic>
       <bold>false</bold>
@@ -37,6 +37,9 @@
     </property>
     <property name="alignment">
      <set>Qt::AlignCenter</set>
+    </property>
+    <property name="margin">
+     <number>-1</number>
     </property>
    </widget>
    <widget class="QTextBrowser" name="ecranMain">
@@ -60,8 +63,8 @@
     </property>
     <property name="font">
      <font>
-      <family>SimSun</family>
-      <pointsize>12</pointsize>
+      <family>Tempus Sans ITC</family>
+      <pointsize>14</pointsize>
       <weight>75</weight>
       <bold>true</bold>
      </font>
@@ -98,6 +101,14 @@
       <height>31</height>
      </rect>
     </property>
+    <property name="font">
+     <font>
+      <family>Tempus Sans ITC</family>
+      <pointsize>12</pointsize>
+      <weight>75</weight>
+      <bold>true</bold>
+     </font>
+    </property>
     <property name="text">
      <string>Send</string>
     </property>
@@ -117,7 +128,10 @@
     </property>
     <property name="font">
      <font>
+      <family>Tempus Sans ITC</family>
       <pointsize>12</pointsize>
+      <weight>75</weight>
+      <bold>true</bold>
      </font>
     </property>
     <property name="text">

@@ -2,7 +2,7 @@
 
 # Form implementation generated from reading ui file 'FenClient.ui'
 #
-# Created: Thu Apr 16 11:34:21 2015
+# Created: Thu Apr 16 11:43:36 2015
 #      by: PyQt4 UI code generator 4.11.3
 #
 # WARNING! All changes made in this file will be lost!
@@ -33,12 +33,13 @@ class Ui_FenClient(object):
         self.title.setGeometry(QtCore.QRect(-60, 10, 751, 31))
         font = QtGui.QFont()
         font.setFamily(_fromUtf8("Showcard Gothic"))
-        font.setPointSize(16)
+        font.setPointSize(18)
         font.setBold(False)
         font.setItalic(True)
         font.setWeight(50)
         self.title.setFont(font)
         self.title.setAlignment(QtCore.Qt.AlignCenter)
+        self.title.setMargin(-1)
         self.title.setObjectName(_fromUtf8("title"))
         self.ecranMain = QtGui.QTextBrowser(self.centralwidget)
         self.ecranMain.setGeometry(QtCore.QRect(10, 80, 591, 381))
@@ -46,8 +47,8 @@ class Ui_FenClient(object):
         self.label_all = QtGui.QLabel(self.centralwidget)
         self.label_all.setGeometry(QtCore.QRect(70, 50, 491, 32))
         font = QtGui.QFont()
-        font.setFamily(_fromUtf8("SimSun"))
-        font.setPointSize(12)
+        font.setFamily(_fromUtf8("Tempus Sans ITC"))
+        font.setPointSize(14)
         font.setBold(True)
         font.setWeight(75)
         self.label_all.setFont(font)
@@ -63,6 +64,12 @@ class Ui_FenClient(object):
         self.message.setObjectName(_fromUtf8("message"))
         self.btnEnvoyer = QtGui.QPushButton(self.centralwidget)
         self.btnEnvoyer.setGeometry(QtCore.QRect(370, 490, 171, 31))
+        font = QtGui.QFont()
+        font.setFamily(_fromUtf8("Tempus Sans ITC"))
+        font.setPointSize(12)
+        font.setBold(True)
+        font.setWeight(75)
+        self.btnEnvoyer.setFont(font)
         icon = QtGui.QIcon()
         icon.addPixmap(QtGui.QPixmap(_fromUtf8("../../Downloads/chat.png")), QtGui.QIcon.Normal, QtGui.QIcon.Off)
         self.btnEnvoyer.setIcon(icon)
@@ -70,7 +77,10 @@ class Ui_FenClient(object):
         self.label_msg = QtGui.QLabel(self.centralwidget)
         self.label_msg.setGeometry(QtCore.QRect(10, 490, 61, 31))
         font = QtGui.QFont()
+        font.setFamily(_fromUtf8("Tempus Sans ITC"))
         font.setPointSize(12)
+        font.setBold(True)
+        font.setWeight(75)
         self.label_msg.setFont(font)
         self.label_msg.setObjectName(_fromUtf8("label_msg"))
         FenClient.setCentralWidget(self.centralwidget)
