@@ -269,7 +269,11 @@ class Thread_client(threading.Thread):
                 reponseClient = "With '/' you can use : sleep, list, quit, wake, logchange, private, acceptpc, denypc, mp, stoppc, filesend, fileacc, fileden"
                 
         else :
-            reponseAll = mess
+            messComplet = ""
+            for m in message :
+                messComplet += m + " "
+                
+            reponseAll = messComplet
         
         
         # d'abord rep a tlm en cas de deconnexion
@@ -298,7 +302,7 @@ class Thread_client(threading.Thread):
         
         for u in self.chat.listeClients:
             if userActif != u and u.getNumState() == 1 and userActif.getNumState() == 1 :
-                u.getConn().send("* ".encode() + myPseudo.encode() + ":: ".encode() + message.encode() + " *".encode())
+                u.getConn().send("* ".encode() + myPseudo.encode() + " :: ".encode() + message.encode() + " *".encode())
     
     def sendToAll(self, userActif, message):
         '''
@@ -308,7 +312,7 @@ class Thread_client(threading.Thread):
         
         for u in self.chat.listeClients:
             if u.getNumState() == 1 and userActif.getNumState() == 1 :
-                u.getConn().send(myPseudo.encode() + ":: ".encode() + message.encode())
+                u.getConn().send(myPseudo.encode() + " :: ".encode() + message.encode())
     
     def sendToAClient(self, pseudoEm, otherPseudo, msg):
         '''
@@ -317,7 +321,7 @@ class Thread_client(threading.Thread):
         
         for u in self.chat.listeClients:
             if otherPseudo == u.getPseudo() :
-                u.getConn().send("* ".encode() + pseudoEm.encode() + ":: ".encode() + msg.encode() + " *".encode())
+                u.getConn().send("* ".encode() + pseudoEm.encode() + " :: ".encode() + msg.encode() + " *".encode())
     
                 
 

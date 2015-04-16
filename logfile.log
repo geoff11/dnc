@@ -28982,3 +28982,62 @@
 2015-04-16 13:05:54,986 INFO     toto:: hjk
 2015-04-16 13:05:55,993 INFO     Logout successful
 2015-04-16 13:05:56,014 INFO     Client stopped.
+2015-04-16 13:31:04,911 INFO     Connexion OK
+2015-04-16 13:31:05,019 INFO     Login please:
+2015-04-16 13:31:07,198 INFO     Login successful !! Let's get started
+2015-04-16 13:31:08,148 INFO     toto:: ghj
+2015-04-16 13:31:09,731 INFO     toto:: dd
+2015-04-16 13:31:12,170 INFO     toto:: dk
+2015-04-16 13:31:14,775 INFO     toto:: iju
+2015-04-16 13:31:19,949 INFO     toto:: hjkl
+2015-04-16 13:31:30,581 INFO     toto:: "hjkl
+2015-04-16 13:35:29,208 INFO     Connexion OK
+2015-04-16 13:35:29,289 INFO     Login please:
+2015-04-16 13:35:30,942 INFO     Login successful !! Let's get started
+2015-04-16 13:38:17,814 INFO     
+2015-04-16 13:38:17,814 INFO     
+2015-04-16 13:38:17,815 INFO     
+2015-04-16 13:38:17,815 INFO     
+2015-04-16 13:38:17,815 INFO     
+2015-04-16 13:38:17,815 INFO     
+2015-04-16 13:38:17,816 INFO     
+2015-04-16 13:38:17,816 INFO     
+2015-04-16 13:38:17,816 INFO     
+2015-04-16 13:38:17,816 INFO     
+2015-04-16 13:38:17,817 INFO     
+2015-04-16 13:38:17,817 INFO     
+2015-04-16 13:38:17,817 INFO     
+2015-04-16 13:38:17,818 INFO     
+2015-04-16 13:38:17,818 INFO     
+2015-04-16 13:38:17,818 INFO     
+2015-04-16 13:38:17,819 INFO     
+2015-04-16 13:38:17,819 INFO     
+2015-04-16 13:38:17,819 INFO     
+2015-04-16 13:38:17,819 INFO     
+2015-04-16 13:38:17,820 INFO     
+2015-04-16 13:38:17,820 INFO     
+2015-04-16 13:38:17,820 INFO     
+2015-04-16 13:38:29,087 INFO     Connexion OK
+2015-04-16 13:38:29,246 INFO     Login please:
+2015-04-16 13:38:30,923 INFO     Login successful !! Let's get started
+2015-04-16 13:39:08,726 INFO     Connexion OK
+2015-04-16 13:39:08,882 INFO     Login please:
+2015-04-16 13:39:10,515 INFO     Login successful !! Let's get started
+2015-04-16 13:39:47,708 INFO     Connexion OK
+2015-04-16 13:39:47,799 INFO     Login please:
+2015-04-16 13:39:49,218 INFO     Login successful !! Let's get started
+2015-04-16 13:40:38,634 INFO     Connexion OK
+2015-04-16 13:40:38,689 INFO     Login please:
+2015-04-16 13:40:40,677 INFO     Login successful !! Let's get started
+2015-04-16 13:42:55,937 INFO     Connexion OK
+2015-04-16 13:42:56,031 INFO     Login please:
+2015-04-16 13:42:57,538 INFO     Login successful !! Let's get started
+2015-04-16 13:44:51,902 INFO     Connexion OK
+2015-04-16 13:44:51,976 INFO     Login please:
+2015-04-16 13:44:53,701 INFO     Login successful !! Let's get started
+2015-04-16 13:44:54,372 INFO     toto :: fghj 
+2015-04-16 13:44:56,233 INFO     toto :: fdj fdfdj 
+2015-04-16 13:44:58,653 INFO     toto :: mkfjfd odkfdkfd 
+2015-04-16 13:45:00,749 INFO     * With '/' you can use : sleep, list, quit, wake, logchange, private, acceptpc, denypc, mp, stoppc, filesend, fileacc, fileden *
+2015-04-16 13:45:01,999 INFO     Logout successful
+2015-04-16 13:45:01,999 INFO     Client stopped.
