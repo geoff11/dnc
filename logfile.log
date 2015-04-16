@@ -31,3 +31,35 @@
 2015-04-16 02:09:46,716 INFO     tutu:: generalchat
 2015-04-16 02:09:46,717 INFO     tutu:: generalchat
 2015-04-16 02:09:51,571 INFO     * With '/' you can use : sleep, list, quit, wake, logchange, private, acceptpc, denypc, mp, stoppc, filesend, fileacc, fileden */quit
+2015-04-16 11:19:22,587 INFO     Connexion OK
+2015-04-16 11:19:22,612 INFO     Login please:
+2015-04-16 11:19:28,237 INFO     Login successful !! Let's get started
+2015-04-16 11:19:32,344 INFO     TOTO:: hello
+2015-04-16 11:19:38,768 INFO     TOTO:: dsfs
+2015-04-16 11:19:42,602 INFO     TOTO:: jdfsdi
+2015-04-16 11:19:53,154 INFO     Connexion OK
+2015-04-16 11:19:53,195 INFO     Login please:
+2015-04-16 11:19:56,951 INFO     * titi:: is online *
+2015-04-16 11:19:56,961 INFO     Login successful !! Let's get started
+2015-04-16 11:20:00,382 INFO     *  TOTO titi *
+2015-04-16 11:20:04,633 INFO     titi:: csdv
+2015-04-16 11:20:04,635 INFO     titi:: csdv
+2015-04-16 11:35:17,080 INFO     Connexion OK
+2015-04-16 11:35:17,100 INFO     Login please:
+2015-04-16 11:35:33,748 INFO     Connexion OK
+2015-04-16 11:35:33,769 INFO     Login please:
+2015-04-16 11:35:38,953 INFO     Login successful !! Let's get started
+2015-04-16 11:35:41,481 INFO     Toto:: sdeofjzepf
+2015-04-16 11:35:43,834 INFO     Toto:: sdojsdp
+2015-04-16 11:35:49,498 INFO     Connexion OK
+2015-04-16 11:35:49,520 INFO     Login please:
+2015-04-16 11:35:57,453 INFO     Login successful !! Let's get started
+2015-04-16 11:35:57,454 INFO     * tutu:: is online *
+2015-04-16 11:36:02,162 INFO     tutu:: hello
+2015-04-16 11:36:02,163 INFO     tutu:: hello
+2015-04-16 11:37:46,212 INFO     *  Toto tutu *
+2015-04-16 11:37:49,606 INFO     Toto:: hel^p
+2015-04-16 11:37:49,610 INFO     Toto:: hel^p
+2015-04-16 11:37:53,530 INFO     * With '/' you can use : sleep, list, quit, wake, logchange, private, acceptpc, denypc, mp, stoppc, filesend, fileacc, fileden *
+2015-04-16 11:38:04,304 INFO     * Usage : /fileacc <pseudo> *
+2015-04-16 11:38:14,771 INFO     * With '/' you can use : sleep, list, quit, wake, logchange, private, acceptpc, denypc, mp, stoppc, filesend, fileacc, fileden *
