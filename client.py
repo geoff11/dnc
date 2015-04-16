@@ -1,4 +1,4 @@
-__author__ = 'Liwen'
+__author__ = 'yellow 2'
 from time import ctime
 from tkinter import *
 import socket
