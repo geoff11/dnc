@@ -55,3 +55,64 @@
 2015-04-16 14:50:47,179 INFO     Login please:
 2015-04-16 14:51:06,272 INFO     Connexion OK
 2015-04-16 14:51:06,509 INFO     Login please:
+2015-04-16 14:57:24,499 INFO     Connexion OK
+2015-04-16 14:57:24,793 INFO     Login please:
+2015-04-16 14:57:47,982 INFO     Login successful !! Let's get started
+2015-04-16 14:58:01,459 INFO     Login successful !! Let's get started
+2015-04-16 14:58:01,466 INFO     * tata :: is online *
+2015-04-16 14:58:14,990 INFO     Login successful !! Let's get started
+2015-04-16 14:58:14,990 INFO     * titi :: is online *
+2015-04-16 14:58:14,991 INFO     * titi :: is online *
+2015-04-16 14:58:28,436 INFO     toto :: fghj 
+2015-04-16 14:58:28,440 INFO     toto :: fghj 
+2015-04-16 14:58:28,446 INFO     toto :: fghj 
+2015-04-16 14:58:34,955 INFO     toto :: message 
+2015-04-16 14:58:34,961 INFO     toto :: message 
+2015-04-16 14:58:34,974 INFO     toto :: message 
+2015-04-16 14:58:42,546 INFO     * With '/' you can use : sleep, list, quit, wake, logchange, private, acceptpc, denypc, mp, stoppc, filesend, fileacc, fileden *
+2015-04-16 14:58:48,946 INFO     * Pseudo already used, please choose another one *
+2015-04-16 14:58:53,932 INFO     * Congrats, your new pseudo is tutu *
+2015-04-16 14:58:53,937 INFO     * tutu :: is the new pseudo of the old toto *
+2015-04-16 14:58:53,943 INFO     * tutu :: is the new pseudo of the old toto *
+2015-04-16 14:59:06,869 INFO     * You are now sleeping *
+2015-04-16 14:59:11,282 INFO     tata :: ghj 
+2015-04-16 14:59:11,285 INFO     tata :: ghj 
+2015-04-16 14:59:17,957 INFO     * You are back in the chat *
+2015-04-16 14:59:17,958 INFO     * tutu :: is back *
+2015-04-16 14:59:17,970 INFO     * tutu :: is back *
+2015-04-16 14:59:21,214 INFO     tutu :: hj 
+2015-04-16 14:59:21,215 INFO     tutu :: hj 
+2015-04-16 14:59:21,227 INFO     tutu :: hj 
+2015-04-16 14:59:24,762 INFO     * You are now sleeping *
+2015-04-16 14:59:27,859 INFO     * You are back in the chat *
+2015-04-16 14:59:27,860 INFO     * tutu :: is back on the chat saying : je suis revenu  *
+2015-04-16 14:59:27,880 INFO     * tutu :: is back on the chat saying : je suis revenu  *
+2015-04-16 14:59:41,956 INFO     * With '/' you can use : sleep, list, quit, wake, logchange, private, acceptpc, denypc, mp, stoppc, filesend, fileacc, fileden *
+2015-04-16 15:00:03,479 INFO     * tutu is not present in the chat *
+2015-04-16 15:00:11,889 INFO     * Your request has been sent to tata *
+2015-04-16 15:00:11,889 INFO     * tutu :: wants to chat with you in private for the session. /acceptpc tutu or /denypc tutu ?  *
+2015-04-16 15:00:24,501 INFO     * You have denied the request of private conversation *
+2015-04-16 15:00:24,516 INFO     * tata :: Private connexion was denied by tata *
+2015-04-16 15:00:33,924 INFO     * Your request has been sent to tata *
+2015-04-16 15:00:33,938 INFO     * tutu :: wants to chat with you in private for the session. /acceptpc tutu or /denypc tutu ?  *
+2015-04-16 15:00:42,643 INFO     * Now, you can speak to 'tutu' in private with : /mp tutu<msg> *
+2015-04-16 15:00:42,650 INFO     * tata :: Private connexion opened between tata and you *
+2015-04-16 15:00:55,965 INFO     tata :: thjk 
+2015-04-16 15:00:55,971 INFO     tata :: thjk 
+2015-04-16 15:00:55,973 INFO     tata :: thjk 
+2015-04-16 15:01:00,684 INFO     * MP was sent to 'tutu' successfully *
+2015-04-16 15:01:00,696 INFO     * tata :: MP => jfdfd  *
+2015-04-16 15:01:44,997 INFO     * End of conversation with 'tata' *
+2015-04-16 15:01:45,003 INFO     * tutu :: Private connexion was closed by tutu *
+2015-04-16 15:02:12,966 INFO     * With '/' you can use : sleep, list, quit, wake, logchange, private, acceptpc, denypc, mp, stoppc, filesend, fileacc, fileden *
+2015-04-16 15:02:19,166 INFO     * Usage : /filesend <pseudo> <path> *
+2015-04-16 15:02:33,637 INFO     * Your request has been sent to 'tata' *
+2015-04-16 15:02:33,648 INFO     * titi :: wants to share a file with you. /fileacc titi or /fileden titi ? *
+2015-04-16 15:02:41,176 INFO     * You have denied the download *
+2015-04-16 15:02:41,176 INFO     * tata :: denied download *
+2015-04-16 15:02:54,905 INFO     * Your request has been sent to 'tata' *
+2015-04-16 15:02:54,918 INFO     * titi :: wants to share a file with you. /fileacc titi or /fileden titi ? *
+2015-04-16 15:02:59,915 INFO     * File download with success ! *
+2015-04-16 15:02:59,916 INFO     * tata :: allows download. Great 100%. *
+2015-04-16 15:11:27,570 INFO     Logout successful
+2015-04-16 15:11:27,571 INFO     Client stopped.
