@@ -1,0 +1,97 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+<html><head><title>Python: module User</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+</head><body bgcolor="#f0f0f8">
+
+<table width="100%" cellspacing=0 cellpadding=2 border=0 summary="heading">
+<tr bgcolor="#7799ee">
+<td valign=bottom>&nbsp;<br>
+<font color="#ffffff" face="helvetica, arial">&nbsp;<br><big><big><strong>User</strong></big></big></font></td
+><td align=right valign=bottom
+><font color="#ffffff" face="helvetica, arial"><a href=".">index</a><br><a href="file:/home/geoff/git/dnc/modele/User.py">/home/geoff/git/dnc/modele/User.py</a></font></td></tr></table>
+    <p></p>
+<p>
+<table width="100%" cellspacing=0 cellpadding=2 border=0 summary="section">
+<tr bgcolor="#ee77aa">
+<td colspan=3 valign=bottom>&nbsp;<br>
+<font color="#ffffff" face="helvetica, arial"><big><strong>Classes</strong></big></font></td></tr>
+    
+<tr><td bgcolor="#ee77aa"><tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</tt></td><td>&nbsp;</td>
+<td width="100%"><dl>
+<dt><font face="helvetica, arial"><a href="builtins.html#object">builtins.object</a>
+</font></dt><dd>
+<dl>
+<dt><font face="helvetica, arial"><a href="User.html#User">User</a>
+</font></dt></dl>
+</dd>
+</dl>
+ <p>
+<table width="100%" cellspacing=0 cellpadding=2 border=0 summary="section">
+<tr bgcolor="#ffc8d8">
+<td colspan=3 valign=bottom>&nbsp;<br>
+<font color="#000000" face="helvetica, arial"><a name="User">class <strong>User</strong></a>(<a href="builtins.html#object">builtins.object</a>)</font></td></tr>
+    
+<tr bgcolor="#ffc8d8"><td rowspan=2><tt>&nbsp;&nbsp;&nbsp;</tt></td>
+<td colspan=2><tt>Classe&nbsp;<a href="#User">User</a>&nbsp;:&nbsp;utilisateur&nbsp;du&nbsp;chat<br>&nbsp;</tt></td></tr>
+<tr><td>&nbsp;</td>
+<td width="100%">Methods defined here:<br>
+<dl><dt><a name="User-__init__"><strong>__init__</strong></a>(self, id, pseudo, conn, state=0)</dt><dd><tt>Initialisation&nbsp;du&nbsp;user</tt></dd></dl>
+
+<dl><dt><a name="User-acceptpc"><strong>acceptpc</strong></a>(self, userEm)</dt><dd><tt>Le&nbsp;userDest&nbsp;autorise&nbsp;un&nbsp;autre&nbsp;user&nbsp;a&nbsp;communiquer&nbsp;avec&nbsp;lui&nbsp;en&nbsp;"private"</tt></dd></dl>
+
+<dl><dt><a name="User-denypc"><strong>denypc</strong></a>(self, userEm)</dt><dd><tt>Le&nbsp;user&nbsp;interdit&nbsp;un&nbsp;autre&nbsp;user&nbsp;a&nbsp;communiquer&nbsp;avec&nbsp;lui&nbsp;en&nbsp;"private"</tt></dd></dl>
+
+<dl><dt><a name="User-fileacc"><strong>fileacc</strong></a>(self, pseudoEm)</dt><dd><tt>le&nbsp;destinataire&nbsp;autorise&nbsp;un&nbsp;transfert&nbsp;de&nbsp;fichier<br>
+Le&nbsp;transfert&nbsp;demarre&nbsp;immediatement&nbsp;(fichier&nbsp;considere&nbsp;comme&nbsp;du&nbsp;binaire)<br>
+Le&nbsp;protocole&nbsp;doit&nbsp;donc&nbsp;gerer&nbsp;la&nbsp;connexion&nbsp;directe&nbsp;entre&nbsp;deux&nbsp;clients&nbsp;(choix&nbsp;du&nbsp;port&nbsp;et&nbsp;du&nbsp;protocole&nbsp;de&nbsp;transfert,&nbsp;notamment)</tt></dd></dl>
+
+<dl><dt><a name="User-fileden"><strong>fileden</strong></a>(self, pseudoEm)</dt><dd><tt>le&nbsp;destinataire&nbsp;annule&nbsp;un&nbsp;transfert&nbsp;de&nbsp;fichier</tt></dd></dl>
+
+<dl><dt><a name="User-filesend"><strong>filesend</strong></a>(self, userDest)</dt><dd><tt>le&nbsp;client&nbsp;indique&nbsp;à&nbsp;userDest&nbsp;qu’il&nbsp;desire&nbsp;lui&nbsp;envoyer&nbsp;un&nbsp;fichier&nbsp;sur&nbsp;un&nbsp;port&nbsp;au&nbsp;choix</tt></dd></dl>
+
+<dl><dt><a name="User-getConn"><strong>getConn</strong></a>(self)</dt><dd><tt>Methode&nbsp;:&nbsp;retourne&nbsp;le&nbsp;thread&nbsp;du&nbsp;user</tt></dd></dl>
+
+<dl><dt><a name="User-getId"><strong>getId</strong></a>(self)</dt><dd><tt>Methode&nbsp;:&nbsp;retourne&nbsp;l'id&nbsp;user</tt></dd></dl>
+
+<dl><dt><a name="User-getNumState"><strong>getNumState</strong></a>(self)</dt><dd><tt>Methode&nbsp;:&nbsp;retourne&nbsp;l&nbsp;etat&nbsp;du&nbsp;user&nbsp;sous&nbsp;forme&nbsp;numerique&nbsp;:&nbsp;0,1,2</tt></dd></dl>
+
+<dl><dt><a name="User-getPseudo"><strong>getPseudo</strong></a>(self)</dt><dd><tt>Methode&nbsp;:&nbsp;retourne&nbsp;le&nbsp;pseudo&nbsp;du&nbsp;user</tt></dd></dl>
+
+<dl><dt><a name="User-getState"><strong>getState</strong></a>(self)</dt><dd><tt>Methode&nbsp;:&nbsp;retourne&nbsp;l&nbsp;etat&nbsp;du&nbsp;user<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;0&nbsp;=&nbsp;out<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;1&nbsp;=&nbsp;online<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;2&nbsp;=&nbsp;sleeping</tt></dd></dl>
+
+<dl><dt><a name="User-getUsersPrivate"><strong>getUsersPrivate</strong></a>(self)</dt><dd><tt>Methode&nbsp;:&nbsp;retourne&nbsp;les&nbsp;users&nbsp;privees&nbsp;en&nbsp;communication&nbsp;avec&nbsp;le&nbsp;user&nbsp;actif</tt></dd></dl>
+
+<dl><dt><a name="User-getUsersWBP"><strong>getUsersWBP</strong></a>(self)</dt><dd><tt>Methode&nbsp;:&nbsp;retourne&nbsp;les&nbsp;users&nbsp;privees&nbsp;voulant&nbsp;etre&nbsp;en&nbsp;communication&nbsp;privee&nbsp;avec&nbsp;le&nbsp;user&nbsp;actif</tt></dd></dl>
+
+<dl><dt><a name="User-getUsersWSF"><strong>getUsersWSF</strong></a>(self)</dt><dd><tt>Methode&nbsp;:&nbsp;retourne&nbsp;les&nbsp;users&nbsp;voulant&nbsp;envoyer&nbsp;des&nbsp;fichiers&nbsp;au&nbsp;user&nbsp;actif</tt></dd></dl>
+
+<dl><dt><a name="User-logchange"><strong>logchange</strong></a>(self, newPseudo)</dt><dd><tt>le&nbsp;client&nbsp;change&nbsp;de&nbsp;pseudo</tt></dd></dl>
+
+<dl><dt><a name="User-mp"><strong>mp</strong></a>(self, otherUser)</dt><dd><tt>Le&nbsp;user&nbsp;envoi&nbsp;un&nbsp;message&nbsp;privee&nbsp;a&nbsp;l&nbsp;autre&nbsp;user,&nbsp;une&nbsp;fois&nbsp;la&nbsp;connexion&nbsp;private&nbsp;etablie</tt></dd></dl>
+
+<dl><dt><a name="User-private"><strong>private</strong></a>(self, userDest)</dt><dd><tt>le&nbsp;client&nbsp;met&nbsp;en&nbsp;place&nbsp;un&nbsp;echange&nbsp;prive&nbsp;avec&nbsp;le&nbsp;client&nbsp;ayant&nbsp;le&nbsp;pseudo&nbsp;indique.<br>
+Le&nbsp;destinataire&nbsp;(pseudo)&nbsp;peut&nbsp;autoriser&nbsp;ou&nbsp;non&nbsp;cet&nbsp;echange.<br>
+S’il&nbsp;l’accepte&nbsp;et&nbsp;jusqu’au&nbsp;message&nbsp;/cmd7&nbsp;emis&nbsp;par&nbsp;l’une&nbsp;des&nbsp;deux&nbsp;parties,<br>
+les&nbsp;messages&nbsp;entre&nbsp;ces&nbsp;deux&nbsp;clients&nbsp;ne&nbsp;seront&nbsp;plus&nbsp;diffuses&nbsp;aux&nbsp;autres.</tt></dd></dl>
+
+<dl><dt><a name="User-quit"><strong>quit</strong></a>(self)</dt><dd><tt>le&nbsp;client&nbsp;met&nbsp;fin&nbsp;à&nbsp;la&nbsp;connexion</tt></dd></dl>
+
+<dl><dt><a name="User-sleep"><strong>sleep</strong></a>(self)</dt><dd><tt>le&nbsp;client&nbsp;reste&nbsp;connecte,&nbsp;mais&nbsp;ne&nbsp;reçoit&nbsp;plus&nbsp;les&nbsp;messages</tt></dd></dl>
+
+<dl><dt><a name="User-stoppc"><strong>stoppc</strong></a>(self, otherUser)</dt><dd><tt>Le&nbsp;user&nbsp;met&nbsp;fin&nbsp;a&nbsp;une&nbsp;conversation&nbsp;"private"&nbsp;avec&nbsp;un&nbsp;autre&nbsp;user</tt></dd></dl>
+
+<dl><dt><a name="User-wake"><strong>wake</strong></a>(self)</dt><dd><tt>le&nbsp;client&nbsp;qui&nbsp;etait&nbsp;«&nbsp;sleep&nbsp;»&nbsp;redevient&nbsp;actif</tt></dd></dl>
+
+<hr>
+Data descriptors defined here:<br>
+<dl><dt><strong>__dict__</strong></dt>
+<dd><tt>dictionary&nbsp;for&nbsp;instance&nbsp;variables&nbsp;(if&nbsp;defined)</tt></dd>
+</dl>
+<dl><dt><strong>__weakref__</strong></dt>
+<dd><tt>list&nbsp;of&nbsp;weak&nbsp;references&nbsp;to&nbsp;the&nbsp;object&nbsp;(if&nbsp;defined)</tt></dd>
+</dl>
+</td></tr></table></td></tr></table>
+</body></html>

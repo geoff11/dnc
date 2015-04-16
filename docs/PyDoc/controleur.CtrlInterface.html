@@ -1,0 +1,939 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+<html><head><title>Python: module CtrlInterface</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+</head><body bgcolor="#f0f0f8">
+
+<table width="100%" cellspacing=0 cellpadding=2 border=0 summary="heading">
+<tr bgcolor="#7799ee">
+<td valign=bottom>&nbsp;<br>
+<font color="#ffffff" face="helvetica, arial">&nbsp;<br><big><big><strong>CtrlInterface</strong></big></big></font></td
+><td align=right valign=bottom
+><font color="#ffffff" face="helvetica, arial"><a href=".">index</a><br><a href="file:/home/geoff/git/dnc/controleur/CtrlInterface.py">/home/geoff/git/dnc/controleur/CtrlInterface.py</a></font></td></tr></table>
+    <p></p>
+<p>
+<table width="100%" cellspacing=0 cellpadding=2 border=0 summary="section">
+<tr bgcolor="#aa55cc">
+<td colspan=3 valign=bottom>&nbsp;<br>
+<font color="#ffffff" face="helvetica, arial"><big><strong>Modules</strong></big></font></td></tr>
+    
+<tr><td bgcolor="#aa55cc"><tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</tt></td><td>&nbsp;</td>
+<td width="100%"><table width="100%" summary="list"><tr><td width="25%" valign=top><a href="vue.FenClient.html">vue.FenClient</a><br>
+<a href="PyQt4.QtCore.html">PyQt4.QtCore</a><br>
+</td><td width="25%" valign=top><a href="PyQt4.QtGui.html">PyQt4.QtGui</a><br>
+<a href="logging.html">logging</a><br>
+</td><td width="25%" valign=top><a href="sys.html">sys</a><br>
+<a href="time.html">time</a><br>
+</td><td width="25%" valign=top></td></tr></table></td></tr></table><p>
+<table width="100%" cellspacing=0 cellpadding=2 border=0 summary="section">
+<tr bgcolor="#ee77aa">
+<td colspan=3 valign=bottom>&nbsp;<br>
+<font color="#ffffff" face="helvetica, arial"><big><strong>Classes</strong></big></font></td></tr>
+    
+<tr><td bgcolor="#ee77aa"><tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</tt></td><td>&nbsp;</td>
+<td width="100%"><dl>
+<dt><font face="helvetica, arial"><a href="PyQt4.QtGui.html#QWidget">PyQt4.QtGui.QWidget</a>(<a href="PyQt4.QtCore.html#QObject">PyQt4.QtCore.QObject</a>, <a href="PyQt4.QtGui.html#QPaintDevice">PyQt4.QtGui.QPaintDevice</a>)
+</font></dt><dd>
+<dl>
+<dt><font face="helvetica, arial"><a href="CtrlInterface.html#CtrlInterface">CtrlInterface</a>
+</font></dt></dl>
+</dd>
+</dl>
+ <p>
+<table width="100%" cellspacing=0 cellpadding=2 border=0 summary="section">
+<tr bgcolor="#ffc8d8">
+<td colspan=3 valign=bottom>&nbsp;<br>
+<font color="#000000" face="helvetica, arial"><a name="CtrlInterface">class <strong>CtrlInterface</strong></a>(<a href="PyQt4.QtGui.html#QWidget">PyQt4.QtGui.QWidget</a>)</font></td></tr>
+    
+<tr><td bgcolor="#ffc8d8"><tt>&nbsp;&nbsp;&nbsp;</tt></td><td>&nbsp;</td>
+<td width="100%"><dl><dt>Method resolution order:</dt>
+<dd><a href="CtrlInterface.html#CtrlInterface">CtrlInterface</a></dd>
+<dd><a href="PyQt4.QtGui.html#QWidget">PyQt4.QtGui.QWidget</a></dd>
+<dd><a href="PyQt4.QtCore.html#QObject">PyQt4.QtCore.QObject</a></dd>
+<dd><a href="sip.html#wrapper">sip.wrapper</a></dd>
+<dd><a href="PyQt4.QtGui.html#QPaintDevice">PyQt4.QtGui.QPaintDevice</a></dd>
+<dd><a href="sip.html#simplewrapper">sip.simplewrapper</a></dd>
+<dd><a href="builtins.html#object">builtins.object</a></dd>
+</dl>
+<hr>
+Methods defined here:<br>
+<dl><dt><a name="CtrlInterface-__init__"><strong>__init__</strong></a>(self)</dt></dl>
+
+<dl><dt><a name="CtrlInterface-clearConsole"><strong>clearConsole</strong></a>(self)</dt></dl>
+
+<dl><dt><a name="CtrlInterface-getAllCompleted"><strong>getAllCompleted</strong></a>(self)</dt></dl>
+
+<dl><dt><a name="CtrlInterface-getHost"><strong>getHost</strong></a>(self)</dt></dl>
+
+<dl><dt><a name="CtrlInterface-getPort"><strong>getPort</strong></a>(self)</dt></dl>
+
+<dl><dt><a name="CtrlInterface-getState"><strong>getState</strong></a>(self)</dt></dl>
+
+<dl><dt><a name="CtrlInterface-iniFenPrincipale"><strong>iniFenPrincipale</strong></a>(self)</dt></dl>
+
+<dl><dt><a name="CtrlInterface-maj"><strong>maj</strong></a>(self)</dt></dl>
+
+<dl><dt><a name="CtrlInterface-printConsole"><strong>printConsole</strong></a>(self, msg)</dt></dl>
+
+<dl><dt><a name="CtrlInterface-sendMess"><strong>sendMess</strong></a>(self)</dt></dl>
+
+<dl><dt><a name="CtrlInterface-setHost"><strong>setHost</strong></a>(self, host)</dt></dl>
+
+<dl><dt><a name="CtrlInterface-setPort"><strong>setPort</strong></a>(self, port)</dt></dl>
+
+<dl><dt><a name="CtrlInterface-setPseudo"><strong>setPseudo</strong></a>(self, pseudo)</dt></dl>
+
+<hr>
+Methods inherited from <a href="PyQt4.QtGui.html#QWidget">PyQt4.QtGui.QWidget</a>:<br>
+<dl><dt><a name="CtrlInterface-acceptDrops"><strong>acceptDrops</strong></a>(...)</dt><dd><tt><a href="PyQt4.QtGui.html#QWidget">QWidget</a>.<a href="#CtrlInterface-acceptDrops">acceptDrops</a>()&nbsp;-&gt;&nbsp;bool</tt></dd></dl>
+
+<dl><dt><a name="CtrlInterface-accessibleDescription"><strong>accessibleDescription</strong></a>(...)</dt><dd><tt><a href="PyQt4.QtGui.html#QWidget">QWidget</a>.<a href="#CtrlInterface-accessibleDescription">accessibleDescription</a>()&nbsp;-&gt;&nbsp;str</tt></dd></dl>
+
+<dl><dt><a name="CtrlInterface-accessibleName"><strong>accessibleName</strong></a>(...)</dt><dd><tt><a href="PyQt4.QtGui.html#QWidget">QWidget</a>.<a href="#CtrlInterface-accessibleName">accessibleName</a>()&nbsp;-&gt;&nbsp;str</tt></dd></dl>
+
+<dl><dt><a name="CtrlInterface-actionEvent"><strong>actionEvent</strong></a>(...)</dt><dd><tt><a href="PyQt4.QtGui.html#QWidget">QWidget</a>.<a href="#CtrlInterface-actionEvent">actionEvent</a>(QActionEvent)</tt></dd></dl>
+
+<dl><dt><a name="CtrlInterface-actions"><strong>actions</strong></a>(...)</dt><dd><tt><a href="PyQt4.QtGui.html#QWidget">QWidget</a>.<a href="#CtrlInterface-actions">actions</a>()&nbsp;-&gt;&nbsp;list-of-QAction</tt></dd></dl>
+
+<dl><dt><a name="CtrlInterface-activateWindow"><strong>activateWindow</strong></a>(...)</dt><dd><tt><a href="PyQt4.QtGui.html#QWidget">QWidget</a>.<a href="#CtrlInterface-activateWindow">activateWindow</a>()</tt></dd></dl>
+
+<dl><dt><a name="CtrlInterface-addAction"><strong>addAction</strong></a>(...)</dt><dd><tt><a href="PyQt4.QtGui.html#QWidget">QWidget</a>.<a href="#CtrlInterface-addAction">addAction</a>(QAction)</tt></dd></dl>
+
+<dl><dt><a name="CtrlInterface-addActions"><strong>addActions</strong></a>(...)</dt><dd><tt><a href="PyQt4.QtGui.html#QWidget">QWidget</a>.<a href="#CtrlInterface-addActions">addActions</a>(list-of-QAction)</tt></dd></dl>
+
+<dl><dt><a name="CtrlInterface-adjustSize"><strong>adjustSize</strong></a>(...)</dt><dd><tt><a href="PyQt4.QtGui.html#QWidget">QWidget</a>.<a href="#CtrlInterface-adjustSize">adjustSize</a>()</tt></dd></dl>
+
+<dl><dt><a name="CtrlInterface-autoFillBackground"><strong>autoFillBackground</strong></a>(...)</dt><dd><tt><a href="PyQt4.QtGui.html#QWidget">QWidget</a>.<a href="#CtrlInterface-autoFillBackground">autoFillBackground</a>()&nbsp;-&gt;&nbsp;bool</tt></dd></dl>
+
+<dl><dt><a name="CtrlInterface-backgroundRole"><strong>backgroundRole</strong></a>(...)</dt><dd><tt><a href="PyQt4.QtGui.html#QWidget">QWidget</a>.<a href="#CtrlInterface-backgroundRole">backgroundRole</a>()&nbsp;-&gt;&nbsp;QPalette.ColorRole</tt></dd></dl>
+
+<dl><dt><a name="CtrlInterface-baseSize"><strong>baseSize</strong></a>(...)</dt><dd><tt><a href="PyQt4.QtGui.html#QWidget">QWidget</a>.<a href="#CtrlInterface-baseSize">baseSize</a>()&nbsp;-&gt;&nbsp;QSize</tt></dd></dl>
+
+<dl><dt><a name="CtrlInterface-changeEvent"><strong>changeEvent</strong></a>(...)</dt><dd><tt><a href="PyQt4.QtGui.html#QWidget">QWidget</a>.<a href="#CtrlInterface-changeEvent">changeEvent</a>(QEvent)</tt></dd></dl>
+
+<dl><dt><a name="CtrlInterface-childAt"><strong>childAt</strong></a>(...)</dt><dd><tt><a href="PyQt4.QtGui.html#QWidget">QWidget</a>.<a href="#CtrlInterface-childAt">childAt</a>(QPoint)&nbsp;-&gt;&nbsp;<a href="PyQt4.QtGui.html#QWidget">QWidget</a><br>
+<a href="PyQt4.QtGui.html#QWidget">QWidget</a>.<a href="#CtrlInterface-childAt">childAt</a>(int,&nbsp;int)&nbsp;-&gt;&nbsp;<a href="PyQt4.QtGui.html#QWidget">QWidget</a></tt></dd></dl>
+
+<dl><dt><a name="CtrlInterface-childrenRect"><strong>childrenRect</strong></a>(...)</dt><dd><tt><a href="PyQt4.QtGui.html#QWidget">QWidget</a>.<a href="#CtrlInterface-childrenRect">childrenRect</a>()&nbsp;-&gt;&nbsp;QRect</tt></dd></dl>
+
+<dl><dt><a name="CtrlInterface-childrenRegion"><strong>childrenRegion</strong></a>(...)</dt><dd><tt><a href="PyQt4.QtGui.html#QWidget">QWidget</a>.<a href="#CtrlInterface-childrenRegion">childrenRegion</a>()&nbsp;-&gt;&nbsp;QRegion</tt></dd></dl>
+
+<dl><dt><a name="CtrlInterface-clearFocus"><strong>clearFocus</strong></a>(...)</dt><dd><tt><a href="PyQt4.QtGui.html#QWidget">QWidget</a>.<a href="#CtrlInterface-clearFocus">clearFocus</a>()</tt></dd></dl>
+
+<dl><dt><a name="CtrlInterface-clearMask"><strong>clearMask</strong></a>(...)</dt><dd><tt><a href="PyQt4.QtGui.html#QWidget">QWidget</a>.<a href="#CtrlInterface-clearMask">clearMask</a>()</tt></dd></dl>
+
+<dl><dt><a name="CtrlInterface-close"><strong>close</strong></a>(...)</dt><dd><tt><a href="PyQt4.QtGui.html#QWidget">QWidget</a>.<a href="#CtrlInterface-close">close</a>()&nbsp;-&gt;&nbsp;bool</tt></dd></dl>
+
+<dl><dt><a name="CtrlInterface-closeEvent"><strong>closeEvent</strong></a>(...)</dt><dd><tt><a href="PyQt4.QtGui.html#QWidget">QWidget</a>.<a href="#CtrlInterface-closeEvent">closeEvent</a>(QCloseEvent)</tt></dd></dl>
+
+<dl><dt><a name="CtrlInterface-contentsMargins"><strong>contentsMargins</strong></a>(...)</dt><dd><tt><a href="PyQt4.QtGui.html#QWidget">QWidget</a>.<a href="#CtrlInterface-contentsMargins">contentsMargins</a>()&nbsp;-&gt;&nbsp;QMargins</tt></dd></dl>
+
+<dl><dt><a name="CtrlInterface-contentsRect"><strong>contentsRect</strong></a>(...)</dt><dd><tt><a href="PyQt4.QtGui.html#QWidget">QWidget</a>.<a href="#CtrlInterface-contentsRect">contentsRect</a>()&nbsp;-&gt;&nbsp;QRect</tt></dd></dl>
+
+<dl><dt><a name="CtrlInterface-contextMenuEvent"><strong>contextMenuEvent</strong></a>(...)</dt><dd><tt><a href="PyQt4.QtGui.html#QWidget">QWidget</a>.<a href="#CtrlInterface-contextMenuEvent">contextMenuEvent</a>(QContextMenuEvent)</tt></dd></dl>
+
+<dl><dt><a name="CtrlInterface-contextMenuPolicy"><strong>contextMenuPolicy</strong></a>(...)</dt><dd><tt><a href="PyQt4.QtGui.html#QWidget">QWidget</a>.<a href="#CtrlInterface-contextMenuPolicy">contextMenuPolicy</a>()&nbsp;-&gt;&nbsp;Qt.ContextMenuPolicy</tt></dd></dl>
+
+<dl><dt><a name="CtrlInterface-create"><strong>create</strong></a>(...)</dt><dd><tt><a href="PyQt4.QtGui.html#QWidget">QWidget</a>.<a href="#CtrlInterface-create">create</a>(int&nbsp;window=0,&nbsp;bool&nbsp;initializeWindow=True,&nbsp;bool&nbsp;destroyOldWindow=True)</tt></dd></dl>
+
+<dl><dt><a name="CtrlInterface-cursor"><strong>cursor</strong></a>(...)</dt><dd><tt><a href="PyQt4.QtGui.html#QWidget">QWidget</a>.<a href="#CtrlInterface-cursor">cursor</a>()&nbsp;-&gt;&nbsp;QCursor</tt></dd></dl>
+
+<strong>customContextMenuRequested</strong> = &lt;unbound signal customContextMenuRequested&gt;
+<dl><dt><a name="CtrlInterface-destroy"><strong>destroy</strong></a>(...)</dt><dd><tt><a href="PyQt4.QtGui.html#QWidget">QWidget</a>.<a href="#CtrlInterface-destroy">destroy</a>(bool&nbsp;destroyWindow=True,&nbsp;bool&nbsp;destroySubWindows=True)</tt></dd></dl>
+
+<dl><dt><a name="CtrlInterface-devType"><strong>devType</strong></a>(...)</dt><dd><tt><a href="PyQt4.QtGui.html#QWidget">QWidget</a>.<a href="#CtrlInterface-devType">devType</a>()&nbsp;-&gt;&nbsp;int</tt></dd></dl>
+
+<dl><dt><a name="CtrlInterface-dragEnterEvent"><strong>dragEnterEvent</strong></a>(...)</dt><dd><tt><a href="PyQt4.QtGui.html#QWidget">QWidget</a>.<a href="#CtrlInterface-dragEnterEvent">dragEnterEvent</a>(QDragEnterEvent)</tt></dd></dl>
+
+<dl><dt><a name="CtrlInterface-dragLeaveEvent"><strong>dragLeaveEvent</strong></a>(...)</dt><dd><tt><a href="PyQt4.QtGui.html#QWidget">QWidget</a>.<a href="#CtrlInterface-dragLeaveEvent">dragLeaveEvent</a>(QDragLeaveEvent)</tt></dd></dl>
+
+<dl><dt><a name="CtrlInterface-dragMoveEvent"><strong>dragMoveEvent</strong></a>(...)</dt><dd><tt><a href="PyQt4.QtGui.html#QWidget">QWidget</a>.<a href="#CtrlInterface-dragMoveEvent">dragMoveEvent</a>(QDragMoveEvent)</tt></dd></dl>
+
+<dl><dt><a name="CtrlInterface-dropEvent"><strong>dropEvent</strong></a>(...)</dt><dd><tt><a href="PyQt4.QtGui.html#QWidget">QWidget</a>.<a href="#CtrlInterface-dropEvent">dropEvent</a>(QDropEvent)</tt></dd></dl>
+
+<dl><dt><a name="CtrlInterface-effectiveWinId"><strong>effectiveWinId</strong></a>(...)</dt><dd><tt><a href="PyQt4.QtGui.html#QWidget">QWidget</a>.<a href="#CtrlInterface-effectiveWinId">effectiveWinId</a>()&nbsp;-&gt;&nbsp;int</tt></dd></dl>
+
+<dl><dt><a name="CtrlInterface-enabledChange"><strong>enabledChange</strong></a>(...)</dt><dd><tt><a href="PyQt4.QtGui.html#QWidget">QWidget</a>.<a href="#CtrlInterface-enabledChange">enabledChange</a>(bool)</tt></dd></dl>
+
+<dl><dt><a name="CtrlInterface-ensurePolished"><strong>ensurePolished</strong></a>(...)</dt><dd><tt><a href="PyQt4.QtGui.html#QWidget">QWidget</a>.<a href="#CtrlInterface-ensurePolished">ensurePolished</a>()</tt></dd></dl>
+
+<dl><dt><a name="CtrlInterface-enterEvent"><strong>enterEvent</strong></a>(...)</dt><dd><tt><a href="PyQt4.QtGui.html#QWidget">QWidget</a>.<a href="#CtrlInterface-enterEvent">enterEvent</a>(QEvent)</tt></dd></dl>
+
+<dl><dt><a name="CtrlInterface-event"><strong>event</strong></a>(...)</dt><dd><tt><a href="PyQt4.QtGui.html#QWidget">QWidget</a>.<a href="#CtrlInterface-event">event</a>(QEvent)&nbsp;-&gt;&nbsp;bool</tt></dd></dl>
+
+<dl><dt><a name="CtrlInterface-find"><strong>find</strong></a>(...)</dt><dd><tt><a href="PyQt4.QtGui.html#QWidget">QWidget</a>.<a href="#CtrlInterface-find">find</a>(int)&nbsp;-&gt;&nbsp;<a href="PyQt4.QtGui.html#QWidget">QWidget</a></tt></dd></dl>
+
+<dl><dt><a name="CtrlInterface-focusInEvent"><strong>focusInEvent</strong></a>(...)</dt><dd><tt><a href="PyQt4.QtGui.html#QWidget">QWidget</a>.<a href="#CtrlInterface-focusInEvent">focusInEvent</a>(QFocusEvent)</tt></dd></dl>
+
+<dl><dt><a name="CtrlInterface-focusNextChild"><strong>focusNextChild</strong></a>(...)</dt><dd><tt><a href="PyQt4.QtGui.html#QWidget">QWidget</a>.<a href="#CtrlInterface-focusNextChild">focusNextChild</a>()&nbsp;-&gt;&nbsp;bool</tt></dd></dl>
+
+<dl><dt><a name="CtrlInterface-focusNextPrevChild"><strong>focusNextPrevChild</strong></a>(...)</dt><dd><tt><a href="PyQt4.QtGui.html#QWidget">QWidget</a>.<a href="#CtrlInterface-focusNextPrevChild">focusNextPrevChild</a>(bool)&nbsp;-&gt;&nbsp;bool</tt></dd></dl>
+
+<dl><dt><a name="CtrlInterface-focusOutEvent"><strong>focusOutEvent</strong></a>(...)</dt><dd><tt><a href="PyQt4.QtGui.html#QWidget">QWidget</a>.<a href="#CtrlInterface-focusOutEvent">focusOutEvent</a>(QFocusEvent)</tt></dd></dl>
+
+<dl><dt><a name="CtrlInterface-focusPolicy"><strong>focusPolicy</strong></a>(...)</dt><dd><tt><a href="PyQt4.QtGui.html#QWidget">QWidget</a>.<a href="#CtrlInterface-focusPolicy">focusPolicy</a>()&nbsp;-&gt;&nbsp;Qt.FocusPolicy</tt></dd></dl>
+
+<dl><dt><a name="CtrlInterface-focusPreviousChild"><strong>focusPreviousChild</strong></a>(...)</dt><dd><tt><a href="PyQt4.QtGui.html#QWidget">QWidget</a>.<a href="#CtrlInterface-focusPreviousChild">focusPreviousChild</a>()&nbsp;-&gt;&nbsp;bool</tt></dd></dl>
+
+<dl><dt><a name="CtrlInterface-focusProxy"><strong>focusProxy</strong></a>(...)</dt><dd><tt><a href="PyQt4.QtGui.html#QWidget">QWidget</a>.<a href="#CtrlInterface-focusProxy">focusProxy</a>()&nbsp;-&gt;&nbsp;<a href="PyQt4.QtGui.html#QWidget">QWidget</a></tt></dd></dl>
+
+<dl><dt><a name="CtrlInterface-focusWidget"><strong>focusWidget</strong></a>(...)</dt><dd><tt><a href="PyQt4.QtGui.html#QWidget">QWidget</a>.<a href="#CtrlInterface-focusWidget">focusWidget</a>()&nbsp;-&gt;&nbsp;<a href="PyQt4.QtGui.html#QWidget">QWidget</a></tt></dd></dl>
+
+<dl><dt><a name="CtrlInterface-font"><strong>font</strong></a>(...)</dt><dd><tt><a href="PyQt4.QtGui.html#QWidget">QWidget</a>.<a href="#CtrlInterface-font">font</a>()&nbsp;-&gt;&nbsp;QFont</tt></dd></dl>
+
+<dl><dt><a name="CtrlInterface-fontChange"><strong>fontChange</strong></a>(...)</dt><dd><tt><a href="PyQt4.QtGui.html#QWidget">QWidget</a>.<a href="#CtrlInterface-fontChange">fontChange</a>(QFont)</tt></dd></dl>
+
+<dl><dt><a name="CtrlInterface-fontInfo"><strong>fontInfo</strong></a>(...)</dt><dd><tt><a href="PyQt4.QtGui.html#QWidget">QWidget</a>.<a href="#CtrlInterface-fontInfo">fontInfo</a>()&nbsp;-&gt;&nbsp;QFontInfo</tt></dd></dl>
+
+<dl><dt><a name="CtrlInterface-fontMetrics"><strong>fontMetrics</strong></a>(...)</dt><dd><tt><a href="PyQt4.QtGui.html#QWidget">QWidget</a>.<a href="#CtrlInterface-fontMetrics">fontMetrics</a>()&nbsp;-&gt;&nbsp;QFontMetrics</tt></dd></dl>
+
+<dl><dt><a name="CtrlInterface-foregroundRole"><strong>foregroundRole</strong></a>(...)</dt><dd><tt><a href="PyQt4.QtGui.html#QWidget">QWidget</a>.<a href="#CtrlInterface-foregroundRole">foregroundRole</a>()&nbsp;-&gt;&nbsp;QPalette.ColorRole</tt></dd></dl>
+
+<dl><dt><a name="CtrlInterface-frameGeometry"><strong>frameGeometry</strong></a>(...)</dt><dd><tt><a href="PyQt4.QtGui.html#QWidget">QWidget</a>.<a href="#CtrlInterface-frameGeometry">frameGeometry</a>()&nbsp;-&gt;&nbsp;QRect</tt></dd></dl>
+
+<dl><dt><a name="CtrlInterface-frameSize"><strong>frameSize</strong></a>(...)</dt><dd><tt><a href="PyQt4.QtGui.html#QWidget">QWidget</a>.<a href="#CtrlInterface-frameSize">frameSize</a>()&nbsp;-&gt;&nbsp;QSize</tt></dd></dl>
+
+<dl><dt><a name="CtrlInterface-geometry"><strong>geometry</strong></a>(...)</dt><dd><tt><a href="PyQt4.QtGui.html#QWidget">QWidget</a>.<a href="#CtrlInterface-geometry">geometry</a>()&nbsp;-&gt;&nbsp;QRect</tt></dd></dl>
+
+<dl><dt><a name="CtrlInterface-getContentsMargins"><strong>getContentsMargins</strong></a>(...)</dt><dd><tt><a href="PyQt4.QtGui.html#QWidget">QWidget</a>.<a href="#CtrlInterface-getContentsMargins">getContentsMargins</a>()&nbsp;-&gt;&nbsp;(int,&nbsp;int,&nbsp;int,&nbsp;int)</tt></dd></dl>
+
+<dl><dt><a name="CtrlInterface-grabGesture"><strong>grabGesture</strong></a>(...)</dt><dd><tt><a href="PyQt4.QtGui.html#QWidget">QWidget</a>.<a href="#CtrlInterface-grabGesture">grabGesture</a>(Qt.GestureType,&nbsp;Qt.GestureFlags&nbsp;flags=Qt.GestureFlags(0))</tt></dd></dl>
+
+<dl><dt><a name="CtrlInterface-grabKeyboard"><strong>grabKeyboard</strong></a>(...)</dt><dd><tt><a href="PyQt4.QtGui.html#QWidget">QWidget</a>.<a href="#CtrlInterface-grabKeyboard">grabKeyboard</a>()</tt></dd></dl>
+
+<dl><dt><a name="CtrlInterface-grabMouse"><strong>grabMouse</strong></a>(...)</dt><dd><tt><a href="PyQt4.QtGui.html#QWidget">QWidget</a>.<a href="#CtrlInterface-grabMouse">grabMouse</a>()<br>
+<a href="PyQt4.QtGui.html#QWidget">QWidget</a>.<a href="#CtrlInterface-grabMouse">grabMouse</a>(QCursor)</tt></dd></dl>
+
+<dl><dt><a name="CtrlInterface-grabShortcut"><strong>grabShortcut</strong></a>(...)</dt><dd><tt><a href="PyQt4.QtGui.html#QWidget">QWidget</a>.<a href="#CtrlInterface-grabShortcut">grabShortcut</a>(QKeySequence,&nbsp;Qt.ShortcutContext&nbsp;context=Qt.WindowShortcut)&nbsp;-&gt;&nbsp;int</tt></dd></dl>
+
+<dl><dt><a name="CtrlInterface-graphicsEffect"><strong>graphicsEffect</strong></a>(...)</dt><dd><tt><a href="PyQt4.QtGui.html#QWidget">QWidget</a>.<a href="#CtrlInterface-graphicsEffect">graphicsEffect</a>()&nbsp;-&gt;&nbsp;QGraphicsEffect</tt></dd></dl>
+
+<dl><dt><a name="CtrlInterface-graphicsProxyWidget"><strong>graphicsProxyWidget</strong></a>(...)</dt><dd><tt><a href="PyQt4.QtGui.html#QWidget">QWidget</a>.<a href="#CtrlInterface-graphicsProxyWidget">graphicsProxyWidget</a>()&nbsp;-&gt;&nbsp;QGraphicsProxyWidget</tt></dd></dl>
+
+<dl><dt><a name="CtrlInterface-handle"><strong>handle</strong></a>(...)</dt><dd><tt><a href="PyQt4.QtGui.html#QWidget">QWidget</a>.<a href="#CtrlInterface-handle">handle</a>()&nbsp;-&gt;&nbsp;int</tt></dd></dl>
+
+<dl><dt><a name="CtrlInterface-hasFocus"><strong>hasFocus</strong></a>(...)</dt><dd><tt><a href="PyQt4.QtGui.html#QWidget">QWidget</a>.<a href="#CtrlInterface-hasFocus">hasFocus</a>()&nbsp;-&gt;&nbsp;bool</tt></dd></dl>
+
+<dl><dt><a name="CtrlInterface-hasMouseTracking"><strong>hasMouseTracking</strong></a>(...)</dt><dd><tt><a href="PyQt4.QtGui.html#QWidget">QWidget</a>.<a href="#CtrlInterface-hasMouseTracking">hasMouseTracking</a>()&nbsp;-&gt;&nbsp;bool</tt></dd></dl>
+
+<dl><dt><a name="CtrlInterface-height"><strong>height</strong></a>(...)</dt><dd><tt><a href="PyQt4.QtGui.html#QWidget">QWidget</a>.<a href="#CtrlInterface-height">height</a>()&nbsp;-&gt;&nbsp;int</tt></dd></dl>
+
+<dl><dt><a name="CtrlInterface-heightForWidth"><strong>heightForWidth</strong></a>(...)</dt><dd><tt><a href="PyQt4.QtGui.html#QWidget">QWidget</a>.<a href="#CtrlInterface-heightForWidth">heightForWidth</a>(int)&nbsp;-&gt;&nbsp;int</tt></dd></dl>
+
+<dl><dt><a name="CtrlInterface-hide"><strong>hide</strong></a>(...)</dt><dd><tt><a href="PyQt4.QtGui.html#QWidget">QWidget</a>.<a href="#CtrlInterface-hide">hide</a>()</tt></dd></dl>
+
+<dl><dt><a name="CtrlInterface-hideEvent"><strong>hideEvent</strong></a>(...)</dt><dd><tt><a href="PyQt4.QtGui.html#QWidget">QWidget</a>.<a href="#CtrlInterface-hideEvent">hideEvent</a>(QHideEvent)</tt></dd></dl>
+
+<dl><dt><a name="CtrlInterface-inputContext"><strong>inputContext</strong></a>(...)</dt><dd><tt><a href="PyQt4.QtGui.html#QWidget">QWidget</a>.<a href="#CtrlInterface-inputContext">inputContext</a>()&nbsp;-&gt;&nbsp;QInputContext</tt></dd></dl>
+
+<dl><dt><a name="CtrlInterface-inputMethodEvent"><strong>inputMethodEvent</strong></a>(...)</dt><dd><tt><a href="PyQt4.QtGui.html#QWidget">QWidget</a>.<a href="#CtrlInterface-inputMethodEvent">inputMethodEvent</a>(QInputMethodEvent)</tt></dd></dl>
+
+<dl><dt><a name="CtrlInterface-inputMethodHints"><strong>inputMethodHints</strong></a>(...)</dt><dd><tt><a href="PyQt4.QtGui.html#QWidget">QWidget</a>.<a href="#CtrlInterface-inputMethodHints">inputMethodHints</a>()&nbsp;-&gt;&nbsp;Qt.InputMethodHints</tt></dd></dl>
+
+<dl><dt><a name="CtrlInterface-inputMethodQuery"><strong>inputMethodQuery</strong></a>(...)</dt><dd><tt><a href="PyQt4.QtGui.html#QWidget">QWidget</a>.<a href="#CtrlInterface-inputMethodQuery">inputMethodQuery</a>(Qt.InputMethodQuery)&nbsp;-&gt;&nbsp;object</tt></dd></dl>
+
+<dl><dt><a name="CtrlInterface-insertAction"><strong>insertAction</strong></a>(...)</dt><dd><tt><a href="PyQt4.QtGui.html#QWidget">QWidget</a>.<a href="#CtrlInterface-insertAction">insertAction</a>(QAction,&nbsp;QAction)</tt></dd></dl>
+
+<dl><dt><a name="CtrlInterface-insertActions"><strong>insertActions</strong></a>(...)</dt><dd><tt><a href="PyQt4.QtGui.html#QWidget">QWidget</a>.<a href="#CtrlInterface-insertActions">insertActions</a>(QAction,&nbsp;list-of-QAction)</tt></dd></dl>
+
+<dl><dt><a name="CtrlInterface-isActiveWindow"><strong>isActiveWindow</strong></a>(...)</dt><dd><tt><a href="PyQt4.QtGui.html#QWidget">QWidget</a>.<a href="#CtrlInterface-isActiveWindow">isActiveWindow</a>()&nbsp;-&gt;&nbsp;bool</tt></dd></dl>
+
+<dl><dt><a name="CtrlInterface-isAncestorOf"><strong>isAncestorOf</strong></a>(...)</dt><dd><tt><a href="PyQt4.QtGui.html#QWidget">QWidget</a>.<a href="#CtrlInterface-isAncestorOf">isAncestorOf</a>(<a href="PyQt4.QtGui.html#QWidget">QWidget</a>)&nbsp;-&gt;&nbsp;bool</tt></dd></dl>
+
+<dl><dt><a name="CtrlInterface-isEnabled"><strong>isEnabled</strong></a>(...)</dt><dd><tt><a href="PyQt4.QtGui.html#QWidget">QWidget</a>.<a href="#CtrlInterface-isEnabled">isEnabled</a>()&nbsp;-&gt;&nbsp;bool</tt></dd></dl>
+
+<dl><dt><a name="CtrlInterface-isEnabledTo"><strong>isEnabledTo</strong></a>(...)</dt><dd><tt><a href="PyQt4.QtGui.html#QWidget">QWidget</a>.<a href="#CtrlInterface-isEnabledTo">isEnabledTo</a>(<a href="PyQt4.QtGui.html#QWidget">QWidget</a>)&nbsp;-&gt;&nbsp;bool</tt></dd></dl>
+
+<dl><dt><a name="CtrlInterface-isEnabledToTLW"><strong>isEnabledToTLW</strong></a>(...)</dt><dd><tt><a href="PyQt4.QtGui.html#QWidget">QWidget</a>.<a href="#CtrlInterface-isEnabledToTLW">isEnabledToTLW</a>()&nbsp;-&gt;&nbsp;bool</tt></dd></dl>
+
+<dl><dt><a name="CtrlInterface-isFullScreen"><strong>isFullScreen</strong></a>(...)</dt><dd><tt><a href="PyQt4.QtGui.html#QWidget">QWidget</a>.<a href="#CtrlInterface-isFullScreen">isFullScreen</a>()&nbsp;-&gt;&nbsp;bool</tt></dd></dl>
+
+<dl><dt><a name="CtrlInterface-isHidden"><strong>isHidden</strong></a>(...)</dt><dd><tt><a href="PyQt4.QtGui.html#QWidget">QWidget</a>.<a href="#CtrlInterface-isHidden">isHidden</a>()&nbsp;-&gt;&nbsp;bool</tt></dd></dl>
+
+<dl><dt><a name="CtrlInterface-isLeftToRight"><strong>isLeftToRight</strong></a>(...)</dt><dd><tt><a href="PyQt4.QtGui.html#QWidget">QWidget</a>.<a href="#CtrlInterface-isLeftToRight">isLeftToRight</a>()&nbsp;-&gt;&nbsp;bool</tt></dd></dl>
+
+<dl><dt><a name="CtrlInterface-isMaximized"><strong>isMaximized</strong></a>(...)</dt><dd><tt><a href="PyQt4.QtGui.html#QWidget">QWidget</a>.<a href="#CtrlInterface-isMaximized">isMaximized</a>()&nbsp;-&gt;&nbsp;bool</tt></dd></dl>
+
+<dl><dt><a name="CtrlInterface-isMinimized"><strong>isMinimized</strong></a>(...)</dt><dd><tt><a href="PyQt4.QtGui.html#QWidget">QWidget</a>.<a href="#CtrlInterface-isMinimized">isMinimized</a>()&nbsp;-&gt;&nbsp;bool</tt></dd></dl>
+
+<dl><dt><a name="CtrlInterface-isModal"><strong>isModal</strong></a>(...)</dt><dd><tt><a href="PyQt4.QtGui.html#QWidget">QWidget</a>.<a href="#CtrlInterface-isModal">isModal</a>()&nbsp;-&gt;&nbsp;bool</tt></dd></dl>
+
+<dl><dt><a name="CtrlInterface-isRightToLeft"><strong>isRightToLeft</strong></a>(...)</dt><dd><tt><a href="PyQt4.QtGui.html#QWidget">QWidget</a>.<a href="#CtrlInterface-isRightToLeft">isRightToLeft</a>()&nbsp;-&gt;&nbsp;bool</tt></dd></dl>
+
+<dl><dt><a name="CtrlInterface-isTopLevel"><strong>isTopLevel</strong></a>(...)</dt><dd><tt><a href="PyQt4.QtGui.html#QWidget">QWidget</a>.<a href="#CtrlInterface-isTopLevel">isTopLevel</a>()&nbsp;-&gt;&nbsp;bool</tt></dd></dl>
+
+<dl><dt><a name="CtrlInterface-isVisible"><strong>isVisible</strong></a>(...)</dt><dd><tt><a href="PyQt4.QtGui.html#QWidget">QWidget</a>.<a href="#CtrlInterface-isVisible">isVisible</a>()&nbsp;-&gt;&nbsp;bool</tt></dd></dl>
+
+<dl><dt><a name="CtrlInterface-isVisibleTo"><strong>isVisibleTo</strong></a>(...)</dt><dd><tt><a href="PyQt4.QtGui.html#QWidget">QWidget</a>.<a href="#CtrlInterface-isVisibleTo">isVisibleTo</a>(<a href="PyQt4.QtGui.html#QWidget">QWidget</a>)&nbsp;-&gt;&nbsp;bool</tt></dd></dl>
+
+<dl><dt><a name="CtrlInterface-isWindow"><strong>isWindow</strong></a>(...)</dt><dd><tt><a href="PyQt4.QtGui.html#QWidget">QWidget</a>.<a href="#CtrlInterface-isWindow">isWindow</a>()&nbsp;-&gt;&nbsp;bool</tt></dd></dl>
+
+<dl><dt><a name="CtrlInterface-isWindowModified"><strong>isWindowModified</strong></a>(...)</dt><dd><tt><a href="PyQt4.QtGui.html#QWidget">QWidget</a>.<a href="#CtrlInterface-isWindowModified">isWindowModified</a>()&nbsp;-&gt;&nbsp;bool</tt></dd></dl>
+
+<dl><dt><a name="CtrlInterface-keyPressEvent"><strong>keyPressEvent</strong></a>(...)</dt><dd><tt><a href="PyQt4.QtGui.html#QWidget">QWidget</a>.<a href="#CtrlInterface-keyPressEvent">keyPressEvent</a>(QKeyEvent)</tt></dd></dl>
+
+<dl><dt><a name="CtrlInterface-keyReleaseEvent"><strong>keyReleaseEvent</strong></a>(...)</dt><dd><tt><a href="PyQt4.QtGui.html#QWidget">QWidget</a>.<a href="#CtrlInterface-keyReleaseEvent">keyReleaseEvent</a>(QKeyEvent)</tt></dd></dl>
+
+<dl><dt><a name="CtrlInterface-keyboardGrabber"><strong>keyboardGrabber</strong></a>(...)</dt><dd><tt><a href="PyQt4.QtGui.html#QWidget">QWidget</a>.<a href="#CtrlInterface-keyboardGrabber">keyboardGrabber</a>()&nbsp;-&gt;&nbsp;<a href="PyQt4.QtGui.html#QWidget">QWidget</a></tt></dd></dl>
+
+<dl><dt><a name="CtrlInterface-languageChange"><strong>languageChange</strong></a>(...)</dt><dd><tt><a href="PyQt4.QtGui.html#QWidget">QWidget</a>.<a href="#CtrlInterface-languageChange">languageChange</a>()</tt></dd></dl>
+
+<dl><dt><a name="CtrlInterface-layout"><strong>layout</strong></a>(...)</dt><dd><tt><a href="PyQt4.QtGui.html#QWidget">QWidget</a>.<a href="#CtrlInterface-layout">layout</a>()&nbsp;-&gt;&nbsp;QLayout</tt></dd></dl>
+
+<dl><dt><a name="CtrlInterface-layoutDirection"><strong>layoutDirection</strong></a>(...)</dt><dd><tt><a href="PyQt4.QtGui.html#QWidget">QWidget</a>.<a href="#CtrlInterface-layoutDirection">layoutDirection</a>()&nbsp;-&gt;&nbsp;Qt.LayoutDirection</tt></dd></dl>
+
+<dl><dt><a name="CtrlInterface-leaveEvent"><strong>leaveEvent</strong></a>(...)</dt><dd><tt><a href="PyQt4.QtGui.html#QWidget">QWidget</a>.<a href="#CtrlInterface-leaveEvent">leaveEvent</a>(QEvent)</tt></dd></dl>
+
+<dl><dt><a name="CtrlInterface-locale"><strong>locale</strong></a>(...)</dt><dd><tt><a href="PyQt4.QtGui.html#QWidget">QWidget</a>.<a href="#CtrlInterface-locale">locale</a>()&nbsp;-&gt;&nbsp;QLocale</tt></dd></dl>
+
+<dl><dt><a name="CtrlInterface-lower"><strong>lower</strong></a>(...)</dt><dd><tt><a href="PyQt4.QtGui.html#QWidget">QWidget</a>.<a href="#CtrlInterface-lower">lower</a>()</tt></dd></dl>
+
+<dl><dt><a name="CtrlInterface-mapFrom"><strong>mapFrom</strong></a>(...)</dt><dd><tt><a href="PyQt4.QtGui.html#QWidget">QWidget</a>.<a href="#CtrlInterface-mapFrom">mapFrom</a>(<a href="PyQt4.QtGui.html#QWidget">QWidget</a>,&nbsp;QPoint)&nbsp;-&gt;&nbsp;QPoint</tt></dd></dl>
+
+<dl><dt><a name="CtrlInterface-mapFromGlobal"><strong>mapFromGlobal</strong></a>(...)</dt><dd><tt><a href="PyQt4.QtGui.html#QWidget">QWidget</a>.<a href="#CtrlInterface-mapFromGlobal">mapFromGlobal</a>(QPoint)&nbsp;-&gt;&nbsp;QPoint</tt></dd></dl>
+
+<dl><dt><a name="CtrlInterface-mapFromParent"><strong>mapFromParent</strong></a>(...)</dt><dd><tt><a href="PyQt4.QtGui.html#QWidget">QWidget</a>.<a href="#CtrlInterface-mapFromParent">mapFromParent</a>(QPoint)&nbsp;-&gt;&nbsp;QPoint</tt></dd></dl>
+
+<dl><dt><a name="CtrlInterface-mapTo"><strong>mapTo</strong></a>(...)</dt><dd><tt><a href="PyQt4.QtGui.html#QWidget">QWidget</a>.<a href="#CtrlInterface-mapTo">mapTo</a>(<a href="PyQt4.QtGui.html#QWidget">QWidget</a>,&nbsp;QPoint)&nbsp;-&gt;&nbsp;QPoint</tt></dd></dl>
+
+<dl><dt><a name="CtrlInterface-mapToGlobal"><strong>mapToGlobal</strong></a>(...)</dt><dd><tt><a href="PyQt4.QtGui.html#QWidget">QWidget</a>.<a href="#CtrlInterface-mapToGlobal">mapToGlobal</a>(QPoint)&nbsp;-&gt;&nbsp;QPoint</tt></dd></dl>
+
+<dl><dt><a name="CtrlInterface-mapToParent"><strong>mapToParent</strong></a>(...)</dt><dd><tt><a href="PyQt4.QtGui.html#QWidget">QWidget</a>.<a href="#CtrlInterface-mapToParent">mapToParent</a>(QPoint)&nbsp;-&gt;&nbsp;QPoint</tt></dd></dl>
+
+<dl><dt><a name="CtrlInterface-mask"><strong>mask</strong></a>(...)</dt><dd><tt><a href="PyQt4.QtGui.html#QWidget">QWidget</a>.<a href="#CtrlInterface-mask">mask</a>()&nbsp;-&gt;&nbsp;QRegion</tt></dd></dl>
+
+<dl><dt><a name="CtrlInterface-maximumHeight"><strong>maximumHeight</strong></a>(...)</dt><dd><tt><a href="PyQt4.QtGui.html#QWidget">QWidget</a>.<a href="#CtrlInterface-maximumHeight">maximumHeight</a>()&nbsp;-&gt;&nbsp;int</tt></dd></dl>
+
+<dl><dt><a name="CtrlInterface-maximumSize"><strong>maximumSize</strong></a>(...)</dt><dd><tt><a href="PyQt4.QtGui.html#QWidget">QWidget</a>.<a href="#CtrlInterface-maximumSize">maximumSize</a>()&nbsp;-&gt;&nbsp;QSize</tt></dd></dl>
+
+<dl><dt><a name="CtrlInterface-maximumWidth"><strong>maximumWidth</strong></a>(...)</dt><dd><tt><a href="PyQt4.QtGui.html#QWidget">QWidget</a>.<a href="#CtrlInterface-maximumWidth">maximumWidth</a>()&nbsp;-&gt;&nbsp;int</tt></dd></dl>
+
+<dl><dt><a name="CtrlInterface-metric"><strong>metric</strong></a>(...)</dt><dd><tt><a href="PyQt4.QtGui.html#QWidget">QWidget</a>.<a href="#CtrlInterface-metric">metric</a>(QPaintDevice.PaintDeviceMetric)&nbsp;-&gt;&nbsp;int</tt></dd></dl>
+
+<dl><dt><a name="CtrlInterface-minimumHeight"><strong>minimumHeight</strong></a>(...)</dt><dd><tt><a href="PyQt4.QtGui.html#QWidget">QWidget</a>.<a href="#CtrlInterface-minimumHeight">minimumHeight</a>()&nbsp;-&gt;&nbsp;int</tt></dd></dl>
+
+<dl><dt><a name="CtrlInterface-minimumSize"><strong>minimumSize</strong></a>(...)</dt><dd><tt><a href="PyQt4.QtGui.html#QWidget">QWidget</a>.<a href="#CtrlInterface-minimumSize">minimumSize</a>()&nbsp;-&gt;&nbsp;QSize</tt></dd></dl>
+
+<dl><dt><a name="CtrlInterface-minimumSizeHint"><strong>minimumSizeHint</strong></a>(...)</dt><dd><tt><a href="PyQt4.QtGui.html#QWidget">QWidget</a>.<a href="#CtrlInterface-minimumSizeHint">minimumSizeHint</a>()&nbsp;-&gt;&nbsp;QSize</tt></dd></dl>
+
+<dl><dt><a name="CtrlInterface-minimumWidth"><strong>minimumWidth</strong></a>(...)</dt><dd><tt><a href="PyQt4.QtGui.html#QWidget">QWidget</a>.<a href="#CtrlInterface-minimumWidth">minimumWidth</a>()&nbsp;-&gt;&nbsp;int</tt></dd></dl>
+
+<dl><dt><a name="CtrlInterface-mouseDoubleClickEvent"><strong>mouseDoubleClickEvent</strong></a>(...)</dt><dd><tt><a href="PyQt4.QtGui.html#QWidget">QWidget</a>.<a href="#CtrlInterface-mouseDoubleClickEvent">mouseDoubleClickEvent</a>(QMouseEvent)</tt></dd></dl>
+
+<dl><dt><a name="CtrlInterface-mouseGrabber"><strong>mouseGrabber</strong></a>(...)</dt><dd><tt><a href="PyQt4.QtGui.html#QWidget">QWidget</a>.<a href="#CtrlInterface-mouseGrabber">mouseGrabber</a>()&nbsp;-&gt;&nbsp;<a href="PyQt4.QtGui.html#QWidget">QWidget</a></tt></dd></dl>
+
+<dl><dt><a name="CtrlInterface-mouseMoveEvent"><strong>mouseMoveEvent</strong></a>(...)</dt><dd><tt><a href="PyQt4.QtGui.html#QWidget">QWidget</a>.<a href="#CtrlInterface-mouseMoveEvent">mouseMoveEvent</a>(QMouseEvent)</tt></dd></dl>
+
+<dl><dt><a name="CtrlInterface-mousePressEvent"><strong>mousePressEvent</strong></a>(...)</dt><dd><tt><a href="PyQt4.QtGui.html#QWidget">QWidget</a>.<a href="#CtrlInterface-mousePressEvent">mousePressEvent</a>(QMouseEvent)</tt></dd></dl>
+
+<dl><dt><a name="CtrlInterface-mouseReleaseEvent"><strong>mouseReleaseEvent</strong></a>(...)</dt><dd><tt><a href="PyQt4.QtGui.html#QWidget">QWidget</a>.<a href="#CtrlInterface-mouseReleaseEvent">mouseReleaseEvent</a>(QMouseEvent)</tt></dd></dl>
+
+<dl><dt><a name="CtrlInterface-move"><strong>move</strong></a>(...)</dt><dd><tt><a href="PyQt4.QtGui.html#QWidget">QWidget</a>.<a href="#CtrlInterface-move">move</a>(QPoint)<br>
+<a href="PyQt4.QtGui.html#QWidget">QWidget</a>.<a href="#CtrlInterface-move">move</a>(int,&nbsp;int)</tt></dd></dl>
+
+<dl><dt><a name="CtrlInterface-moveEvent"><strong>moveEvent</strong></a>(...)</dt><dd><tt><a href="PyQt4.QtGui.html#QWidget">QWidget</a>.<a href="#CtrlInterface-moveEvent">moveEvent</a>(QMoveEvent)</tt></dd></dl>
+
+<dl><dt><a name="CtrlInterface-nativeParentWidget"><strong>nativeParentWidget</strong></a>(...)</dt><dd><tt><a href="PyQt4.QtGui.html#QWidget">QWidget</a>.<a href="#CtrlInterface-nativeParentWidget">nativeParentWidget</a>()&nbsp;-&gt;&nbsp;<a href="PyQt4.QtGui.html#QWidget">QWidget</a></tt></dd></dl>
+
+<dl><dt><a name="CtrlInterface-nextInFocusChain"><strong>nextInFocusChain</strong></a>(...)</dt><dd><tt><a href="PyQt4.QtGui.html#QWidget">QWidget</a>.<a href="#CtrlInterface-nextInFocusChain">nextInFocusChain</a>()&nbsp;-&gt;&nbsp;<a href="PyQt4.QtGui.html#QWidget">QWidget</a></tt></dd></dl>
+
+<dl><dt><a name="CtrlInterface-normalGeometry"><strong>normalGeometry</strong></a>(...)</dt><dd><tt><a href="PyQt4.QtGui.html#QWidget">QWidget</a>.<a href="#CtrlInterface-normalGeometry">normalGeometry</a>()&nbsp;-&gt;&nbsp;QRect</tt></dd></dl>
+
+<dl><dt><a name="CtrlInterface-overrideWindowFlags"><strong>overrideWindowFlags</strong></a>(...)</dt><dd><tt><a href="PyQt4.QtGui.html#QWidget">QWidget</a>.<a href="#CtrlInterface-overrideWindowFlags">overrideWindowFlags</a>(Qt.WindowFlags)</tt></dd></dl>
+
+<dl><dt><a name="CtrlInterface-overrideWindowState"><strong>overrideWindowState</strong></a>(...)</dt><dd><tt><a href="PyQt4.QtGui.html#QWidget">QWidget</a>.<a href="#CtrlInterface-overrideWindowState">overrideWindowState</a>(Qt.WindowStates)</tt></dd></dl>
+
+<dl><dt><a name="CtrlInterface-paintEngine"><strong>paintEngine</strong></a>(...)</dt><dd><tt><a href="PyQt4.QtGui.html#QWidget">QWidget</a>.<a href="#CtrlInterface-paintEngine">paintEngine</a>()&nbsp;-&gt;&nbsp;QPaintEngine</tt></dd></dl>
+
+<dl><dt><a name="CtrlInterface-paintEvent"><strong>paintEvent</strong></a>(...)</dt><dd><tt><a href="PyQt4.QtGui.html#QWidget">QWidget</a>.<a href="#CtrlInterface-paintEvent">paintEvent</a>(QPaintEvent)</tt></dd></dl>
+
+<dl><dt><a name="CtrlInterface-palette"><strong>palette</strong></a>(...)</dt><dd><tt><a href="PyQt4.QtGui.html#QWidget">QWidget</a>.<a href="#CtrlInterface-palette">palette</a>()&nbsp;-&gt;&nbsp;QPalette</tt></dd></dl>
+
+<dl><dt><a name="CtrlInterface-paletteChange"><strong>paletteChange</strong></a>(...)</dt><dd><tt><a href="PyQt4.QtGui.html#QWidget">QWidget</a>.<a href="#CtrlInterface-paletteChange">paletteChange</a>(QPalette)</tt></dd></dl>
+
+<dl><dt><a name="CtrlInterface-parentWidget"><strong>parentWidget</strong></a>(...)</dt><dd><tt><a href="PyQt4.QtGui.html#QWidget">QWidget</a>.<a href="#CtrlInterface-parentWidget">parentWidget</a>()&nbsp;-&gt;&nbsp;<a href="PyQt4.QtGui.html#QWidget">QWidget</a></tt></dd></dl>
+
+<dl><dt><a name="CtrlInterface-pos"><strong>pos</strong></a>(...)</dt><dd><tt><a href="PyQt4.QtGui.html#QWidget">QWidget</a>.<a href="#CtrlInterface-pos">pos</a>()&nbsp;-&gt;&nbsp;QPoint</tt></dd></dl>
+
+<dl><dt><a name="CtrlInterface-previousInFocusChain"><strong>previousInFocusChain</strong></a>(...)</dt><dd><tt><a href="PyQt4.QtGui.html#QWidget">QWidget</a>.<a href="#CtrlInterface-previousInFocusChain">previousInFocusChain</a>()&nbsp;-&gt;&nbsp;<a href="PyQt4.QtGui.html#QWidget">QWidget</a></tt></dd></dl>
+
+<dl><dt><a name="CtrlInterface-raise_"><strong>raise_</strong></a>(...)</dt><dd><tt><a href="PyQt4.QtGui.html#QWidget">QWidget</a>.<a href="#CtrlInterface-raise_">raise_</a>()</tt></dd></dl>
+
+<dl><dt><a name="CtrlInterface-rect"><strong>rect</strong></a>(...)</dt><dd><tt><a href="PyQt4.QtGui.html#QWidget">QWidget</a>.<a href="#CtrlInterface-rect">rect</a>()&nbsp;-&gt;&nbsp;QRect</tt></dd></dl>
+
+<dl><dt><a name="CtrlInterface-releaseKeyboard"><strong>releaseKeyboard</strong></a>(...)</dt><dd><tt><a href="PyQt4.QtGui.html#QWidget">QWidget</a>.<a href="#CtrlInterface-releaseKeyboard">releaseKeyboard</a>()</tt></dd></dl>
+
+<dl><dt><a name="CtrlInterface-releaseMouse"><strong>releaseMouse</strong></a>(...)</dt><dd><tt><a href="PyQt4.QtGui.html#QWidget">QWidget</a>.<a href="#CtrlInterface-releaseMouse">releaseMouse</a>()</tt></dd></dl>
+
+<dl><dt><a name="CtrlInterface-releaseShortcut"><strong>releaseShortcut</strong></a>(...)</dt><dd><tt><a href="PyQt4.QtGui.html#QWidget">QWidget</a>.<a href="#CtrlInterface-releaseShortcut">releaseShortcut</a>(int)</tt></dd></dl>
+
+<dl><dt><a name="CtrlInterface-removeAction"><strong>removeAction</strong></a>(...)</dt><dd><tt><a href="PyQt4.QtGui.html#QWidget">QWidget</a>.<a href="#CtrlInterface-removeAction">removeAction</a>(QAction)</tt></dd></dl>
+
+<dl><dt><a name="CtrlInterface-render"><strong>render</strong></a>(...)</dt><dd><tt><a href="PyQt4.QtGui.html#QWidget">QWidget</a>.<a href="#CtrlInterface-render">render</a>(QPaintDevice,&nbsp;QPoint&nbsp;targetOffset=QPoint(),&nbsp;QRegion&nbsp;sourceRegion=QRegion(),&nbsp;<a href="PyQt4.QtGui.html#QWidget">QWidget</a>.RenderFlags&nbsp;flags=<a href="PyQt4.QtGui.html#QWidget">QWidget</a>.DrawWindowBackground|<a href="PyQt4.QtGui.html#QWidget">QWidget</a>.DrawChildren)<br>
+<a href="PyQt4.QtGui.html#QWidget">QWidget</a>.<a href="#CtrlInterface-render">render</a>(QPainter,&nbsp;QPoint&nbsp;targetOffset=QPoint(),&nbsp;QRegion&nbsp;sourceRegion=QRegion(),&nbsp;<a href="PyQt4.QtGui.html#QWidget">QWidget</a>.RenderFlags&nbsp;flags=<a href="PyQt4.QtGui.html#QWidget">QWidget</a>.DrawWindowBackground|<a href="PyQt4.QtGui.html#QWidget">QWidget</a>.DrawChildren)</tt></dd></dl>
+
+<dl><dt><a name="CtrlInterface-repaint"><strong>repaint</strong></a>(...)</dt><dd><tt><a href="PyQt4.QtGui.html#QWidget">QWidget</a>.<a href="#CtrlInterface-repaint">repaint</a>()<br>
+<a href="PyQt4.QtGui.html#QWidget">QWidget</a>.<a href="#CtrlInterface-repaint">repaint</a>(int,&nbsp;int,&nbsp;int,&nbsp;int)<br>
+<a href="PyQt4.QtGui.html#QWidget">QWidget</a>.<a href="#CtrlInterface-repaint">repaint</a>(QRect)<br>
+<a href="PyQt4.QtGui.html#QWidget">QWidget</a>.<a href="#CtrlInterface-repaint">repaint</a>(QRegion)</tt></dd></dl>
+
+<dl><dt><a name="CtrlInterface-resetInputContext"><strong>resetInputContext</strong></a>(...)</dt><dd><tt><a href="PyQt4.QtGui.html#QWidget">QWidget</a>.<a href="#CtrlInterface-resetInputContext">resetInputContext</a>()</tt></dd></dl>
+
+<dl><dt><a name="CtrlInterface-resize"><strong>resize</strong></a>(...)</dt><dd><tt><a href="PyQt4.QtGui.html#QWidget">QWidget</a>.<a href="#CtrlInterface-resize">resize</a>(QSize)<br>
+<a href="PyQt4.QtGui.html#QWidget">QWidget</a>.<a href="#CtrlInterface-resize">resize</a>(int,&nbsp;int)</tt></dd></dl>
+
+<dl><dt><a name="CtrlInterface-resizeEvent"><strong>resizeEvent</strong></a>(...)</dt><dd><tt><a href="PyQt4.QtGui.html#QWidget">QWidget</a>.<a href="#CtrlInterface-resizeEvent">resizeEvent</a>(QResizeEvent)</tt></dd></dl>
+
+<dl><dt><a name="CtrlInterface-restoreGeometry"><strong>restoreGeometry</strong></a>(...)</dt><dd><tt><a href="PyQt4.QtGui.html#QWidget">QWidget</a>.<a href="#CtrlInterface-restoreGeometry">restoreGeometry</a>(QByteArray)&nbsp;-&gt;&nbsp;bool</tt></dd></dl>
+
+<dl><dt><a name="CtrlInterface-saveGeometry"><strong>saveGeometry</strong></a>(...)</dt><dd><tt><a href="PyQt4.QtGui.html#QWidget">QWidget</a>.<a href="#CtrlInterface-saveGeometry">saveGeometry</a>()&nbsp;-&gt;&nbsp;QByteArray</tt></dd></dl>
+
+<dl><dt><a name="CtrlInterface-scroll"><strong>scroll</strong></a>(...)</dt><dd><tt><a href="PyQt4.QtGui.html#QWidget">QWidget</a>.<a href="#CtrlInterface-scroll">scroll</a>(int,&nbsp;int)<br>
+<a href="PyQt4.QtGui.html#QWidget">QWidget</a>.<a href="#CtrlInterface-scroll">scroll</a>(int,&nbsp;int,&nbsp;QRect)</tt></dd></dl>
+
+<dl><dt><a name="CtrlInterface-setAcceptDrops"><strong>setAcceptDrops</strong></a>(...)</dt><dd><tt><a href="PyQt4.QtGui.html#QWidget">QWidget</a>.<a href="#CtrlInterface-setAcceptDrops">setAcceptDrops</a>(bool)</tt></dd></dl>
+
+<dl><dt><a name="CtrlInterface-setAccessibleDescription"><strong>setAccessibleDescription</strong></a>(...)</dt><dd><tt><a href="PyQt4.QtGui.html#QWidget">QWidget</a>.<a href="#CtrlInterface-setAccessibleDescription">setAccessibleDescription</a>(str)</tt></dd></dl>
+
+<dl><dt><a name="CtrlInterface-setAccessibleName"><strong>setAccessibleName</strong></a>(...)</dt><dd><tt><a href="PyQt4.QtGui.html#QWidget">QWidget</a>.<a href="#CtrlInterface-setAccessibleName">setAccessibleName</a>(str)</tt></dd></dl>
+
+<dl><dt><a name="CtrlInterface-setAttribute"><strong>setAttribute</strong></a>(...)</dt><dd><tt><a href="PyQt4.QtGui.html#QWidget">QWidget</a>.<a href="#CtrlInterface-setAttribute">setAttribute</a>(Qt.WidgetAttribute,&nbsp;bool&nbsp;on=True)</tt></dd></dl>
+
+<dl><dt><a name="CtrlInterface-setAutoFillBackground"><strong>setAutoFillBackground</strong></a>(...)</dt><dd><tt><a href="PyQt4.QtGui.html#QWidget">QWidget</a>.<a href="#CtrlInterface-setAutoFillBackground">setAutoFillBackground</a>(bool)</tt></dd></dl>
+
+<dl><dt><a name="CtrlInterface-setBackgroundRole"><strong>setBackgroundRole</strong></a>(...)</dt><dd><tt><a href="PyQt4.QtGui.html#QWidget">QWidget</a>.<a href="#CtrlInterface-setBackgroundRole">setBackgroundRole</a>(QPalette.ColorRole)</tt></dd></dl>
+
+<dl><dt><a name="CtrlInterface-setBaseSize"><strong>setBaseSize</strong></a>(...)</dt><dd><tt><a href="PyQt4.QtGui.html#QWidget">QWidget</a>.<a href="#CtrlInterface-setBaseSize">setBaseSize</a>(int,&nbsp;int)<br>
+<a href="PyQt4.QtGui.html#QWidget">QWidget</a>.<a href="#CtrlInterface-setBaseSize">setBaseSize</a>(QSize)</tt></dd></dl>
+
+<dl><dt><a name="CtrlInterface-setContentsMargins"><strong>setContentsMargins</strong></a>(...)</dt><dd><tt><a href="PyQt4.QtGui.html#QWidget">QWidget</a>.<a href="#CtrlInterface-setContentsMargins">setContentsMargins</a>(int,&nbsp;int,&nbsp;int,&nbsp;int)<br>
+<a href="PyQt4.QtGui.html#QWidget">QWidget</a>.<a href="#CtrlInterface-setContentsMargins">setContentsMargins</a>(QMargins)</tt></dd></dl>
+
+<dl><dt><a name="CtrlInterface-setContextMenuPolicy"><strong>setContextMenuPolicy</strong></a>(...)</dt><dd><tt><a href="PyQt4.QtGui.html#QWidget">QWidget</a>.<a href="#CtrlInterface-setContextMenuPolicy">setContextMenuPolicy</a>(Qt.ContextMenuPolicy)</tt></dd></dl>
+
+<dl><dt><a name="CtrlInterface-setCursor"><strong>setCursor</strong></a>(...)</dt><dd><tt><a href="PyQt4.QtGui.html#QWidget">QWidget</a>.<a href="#CtrlInterface-setCursor">setCursor</a>(QCursor)</tt></dd></dl>
+
+<dl><dt><a name="CtrlInterface-setDisabled"><strong>setDisabled</strong></a>(...)</dt><dd><tt><a href="PyQt4.QtGui.html#QWidget">QWidget</a>.<a href="#CtrlInterface-setDisabled">setDisabled</a>(bool)</tt></dd></dl>
+
+<dl><dt><a name="CtrlInterface-setEnabled"><strong>setEnabled</strong></a>(...)</dt><dd><tt><a href="PyQt4.QtGui.html#QWidget">QWidget</a>.<a href="#CtrlInterface-setEnabled">setEnabled</a>(bool)</tt></dd></dl>
+
+<dl><dt><a name="CtrlInterface-setFixedHeight"><strong>setFixedHeight</strong></a>(...)</dt><dd><tt><a href="PyQt4.QtGui.html#QWidget">QWidget</a>.<a href="#CtrlInterface-setFixedHeight">setFixedHeight</a>(int)</tt></dd></dl>
+
+<dl><dt><a name="CtrlInterface-setFixedSize"><strong>setFixedSize</strong></a>(...)</dt><dd><tt><a href="PyQt4.QtGui.html#QWidget">QWidget</a>.<a href="#CtrlInterface-setFixedSize">setFixedSize</a>(QSize)<br>
+<a href="PyQt4.QtGui.html#QWidget">QWidget</a>.<a href="#CtrlInterface-setFixedSize">setFixedSize</a>(int,&nbsp;int)</tt></dd></dl>
+
+<dl><dt><a name="CtrlInterface-setFixedWidth"><strong>setFixedWidth</strong></a>(...)</dt><dd><tt><a href="PyQt4.QtGui.html#QWidget">QWidget</a>.<a href="#CtrlInterface-setFixedWidth">setFixedWidth</a>(int)</tt></dd></dl>
+
+<dl><dt><a name="CtrlInterface-setFocus"><strong>setFocus</strong></a>(...)</dt><dd><tt><a href="PyQt4.QtGui.html#QWidget">QWidget</a>.<a href="#CtrlInterface-setFocus">setFocus</a>()<br>
+<a href="PyQt4.QtGui.html#QWidget">QWidget</a>.<a href="#CtrlInterface-setFocus">setFocus</a>(Qt.FocusReason)</tt></dd></dl>
+
+<dl><dt><a name="CtrlInterface-setFocusPolicy"><strong>setFocusPolicy</strong></a>(...)</dt><dd><tt><a href="PyQt4.QtGui.html#QWidget">QWidget</a>.<a href="#CtrlInterface-setFocusPolicy">setFocusPolicy</a>(Qt.FocusPolicy)</tt></dd></dl>
+
+<dl><dt><a name="CtrlInterface-setFocusProxy"><strong>setFocusProxy</strong></a>(...)</dt><dd><tt><a href="PyQt4.QtGui.html#QWidget">QWidget</a>.<a href="#CtrlInterface-setFocusProxy">setFocusProxy</a>(<a href="PyQt4.QtGui.html#QWidget">QWidget</a>)</tt></dd></dl>
+
+<dl><dt><a name="CtrlInterface-setFont"><strong>setFont</strong></a>(...)</dt><dd><tt><a href="PyQt4.QtGui.html#QWidget">QWidget</a>.<a href="#CtrlInterface-setFont">setFont</a>(QFont)</tt></dd></dl>
+
+<dl><dt><a name="CtrlInterface-setForegroundRole"><strong>setForegroundRole</strong></a>(...)</dt><dd><tt><a href="PyQt4.QtGui.html#QWidget">QWidget</a>.<a href="#CtrlInterface-setForegroundRole">setForegroundRole</a>(QPalette.ColorRole)</tt></dd></dl>
+
+<dl><dt><a name="CtrlInterface-setGeometry"><strong>setGeometry</strong></a>(...)</dt><dd><tt><a href="PyQt4.QtGui.html#QWidget">QWidget</a>.<a href="#CtrlInterface-setGeometry">setGeometry</a>(QRect)<br>
+<a href="PyQt4.QtGui.html#QWidget">QWidget</a>.<a href="#CtrlInterface-setGeometry">setGeometry</a>(int,&nbsp;int,&nbsp;int,&nbsp;int)</tt></dd></dl>
+
+<dl><dt><a name="CtrlInterface-setGraphicsEffect"><strong>setGraphicsEffect</strong></a>(...)</dt><dd><tt><a href="PyQt4.QtGui.html#QWidget">QWidget</a>.<a href="#CtrlInterface-setGraphicsEffect">setGraphicsEffect</a>(QGraphicsEffect)</tt></dd></dl>
+
+<dl><dt><a name="CtrlInterface-setHidden"><strong>setHidden</strong></a>(...)</dt><dd><tt><a href="PyQt4.QtGui.html#QWidget">QWidget</a>.<a href="#CtrlInterface-setHidden">setHidden</a>(bool)</tt></dd></dl>
+
+<dl><dt><a name="CtrlInterface-setInputContext"><strong>setInputContext</strong></a>(...)</dt><dd><tt><a href="PyQt4.QtGui.html#QWidget">QWidget</a>.<a href="#CtrlInterface-setInputContext">setInputContext</a>(QInputContext)</tt></dd></dl>
+
+<dl><dt><a name="CtrlInterface-setInputMethodHints"><strong>setInputMethodHints</strong></a>(...)</dt><dd><tt><a href="PyQt4.QtGui.html#QWidget">QWidget</a>.<a href="#CtrlInterface-setInputMethodHints">setInputMethodHints</a>(Qt.InputMethodHints)</tt></dd></dl>
+
+<dl><dt><a name="CtrlInterface-setLayout"><strong>setLayout</strong></a>(...)</dt><dd><tt><a href="PyQt4.QtGui.html#QWidget">QWidget</a>.<a href="#CtrlInterface-setLayout">setLayout</a>(QLayout)</tt></dd></dl>
+
+<dl><dt><a name="CtrlInterface-setLayoutDirection"><strong>setLayoutDirection</strong></a>(...)</dt><dd><tt><a href="PyQt4.QtGui.html#QWidget">QWidget</a>.<a href="#CtrlInterface-setLayoutDirection">setLayoutDirection</a>(Qt.LayoutDirection)</tt></dd></dl>
+
+<dl><dt><a name="CtrlInterface-setLocale"><strong>setLocale</strong></a>(...)</dt><dd><tt><a href="PyQt4.QtGui.html#QWidget">QWidget</a>.<a href="#CtrlInterface-setLocale">setLocale</a>(QLocale)</tt></dd></dl>
+
+<dl><dt><a name="CtrlInterface-setMask"><strong>setMask</strong></a>(...)</dt><dd><tt><a href="PyQt4.QtGui.html#QWidget">QWidget</a>.<a href="#CtrlInterface-setMask">setMask</a>(QBitmap)<br>
+<a href="PyQt4.QtGui.html#QWidget">QWidget</a>.<a href="#CtrlInterface-setMask">setMask</a>(QRegion)</tt></dd></dl>
+
+<dl><dt><a name="CtrlInterface-setMaximumHeight"><strong>setMaximumHeight</strong></a>(...)</dt><dd><tt><a href="PyQt4.QtGui.html#QWidget">QWidget</a>.<a href="#CtrlInterface-setMaximumHeight">setMaximumHeight</a>(int)</tt></dd></dl>
+
+<dl><dt><a name="CtrlInterface-setMaximumSize"><strong>setMaximumSize</strong></a>(...)</dt><dd><tt><a href="PyQt4.QtGui.html#QWidget">QWidget</a>.<a href="#CtrlInterface-setMaximumSize">setMaximumSize</a>(int,&nbsp;int)<br>
+<a href="PyQt4.QtGui.html#QWidget">QWidget</a>.<a href="#CtrlInterface-setMaximumSize">setMaximumSize</a>(QSize)</tt></dd></dl>
+
+<dl><dt><a name="CtrlInterface-setMaximumWidth"><strong>setMaximumWidth</strong></a>(...)</dt><dd><tt><a href="PyQt4.QtGui.html#QWidget">QWidget</a>.<a href="#CtrlInterface-setMaximumWidth">setMaximumWidth</a>(int)</tt></dd></dl>
+
+<dl><dt><a name="CtrlInterface-setMinimumHeight"><strong>setMinimumHeight</strong></a>(...)</dt><dd><tt><a href="PyQt4.QtGui.html#QWidget">QWidget</a>.<a href="#CtrlInterface-setMinimumHeight">setMinimumHeight</a>(int)</tt></dd></dl>
+
+<dl><dt><a name="CtrlInterface-setMinimumSize"><strong>setMinimumSize</strong></a>(...)</dt><dd><tt><a href="PyQt4.QtGui.html#QWidget">QWidget</a>.<a href="#CtrlInterface-setMinimumSize">setMinimumSize</a>(int,&nbsp;int)<br>
+<a href="PyQt4.QtGui.html#QWidget">QWidget</a>.<a href="#CtrlInterface-setMinimumSize">setMinimumSize</a>(QSize)</tt></dd></dl>
+
+<dl><dt><a name="CtrlInterface-setMinimumWidth"><strong>setMinimumWidth</strong></a>(...)</dt><dd><tt><a href="PyQt4.QtGui.html#QWidget">QWidget</a>.<a href="#CtrlInterface-setMinimumWidth">setMinimumWidth</a>(int)</tt></dd></dl>
+
+<dl><dt><a name="CtrlInterface-setMouseTracking"><strong>setMouseTracking</strong></a>(...)</dt><dd><tt><a href="PyQt4.QtGui.html#QWidget">QWidget</a>.<a href="#CtrlInterface-setMouseTracking">setMouseTracking</a>(bool)</tt></dd></dl>
+
+<dl><dt><a name="CtrlInterface-setPalette"><strong>setPalette</strong></a>(...)</dt><dd><tt><a href="PyQt4.QtGui.html#QWidget">QWidget</a>.<a href="#CtrlInterface-setPalette">setPalette</a>(QPalette)</tt></dd></dl>
+
+<dl><dt><a name="CtrlInterface-setParent"><strong>setParent</strong></a>(...)</dt><dd><tt><a href="PyQt4.QtGui.html#QWidget">QWidget</a>.<a href="#CtrlInterface-setParent">setParent</a>(<a href="PyQt4.QtGui.html#QWidget">QWidget</a>)<br>
+<a href="PyQt4.QtGui.html#QWidget">QWidget</a>.<a href="#CtrlInterface-setParent">setParent</a>(<a href="PyQt4.QtGui.html#QWidget">QWidget</a>,&nbsp;Qt.WindowFlags)</tt></dd></dl>
+
+<dl><dt><a name="CtrlInterface-setShortcutAutoRepeat"><strong>setShortcutAutoRepeat</strong></a>(...)</dt><dd><tt><a href="PyQt4.QtGui.html#QWidget">QWidget</a>.<a href="#CtrlInterface-setShortcutAutoRepeat">setShortcutAutoRepeat</a>(int,&nbsp;bool&nbsp;enabled=True)</tt></dd></dl>
+
+<dl><dt><a name="CtrlInterface-setShortcutEnabled"><strong>setShortcutEnabled</strong></a>(...)</dt><dd><tt><a href="PyQt4.QtGui.html#QWidget">QWidget</a>.<a href="#CtrlInterface-setShortcutEnabled">setShortcutEnabled</a>(int,&nbsp;bool&nbsp;enabled=True)</tt></dd></dl>
+
+<dl><dt><a name="CtrlInterface-setShown"><strong>setShown</strong></a>(...)</dt><dd><tt><a href="PyQt4.QtGui.html#QWidget">QWidget</a>.<a href="#CtrlInterface-setShown">setShown</a>(bool)</tt></dd></dl>
+
+<dl><dt><a name="CtrlInterface-setSizeIncrement"><strong>setSizeIncrement</strong></a>(...)</dt><dd><tt><a href="PyQt4.QtGui.html#QWidget">QWidget</a>.<a href="#CtrlInterface-setSizeIncrement">setSizeIncrement</a>(int,&nbsp;int)<br>
+<a href="PyQt4.QtGui.html#QWidget">QWidget</a>.<a href="#CtrlInterface-setSizeIncrement">setSizeIncrement</a>(QSize)</tt></dd></dl>
+
+<dl><dt><a name="CtrlInterface-setSizePolicy"><strong>setSizePolicy</strong></a>(...)</dt><dd><tt><a href="PyQt4.QtGui.html#QWidget">QWidget</a>.<a href="#CtrlInterface-setSizePolicy">setSizePolicy</a>(QSizePolicy)<br>
+<a href="PyQt4.QtGui.html#QWidget">QWidget</a>.<a href="#CtrlInterface-setSizePolicy">setSizePolicy</a>(QSizePolicy.Policy,&nbsp;QSizePolicy.Policy)</tt></dd></dl>
+
+<dl><dt><a name="CtrlInterface-setStatusTip"><strong>setStatusTip</strong></a>(...)</dt><dd><tt><a href="PyQt4.QtGui.html#QWidget">QWidget</a>.<a href="#CtrlInterface-setStatusTip">setStatusTip</a>(str)</tt></dd></dl>
+
+<dl><dt><a name="CtrlInterface-setStyle"><strong>setStyle</strong></a>(...)</dt><dd><tt><a href="PyQt4.QtGui.html#QWidget">QWidget</a>.<a href="#CtrlInterface-setStyle">setStyle</a>(QStyle)</tt></dd></dl>
+
+<dl><dt><a name="CtrlInterface-setStyleSheet"><strong>setStyleSheet</strong></a>(...)</dt><dd><tt><a href="PyQt4.QtGui.html#QWidget">QWidget</a>.<a href="#CtrlInterface-setStyleSheet">setStyleSheet</a>(str)</tt></dd></dl>
+
+<dl><dt><a name="CtrlInterface-setTabOrder"><strong>setTabOrder</strong></a>(...)</dt><dd><tt><a href="PyQt4.QtGui.html#QWidget">QWidget</a>.<a href="#CtrlInterface-setTabOrder">setTabOrder</a>(<a href="PyQt4.QtGui.html#QWidget">QWidget</a>,&nbsp;<a href="PyQt4.QtGui.html#QWidget">QWidget</a>)</tt></dd></dl>
+
+<dl><dt><a name="CtrlInterface-setToolTip"><strong>setToolTip</strong></a>(...)</dt><dd><tt><a href="PyQt4.QtGui.html#QWidget">QWidget</a>.<a href="#CtrlInterface-setToolTip">setToolTip</a>(str)</tt></dd></dl>
+
+<dl><dt><a name="CtrlInterface-setUpdatesEnabled"><strong>setUpdatesEnabled</strong></a>(...)</dt><dd><tt><a href="PyQt4.QtGui.html#QWidget">QWidget</a>.<a href="#CtrlInterface-setUpdatesEnabled">setUpdatesEnabled</a>(bool)</tt></dd></dl>
+
+<dl><dt><a name="CtrlInterface-setVisible"><strong>setVisible</strong></a>(...)</dt><dd><tt><a href="PyQt4.QtGui.html#QWidget">QWidget</a>.<a href="#CtrlInterface-setVisible">setVisible</a>(bool)</tt></dd></dl>
+
+<dl><dt><a name="CtrlInterface-setWhatsThis"><strong>setWhatsThis</strong></a>(...)</dt><dd><tt><a href="PyQt4.QtGui.html#QWidget">QWidget</a>.<a href="#CtrlInterface-setWhatsThis">setWhatsThis</a>(str)</tt></dd></dl>
+
+<dl><dt><a name="CtrlInterface-setWindowFilePath"><strong>setWindowFilePath</strong></a>(...)</dt><dd><tt><a href="PyQt4.QtGui.html#QWidget">QWidget</a>.<a href="#CtrlInterface-setWindowFilePath">setWindowFilePath</a>(str)</tt></dd></dl>
+
+<dl><dt><a name="CtrlInterface-setWindowFlags"><strong>setWindowFlags</strong></a>(...)</dt><dd><tt><a href="PyQt4.QtGui.html#QWidget">QWidget</a>.<a href="#CtrlInterface-setWindowFlags">setWindowFlags</a>(Qt.WindowFlags)</tt></dd></dl>
+
+<dl><dt><a name="CtrlInterface-setWindowIcon"><strong>setWindowIcon</strong></a>(...)</dt><dd><tt><a href="PyQt4.QtGui.html#QWidget">QWidget</a>.<a href="#CtrlInterface-setWindowIcon">setWindowIcon</a>(QIcon)</tt></dd></dl>
+
+<dl><dt><a name="CtrlInterface-setWindowIconText"><strong>setWindowIconText</strong></a>(...)</dt><dd><tt><a href="PyQt4.QtGui.html#QWidget">QWidget</a>.<a href="#CtrlInterface-setWindowIconText">setWindowIconText</a>(str)</tt></dd></dl>
+
+<dl><dt><a name="CtrlInterface-setWindowModality"><strong>setWindowModality</strong></a>(...)</dt><dd><tt><a href="PyQt4.QtGui.html#QWidget">QWidget</a>.<a href="#CtrlInterface-setWindowModality">setWindowModality</a>(Qt.WindowModality)</tt></dd></dl>
+
+<dl><dt><a name="CtrlInterface-setWindowModified"><strong>setWindowModified</strong></a>(...)</dt><dd><tt><a href="PyQt4.QtGui.html#QWidget">QWidget</a>.<a href="#CtrlInterface-setWindowModified">setWindowModified</a>(bool)</tt></dd></dl>
+
+<dl><dt><a name="CtrlInterface-setWindowOpacity"><strong>setWindowOpacity</strong></a>(...)</dt><dd><tt><a href="PyQt4.QtGui.html#QWidget">QWidget</a>.<a href="#CtrlInterface-setWindowOpacity">setWindowOpacity</a>(float)</tt></dd></dl>
+
+<dl><dt><a name="CtrlInterface-setWindowRole"><strong>setWindowRole</strong></a>(...)</dt><dd><tt><a href="PyQt4.QtGui.html#QWidget">QWidget</a>.<a href="#CtrlInterface-setWindowRole">setWindowRole</a>(str)</tt></dd></dl>
+
+<dl><dt><a name="CtrlInterface-setWindowState"><strong>setWindowState</strong></a>(...)</dt><dd><tt><a href="PyQt4.QtGui.html#QWidget">QWidget</a>.<a href="#CtrlInterface-setWindowState">setWindowState</a>(Qt.WindowStates)</tt></dd></dl>
+
+<dl><dt><a name="CtrlInterface-setWindowTitle"><strong>setWindowTitle</strong></a>(...)</dt><dd><tt><a href="PyQt4.QtGui.html#QWidget">QWidget</a>.<a href="#CtrlInterface-setWindowTitle">setWindowTitle</a>(str)</tt></dd></dl>
+
+<dl><dt><a name="CtrlInterface-show"><strong>show</strong></a>(...)</dt><dd><tt><a href="PyQt4.QtGui.html#QWidget">QWidget</a>.<a href="#CtrlInterface-show">show</a>()</tt></dd></dl>
+
+<dl><dt><a name="CtrlInterface-showEvent"><strong>showEvent</strong></a>(...)</dt><dd><tt><a href="PyQt4.QtGui.html#QWidget">QWidget</a>.<a href="#CtrlInterface-showEvent">showEvent</a>(QShowEvent)</tt></dd></dl>
+
+<dl><dt><a name="CtrlInterface-showFullScreen"><strong>showFullScreen</strong></a>(...)</dt><dd><tt><a href="PyQt4.QtGui.html#QWidget">QWidget</a>.<a href="#CtrlInterface-showFullScreen">showFullScreen</a>()</tt></dd></dl>
+
+<dl><dt><a name="CtrlInterface-showMaximized"><strong>showMaximized</strong></a>(...)</dt><dd><tt><a href="PyQt4.QtGui.html#QWidget">QWidget</a>.<a href="#CtrlInterface-showMaximized">showMaximized</a>()</tt></dd></dl>
+
+<dl><dt><a name="CtrlInterface-showMinimized"><strong>showMinimized</strong></a>(...)</dt><dd><tt><a href="PyQt4.QtGui.html#QWidget">QWidget</a>.<a href="#CtrlInterface-showMinimized">showMinimized</a>()</tt></dd></dl>
+
+<dl><dt><a name="CtrlInterface-showNormal"><strong>showNormal</strong></a>(...)</dt><dd><tt><a href="PyQt4.QtGui.html#QWidget">QWidget</a>.<a href="#CtrlInterface-showNormal">showNormal</a>()</tt></dd></dl>
+
+<dl><dt><a name="CtrlInterface-size"><strong>size</strong></a>(...)</dt><dd><tt><a href="PyQt4.QtGui.html#QWidget">QWidget</a>.<a href="#CtrlInterface-size">size</a>()&nbsp;-&gt;&nbsp;QSize</tt></dd></dl>
+
+<dl><dt><a name="CtrlInterface-sizeHint"><strong>sizeHint</strong></a>(...)</dt><dd><tt><a href="PyQt4.QtGui.html#QWidget">QWidget</a>.<a href="#CtrlInterface-sizeHint">sizeHint</a>()&nbsp;-&gt;&nbsp;QSize</tt></dd></dl>
+
+<dl><dt><a name="CtrlInterface-sizeIncrement"><strong>sizeIncrement</strong></a>(...)</dt><dd><tt><a href="PyQt4.QtGui.html#QWidget">QWidget</a>.<a href="#CtrlInterface-sizeIncrement">sizeIncrement</a>()&nbsp;-&gt;&nbsp;QSize</tt></dd></dl>
+
+<dl><dt><a name="CtrlInterface-sizePolicy"><strong>sizePolicy</strong></a>(...)</dt><dd><tt><a href="PyQt4.QtGui.html#QWidget">QWidget</a>.<a href="#CtrlInterface-sizePolicy">sizePolicy</a>()&nbsp;-&gt;&nbsp;QSizePolicy</tt></dd></dl>
+
+<dl><dt><a name="CtrlInterface-stackUnder"><strong>stackUnder</strong></a>(...)</dt><dd><tt><a href="PyQt4.QtGui.html#QWidget">QWidget</a>.<a href="#CtrlInterface-stackUnder">stackUnder</a>(<a href="PyQt4.QtGui.html#QWidget">QWidget</a>)</tt></dd></dl>
+
+<dl><dt><a name="CtrlInterface-statusTip"><strong>statusTip</strong></a>(...)</dt><dd><tt><a href="PyQt4.QtGui.html#QWidget">QWidget</a>.<a href="#CtrlInterface-statusTip">statusTip</a>()&nbsp;-&gt;&nbsp;str</tt></dd></dl>
+
+<dl><dt><a name="CtrlInterface-style"><strong>style</strong></a>(...)</dt><dd><tt><a href="PyQt4.QtGui.html#QWidget">QWidget</a>.<a href="#CtrlInterface-style">style</a>()&nbsp;-&gt;&nbsp;QStyle</tt></dd></dl>
+
+<dl><dt><a name="CtrlInterface-styleSheet"><strong>styleSheet</strong></a>(...)</dt><dd><tt><a href="PyQt4.QtGui.html#QWidget">QWidget</a>.<a href="#CtrlInterface-styleSheet">styleSheet</a>()&nbsp;-&gt;&nbsp;str</tt></dd></dl>
+
+<dl><dt><a name="CtrlInterface-tabletEvent"><strong>tabletEvent</strong></a>(...)</dt><dd><tt><a href="PyQt4.QtGui.html#QWidget">QWidget</a>.<a href="#CtrlInterface-tabletEvent">tabletEvent</a>(QTabletEvent)</tt></dd></dl>
+
+<dl><dt><a name="CtrlInterface-testAttribute"><strong>testAttribute</strong></a>(...)</dt><dd><tt><a href="PyQt4.QtGui.html#QWidget">QWidget</a>.<a href="#CtrlInterface-testAttribute">testAttribute</a>(Qt.WidgetAttribute)&nbsp;-&gt;&nbsp;bool</tt></dd></dl>
+
+<dl><dt><a name="CtrlInterface-toolTip"><strong>toolTip</strong></a>(...)</dt><dd><tt><a href="PyQt4.QtGui.html#QWidget">QWidget</a>.<a href="#CtrlInterface-toolTip">toolTip</a>()&nbsp;-&gt;&nbsp;str</tt></dd></dl>
+
+<dl><dt><a name="CtrlInterface-topLevelWidget"><strong>topLevelWidget</strong></a>(...)</dt><dd><tt><a href="PyQt4.QtGui.html#QWidget">QWidget</a>.<a href="#CtrlInterface-topLevelWidget">topLevelWidget</a>()&nbsp;-&gt;&nbsp;<a href="PyQt4.QtGui.html#QWidget">QWidget</a></tt></dd></dl>
+
+<dl><dt><a name="CtrlInterface-underMouse"><strong>underMouse</strong></a>(...)</dt><dd><tt><a href="PyQt4.QtGui.html#QWidget">QWidget</a>.<a href="#CtrlInterface-underMouse">underMouse</a>()&nbsp;-&gt;&nbsp;bool</tt></dd></dl>
+
+<dl><dt><a name="CtrlInterface-ungrabGesture"><strong>ungrabGesture</strong></a>(...)</dt><dd><tt><a href="PyQt4.QtGui.html#QWidget">QWidget</a>.<a href="#CtrlInterface-ungrabGesture">ungrabGesture</a>(Qt.GestureType)</tt></dd></dl>
+
+<dl><dt><a name="CtrlInterface-unsetCursor"><strong>unsetCursor</strong></a>(...)</dt><dd><tt><a href="PyQt4.QtGui.html#QWidget">QWidget</a>.<a href="#CtrlInterface-unsetCursor">unsetCursor</a>()</tt></dd></dl>
+
+<dl><dt><a name="CtrlInterface-unsetLayoutDirection"><strong>unsetLayoutDirection</strong></a>(...)</dt><dd><tt><a href="PyQt4.QtGui.html#QWidget">QWidget</a>.<a href="#CtrlInterface-unsetLayoutDirection">unsetLayoutDirection</a>()</tt></dd></dl>
+
+<dl><dt><a name="CtrlInterface-unsetLocale"><strong>unsetLocale</strong></a>(...)</dt><dd><tt><a href="PyQt4.QtGui.html#QWidget">QWidget</a>.<a href="#CtrlInterface-unsetLocale">unsetLocale</a>()</tt></dd></dl>
+
+<dl><dt><a name="CtrlInterface-update"><strong>update</strong></a>(...)</dt><dd><tt><a href="PyQt4.QtGui.html#QWidget">QWidget</a>.<a href="#CtrlInterface-update">update</a>()<br>
+<a href="PyQt4.QtGui.html#QWidget">QWidget</a>.<a href="#CtrlInterface-update">update</a>(QRect)<br>
+<a href="PyQt4.QtGui.html#QWidget">QWidget</a>.<a href="#CtrlInterface-update">update</a>(QRegion)<br>
+<a href="PyQt4.QtGui.html#QWidget">QWidget</a>.<a href="#CtrlInterface-update">update</a>(int,&nbsp;int,&nbsp;int,&nbsp;int)</tt></dd></dl>
+
+<dl><dt><a name="CtrlInterface-updateGeometry"><strong>updateGeometry</strong></a>(...)</dt><dd><tt><a href="PyQt4.QtGui.html#QWidget">QWidget</a>.<a href="#CtrlInterface-updateGeometry">updateGeometry</a>()</tt></dd></dl>
+
+<dl><dt><a name="CtrlInterface-updateMicroFocus"><strong>updateMicroFocus</strong></a>(...)</dt><dd><tt><a href="PyQt4.QtGui.html#QWidget">QWidget</a>.<a href="#CtrlInterface-updateMicroFocus">updateMicroFocus</a>()</tt></dd></dl>
+
+<dl><dt><a name="CtrlInterface-updatesEnabled"><strong>updatesEnabled</strong></a>(...)</dt><dd><tt><a href="PyQt4.QtGui.html#QWidget">QWidget</a>.<a href="#CtrlInterface-updatesEnabled">updatesEnabled</a>()&nbsp;-&gt;&nbsp;bool</tt></dd></dl>
+
+<dl><dt><a name="CtrlInterface-visibleRegion"><strong>visibleRegion</strong></a>(...)</dt><dd><tt><a href="PyQt4.QtGui.html#QWidget">QWidget</a>.<a href="#CtrlInterface-visibleRegion">visibleRegion</a>()&nbsp;-&gt;&nbsp;QRegion</tt></dd></dl>
+
+<dl><dt><a name="CtrlInterface-whatsThis"><strong>whatsThis</strong></a>(...)</dt><dd><tt><a href="PyQt4.QtGui.html#QWidget">QWidget</a>.<a href="#CtrlInterface-whatsThis">whatsThis</a>()&nbsp;-&gt;&nbsp;str</tt></dd></dl>
+
+<dl><dt><a name="CtrlInterface-wheelEvent"><strong>wheelEvent</strong></a>(...)</dt><dd><tt><a href="PyQt4.QtGui.html#QWidget">QWidget</a>.<a href="#CtrlInterface-wheelEvent">wheelEvent</a>(QWheelEvent)</tt></dd></dl>
+
+<dl><dt><a name="CtrlInterface-width"><strong>width</strong></a>(...)</dt><dd><tt><a href="PyQt4.QtGui.html#QWidget">QWidget</a>.<a href="#CtrlInterface-width">width</a>()&nbsp;-&gt;&nbsp;int</tt></dd></dl>
+
+<dl><dt><a name="CtrlInterface-winId"><strong>winId</strong></a>(...)</dt><dd><tt><a href="PyQt4.QtGui.html#QWidget">QWidget</a>.<a href="#CtrlInterface-winId">winId</a>()&nbsp;-&gt;&nbsp;int</tt></dd></dl>
+
+<dl><dt><a name="CtrlInterface-window"><strong>window</strong></a>(...)</dt><dd><tt><a href="PyQt4.QtGui.html#QWidget">QWidget</a>.<a href="#CtrlInterface-window">window</a>()&nbsp;-&gt;&nbsp;<a href="PyQt4.QtGui.html#QWidget">QWidget</a></tt></dd></dl>
+
+<dl><dt><a name="CtrlInterface-windowActivationChange"><strong>windowActivationChange</strong></a>(...)</dt><dd><tt><a href="PyQt4.QtGui.html#QWidget">QWidget</a>.<a href="#CtrlInterface-windowActivationChange">windowActivationChange</a>(bool)</tt></dd></dl>
+
+<dl><dt><a name="CtrlInterface-windowFilePath"><strong>windowFilePath</strong></a>(...)</dt><dd><tt><a href="PyQt4.QtGui.html#QWidget">QWidget</a>.<a href="#CtrlInterface-windowFilePath">windowFilePath</a>()&nbsp;-&gt;&nbsp;str</tt></dd></dl>
+
+<dl><dt><a name="CtrlInterface-windowFlags"><strong>windowFlags</strong></a>(...)</dt><dd><tt><a href="PyQt4.QtGui.html#QWidget">QWidget</a>.<a href="#CtrlInterface-windowFlags">windowFlags</a>()&nbsp;-&gt;&nbsp;Qt.WindowFlags</tt></dd></dl>
+
+<dl><dt><a name="CtrlInterface-windowIcon"><strong>windowIcon</strong></a>(...)</dt><dd><tt><a href="PyQt4.QtGui.html#QWidget">QWidget</a>.<a href="#CtrlInterface-windowIcon">windowIcon</a>()&nbsp;-&gt;&nbsp;QIcon</tt></dd></dl>
+
+<dl><dt><a name="CtrlInterface-windowIconText"><strong>windowIconText</strong></a>(...)</dt><dd><tt><a href="PyQt4.QtGui.html#QWidget">QWidget</a>.<a href="#CtrlInterface-windowIconText">windowIconText</a>()&nbsp;-&gt;&nbsp;str</tt></dd></dl>
+
+<dl><dt><a name="CtrlInterface-windowModality"><strong>windowModality</strong></a>(...)</dt><dd><tt><a href="PyQt4.QtGui.html#QWidget">QWidget</a>.<a href="#CtrlInterface-windowModality">windowModality</a>()&nbsp;-&gt;&nbsp;Qt.WindowModality</tt></dd></dl>
+
+<dl><dt><a name="CtrlInterface-windowOpacity"><strong>windowOpacity</strong></a>(...)</dt><dd><tt><a href="PyQt4.QtGui.html#QWidget">QWidget</a>.<a href="#CtrlInterface-windowOpacity">windowOpacity</a>()&nbsp;-&gt;&nbsp;float</tt></dd></dl>
+
+<dl><dt><a name="CtrlInterface-windowRole"><strong>windowRole</strong></a>(...)</dt><dd><tt><a href="PyQt4.QtGui.html#QWidget">QWidget</a>.<a href="#CtrlInterface-windowRole">windowRole</a>()&nbsp;-&gt;&nbsp;str</tt></dd></dl>
+
+<dl><dt><a name="CtrlInterface-windowState"><strong>windowState</strong></a>(...)</dt><dd><tt><a href="PyQt4.QtGui.html#QWidget">QWidget</a>.<a href="#CtrlInterface-windowState">windowState</a>()&nbsp;-&gt;&nbsp;Qt.WindowStates</tt></dd></dl>
+
+<dl><dt><a name="CtrlInterface-windowTitle"><strong>windowTitle</strong></a>(...)</dt><dd><tt><a href="PyQt4.QtGui.html#QWidget">QWidget</a>.<a href="#CtrlInterface-windowTitle">windowTitle</a>()&nbsp;-&gt;&nbsp;str</tt></dd></dl>
+
+<dl><dt><a name="CtrlInterface-windowType"><strong>windowType</strong></a>(...)</dt><dd><tt><a href="PyQt4.QtGui.html#QWidget">QWidget</a>.<a href="#CtrlInterface-windowType">windowType</a>()&nbsp;-&gt;&nbsp;Qt.WindowType</tt></dd></dl>
+
+<dl><dt><a name="CtrlInterface-x"><strong>x</strong></a>(...)</dt><dd><tt><a href="PyQt4.QtGui.html#QWidget">QWidget</a>.<a href="#CtrlInterface-x">x</a>()&nbsp;-&gt;&nbsp;int</tt></dd></dl>
+
+<dl><dt><a name="CtrlInterface-x11Info"><strong>x11Info</strong></a>(...)</dt><dd><tt><a href="PyQt4.QtGui.html#QWidget">QWidget</a>.<a href="#CtrlInterface-x11Info">x11Info</a>()&nbsp;-&gt;&nbsp;QX11Info</tt></dd></dl>
+
+<dl><dt><a name="CtrlInterface-x11PictureHandle"><strong>x11PictureHandle</strong></a>(...)</dt><dd><tt><a href="PyQt4.QtGui.html#QWidget">QWidget</a>.<a href="#CtrlInterface-x11PictureHandle">x11PictureHandle</a>()&nbsp;-&gt;&nbsp;int</tt></dd></dl>
+
+<dl><dt><a name="CtrlInterface-y"><strong>y</strong></a>(...)</dt><dd><tt><a href="PyQt4.QtGui.html#QWidget">QWidget</a>.<a href="#CtrlInterface-y">y</a>()&nbsp;-&gt;&nbsp;int</tt></dd></dl>
+
+<hr>
+Data and other attributes inherited from <a href="PyQt4.QtGui.html#QWidget">PyQt4.QtGui.QWidget</a>:<br>
+<dl><dt><strong>DrawChildren</strong> = 2</dl>
+
+<dl><dt><strong>DrawWindowBackground</strong> = 1</dl>
+
+<dl><dt><strong>IgnoreMask</strong> = 4</dl>
+
+<dl><dt><strong>RenderFlag</strong> = &lt;class 'PyQt4.QtGui.QWidget.RenderFlag'&gt;</dl>
+
+<dl><dt><strong>RenderFlags</strong> = &lt;class 'PyQt4.QtGui.RenderFlags'&gt;<dd><tt><a href="PyQt4.QtGui.html#QWidget">QWidget</a>.<a href="#CtrlInterface-RenderFlags">RenderFlags</a>(<a href="PyQt4.QtGui.html#QWidget">QWidget</a>.RenderFlags)<br>
+<a href="PyQt4.QtGui.html#QWidget">QWidget</a>.<a href="#CtrlInterface-RenderFlags">RenderFlags</a>(int)<br>
+<a href="PyQt4.QtGui.html#QWidget">QWidget</a>.<a href="#CtrlInterface-RenderFlags">RenderFlags</a>()</tt></dl>
+
+<hr>
+Methods inherited from <a href="PyQt4.QtCore.html#QObject">PyQt4.QtCore.QObject</a>:<br>
+<dl><dt><a name="CtrlInterface-__getattr__"><strong>__getattr__</strong></a>(...)</dt><dd><tt>QObject.<a href="#CtrlInterface-__getattr__">__getattr__</a>(str)&nbsp;-&gt;&nbsp;object</tt></dd></dl>
+
+<dl><dt><a name="CtrlInterface-blockSignals"><strong>blockSignals</strong></a>(...)</dt><dd><tt>QObject.<a href="#CtrlInterface-blockSignals">blockSignals</a>(bool)&nbsp;-&gt;&nbsp;bool</tt></dd></dl>
+
+<dl><dt><a name="CtrlInterface-childEvent"><strong>childEvent</strong></a>(...)</dt><dd><tt>QObject.<a href="#CtrlInterface-childEvent">childEvent</a>(QChildEvent)</tt></dd></dl>
+
+<dl><dt><a name="CtrlInterface-children"><strong>children</strong></a>(...)</dt><dd><tt>QObject.<a href="#CtrlInterface-children">children</a>()&nbsp;-&gt;&nbsp;list-of-QObject</tt></dd></dl>
+
+<dl><dt><a name="CtrlInterface-connect"><strong>connect</strong></a>(...)</dt><dd><tt>QObject.<a href="#CtrlInterface-connect">connect</a>(QObject,&nbsp;<a href="#-SIGNAL">SIGNAL</a>(),&nbsp;QObject,&nbsp;<a href="#-SLOT">SLOT</a>(),&nbsp;Qt.ConnectionType=Qt.AutoConnection)&nbsp;-&gt;&nbsp;bool<br>
+QObject.<a href="#CtrlInterface-connect">connect</a>(QObject,&nbsp;<a href="#-SIGNAL">SIGNAL</a>(),&nbsp;callable,&nbsp;Qt.ConnectionType=Qt.AutoConnection)&nbsp;-&gt;&nbsp;bool<br>
+QObject.<a href="#CtrlInterface-connect">connect</a>(QObject,&nbsp;<a href="#-SIGNAL">SIGNAL</a>(),&nbsp;<a href="#-SLOT">SLOT</a>(),&nbsp;Qt.ConnectionType=Qt.AutoConnection)&nbsp;-&gt;&nbsp;bool</tt></dd></dl>
+
+<dl><dt><a name="CtrlInterface-connectNotify"><strong>connectNotify</strong></a>(...)</dt><dd><tt>QObject.<a href="#CtrlInterface-connectNotify">connectNotify</a>(<a href="#-SIGNAL">SIGNAL</a>())</tt></dd></dl>
+
+<dl><dt><a name="CtrlInterface-customEvent"><strong>customEvent</strong></a>(...)</dt><dd><tt>QObject.<a href="#CtrlInterface-customEvent">customEvent</a>(QEvent)</tt></dd></dl>
+
+<dl><dt><a name="CtrlInterface-deleteLater"><strong>deleteLater</strong></a>(...)</dt><dd><tt>QObject.<a href="#CtrlInterface-deleteLater">deleteLater</a>()</tt></dd></dl>
+
+<strong>destroyed</strong> = &lt;unbound signal destroyed&gt;
+<dl><dt><a name="CtrlInterface-disconnect"><strong>disconnect</strong></a>(...)</dt><dd><tt>QObject.<a href="#CtrlInterface-disconnect">disconnect</a>(QObject,&nbsp;<a href="#-SIGNAL">SIGNAL</a>(),&nbsp;QObject,&nbsp;<a href="#-SLOT">SLOT</a>())&nbsp;-&gt;&nbsp;bool<br>
+QObject.<a href="#CtrlInterface-disconnect">disconnect</a>(QObject,&nbsp;<a href="#-SIGNAL">SIGNAL</a>(),&nbsp;callable)&nbsp;-&gt;&nbsp;bool</tt></dd></dl>
+
+<dl><dt><a name="CtrlInterface-disconnectNotify"><strong>disconnectNotify</strong></a>(...)</dt><dd><tt>QObject.<a href="#CtrlInterface-disconnectNotify">disconnectNotify</a>(<a href="#-SIGNAL">SIGNAL</a>())</tt></dd></dl>
+
+<dl><dt><a name="CtrlInterface-dumpObjectInfo"><strong>dumpObjectInfo</strong></a>(...)</dt><dd><tt>QObject.<a href="#CtrlInterface-dumpObjectInfo">dumpObjectInfo</a>()</tt></dd></dl>
+
+<dl><dt><a name="CtrlInterface-dumpObjectTree"><strong>dumpObjectTree</strong></a>(...)</dt><dd><tt>QObject.<a href="#CtrlInterface-dumpObjectTree">dumpObjectTree</a>()</tt></dd></dl>
+
+<dl><dt><a name="CtrlInterface-dynamicPropertyNames"><strong>dynamicPropertyNames</strong></a>(...)</dt><dd><tt>QObject.<a href="#CtrlInterface-dynamicPropertyNames">dynamicPropertyNames</a>()&nbsp;-&gt;&nbsp;list-of-QByteArray</tt></dd></dl>
+
+<dl><dt><a name="CtrlInterface-emit"><strong>emit</strong></a>(...)</dt><dd><tt>QObject.<a href="#CtrlInterface-emit">emit</a>(<a href="#-SIGNAL">SIGNAL</a>(),&nbsp;...)</tt></dd></dl>
+
+<dl><dt><a name="CtrlInterface-eventFilter"><strong>eventFilter</strong></a>(...)</dt><dd><tt>QObject.<a href="#CtrlInterface-eventFilter">eventFilter</a>(QObject,&nbsp;QEvent)&nbsp;-&gt;&nbsp;bool</tt></dd></dl>
+
+<dl><dt><a name="CtrlInterface-findChild"><strong>findChild</strong></a>(...)</dt><dd><tt>QObject.<a href="#CtrlInterface-findChild">findChild</a>(type,&nbsp;str&nbsp;name='')&nbsp;-&gt;&nbsp;QObject<br>
+QObject.<a href="#CtrlInterface-findChild">findChild</a>(tuple,&nbsp;str&nbsp;name='')&nbsp;-&gt;&nbsp;QObject</tt></dd></dl>
+
+<dl><dt><a name="CtrlInterface-findChildren"><strong>findChildren</strong></a>(...)</dt><dd><tt>QObject.<a href="#CtrlInterface-findChildren">findChildren</a>(type,&nbsp;str&nbsp;name='')&nbsp;-&gt;&nbsp;list-of-QObject<br>
+QObject.<a href="#CtrlInterface-findChildren">findChildren</a>(tuple,&nbsp;str&nbsp;name='')&nbsp;-&gt;&nbsp;list-of-QObject<br>
+QObject.<a href="#CtrlInterface-findChildren">findChildren</a>(type,&nbsp;QRegExp)&nbsp;-&gt;&nbsp;list-of-QObject<br>
+QObject.<a href="#CtrlInterface-findChildren">findChildren</a>(tuple,&nbsp;QRegExp)&nbsp;-&gt;&nbsp;list-of-QObject</tt></dd></dl>
+
+<dl><dt><a name="CtrlInterface-inherits"><strong>inherits</strong></a>(...)</dt><dd><tt>QObject.<a href="#CtrlInterface-inherits">inherits</a>(str)&nbsp;-&gt;&nbsp;bool</tt></dd></dl>
+
+<dl><dt><a name="CtrlInterface-installEventFilter"><strong>installEventFilter</strong></a>(...)</dt><dd><tt>QObject.<a href="#CtrlInterface-installEventFilter">installEventFilter</a>(QObject)</tt></dd></dl>
+
+<dl><dt><a name="CtrlInterface-isWidgetType"><strong>isWidgetType</strong></a>(...)</dt><dd><tt>QObject.<a href="#CtrlInterface-isWidgetType">isWidgetType</a>()&nbsp;-&gt;&nbsp;bool</tt></dd></dl>
+
+<dl><dt><a name="CtrlInterface-killTimer"><strong>killTimer</strong></a>(...)</dt><dd><tt>QObject.<a href="#CtrlInterface-killTimer">killTimer</a>(int)</tt></dd></dl>
+
+<dl><dt><a name="CtrlInterface-metaObject"><strong>metaObject</strong></a>(...)</dt><dd><tt>QObject.<a href="#CtrlInterface-metaObject">metaObject</a>()&nbsp;-&gt;&nbsp;QMetaObject</tt></dd></dl>
+
+<dl><dt><a name="CtrlInterface-moveToThread"><strong>moveToThread</strong></a>(...)</dt><dd><tt>QObject.<a href="#CtrlInterface-moveToThread">moveToThread</a>(QThread)</tt></dd></dl>
+
+<dl><dt><a name="CtrlInterface-objectName"><strong>objectName</strong></a>(...)</dt><dd><tt>QObject.<a href="#CtrlInterface-objectName">objectName</a>()&nbsp;-&gt;&nbsp;str</tt></dd></dl>
+
+<dl><dt><a name="CtrlInterface-parent"><strong>parent</strong></a>(...)</dt><dd><tt>QObject.<a href="#CtrlInterface-parent">parent</a>()&nbsp;-&gt;&nbsp;QObject</tt></dd></dl>
+
+<dl><dt><a name="CtrlInterface-property"><strong>property</strong></a>(...)</dt><dd><tt>QObject.<a href="#CtrlInterface-property">property</a>(str)&nbsp;-&gt;&nbsp;object</tt></dd></dl>
+
+<dl><dt><a name="CtrlInterface-pyqtConfigure"><strong>pyqtConfigure</strong></a>(...)</dt><dd><tt>QObject.<a href="#CtrlInterface-pyqtConfigure">pyqtConfigure</a>(...)<br>
+&nbsp;<br>
+Each&nbsp;keyword&nbsp;argument&nbsp;is&nbsp;either&nbsp;the&nbsp;name&nbsp;of&nbsp;a&nbsp;Qt&nbsp;property&nbsp;or&nbsp;a&nbsp;Qt&nbsp;signal.<br>
+For&nbsp;properties&nbsp;the&nbsp;property&nbsp;is&nbsp;set&nbsp;to&nbsp;the&nbsp;given&nbsp;value&nbsp;which&nbsp;should&nbsp;be&nbsp;of&nbsp;an<br>
+appropriate&nbsp;type.<br>
+For&nbsp;signals&nbsp;the&nbsp;signal&nbsp;is&nbsp;connected&nbsp;to&nbsp;the&nbsp;given&nbsp;value&nbsp;which&nbsp;should&nbsp;be&nbsp;a<br>
+callable.</tt></dd></dl>
+
+<dl><dt><a name="CtrlInterface-receivers"><strong>receivers</strong></a>(...)</dt><dd><tt>QObject.<a href="#CtrlInterface-receivers">receivers</a>(<a href="#-SIGNAL">SIGNAL</a>())&nbsp;-&gt;&nbsp;int</tt></dd></dl>
+
+<dl><dt><a name="CtrlInterface-removeEventFilter"><strong>removeEventFilter</strong></a>(...)</dt><dd><tt>QObject.<a href="#CtrlInterface-removeEventFilter">removeEventFilter</a>(QObject)</tt></dd></dl>
+
+<dl><dt><a name="CtrlInterface-sender"><strong>sender</strong></a>(...)</dt><dd><tt>QObject.<a href="#CtrlInterface-sender">sender</a>()&nbsp;-&gt;&nbsp;QObject</tt></dd></dl>
+
+<dl><dt><a name="CtrlInterface-senderSignalIndex"><strong>senderSignalIndex</strong></a>(...)</dt><dd><tt>QObject.<a href="#CtrlInterface-senderSignalIndex">senderSignalIndex</a>()&nbsp;-&gt;&nbsp;int</tt></dd></dl>
+
+<dl><dt><a name="CtrlInterface-setObjectName"><strong>setObjectName</strong></a>(...)</dt><dd><tt>QObject.<a href="#CtrlInterface-setObjectName">setObjectName</a>(str)</tt></dd></dl>
+
+<dl><dt><a name="CtrlInterface-setProperty"><strong>setProperty</strong></a>(...)</dt><dd><tt>QObject.<a href="#CtrlInterface-setProperty">setProperty</a>(str,&nbsp;object)&nbsp;-&gt;&nbsp;bool</tt></dd></dl>
+
+<dl><dt><a name="CtrlInterface-signalsBlocked"><strong>signalsBlocked</strong></a>(...)</dt><dd><tt>QObject.<a href="#CtrlInterface-signalsBlocked">signalsBlocked</a>()&nbsp;-&gt;&nbsp;bool</tt></dd></dl>
+
+<dl><dt><a name="CtrlInterface-startTimer"><strong>startTimer</strong></a>(...)</dt><dd><tt>QObject.<a href="#CtrlInterface-startTimer">startTimer</a>(int)&nbsp;-&gt;&nbsp;int</tt></dd></dl>
+
+<dl><dt><a name="CtrlInterface-thread"><strong>thread</strong></a>(...)</dt><dd><tt>QObject.<a href="#CtrlInterface-thread">thread</a>()&nbsp;-&gt;&nbsp;QThread</tt></dd></dl>
+
+<dl><dt><a name="CtrlInterface-timerEvent"><strong>timerEvent</strong></a>(...)</dt><dd><tt>QObject.<a href="#CtrlInterface-timerEvent">timerEvent</a>(QTimerEvent)</tt></dd></dl>
+
+<dl><dt><a name="CtrlInterface-tr"><strong>tr</strong></a>(...)</dt><dd><tt>QObject.<a href="#CtrlInterface-tr">tr</a>(str,&nbsp;str&nbsp;disambiguation=None,&nbsp;int&nbsp;n=-1)&nbsp;-&gt;&nbsp;str</tt></dd></dl>
+
+<dl><dt><a name="CtrlInterface-trUtf8"><strong>trUtf8</strong></a>(...)</dt><dd><tt>QObject.<a href="#CtrlInterface-trUtf8">trUtf8</a>(str,&nbsp;str&nbsp;disambiguation=None,&nbsp;int&nbsp;n=-1)&nbsp;-&gt;&nbsp;str</tt></dd></dl>
+
+<hr>
+Data descriptors inherited from <a href="PyQt4.QtCore.html#QObject">PyQt4.QtCore.QObject</a>:<br>
+<dl><dt><strong>__weakref__</strong></dt>
+<dd><tt>list&nbsp;of&nbsp;weak&nbsp;references&nbsp;to&nbsp;the&nbsp;object&nbsp;(if&nbsp;defined)</tt></dd>
+</dl>
+<hr>
+Data and other attributes inherited from <a href="PyQt4.QtCore.html#QObject">PyQt4.QtCore.QObject</a>:<br>
+<dl><dt><strong>staticMetaObject</strong> = &lt;PyQt4.QtCore.QMetaObject object&gt;</dl>
+
+<hr>
+Methods inherited from <a href="PyQt4.QtGui.html#QPaintDevice">PyQt4.QtGui.QPaintDevice</a>:<br>
+<dl><dt><a name="CtrlInterface-colorCount"><strong>colorCount</strong></a>(...)</dt><dd><tt>QPaintDevice.<a href="#CtrlInterface-colorCount">colorCount</a>()&nbsp;-&gt;&nbsp;int</tt></dd></dl>
+
+<dl><dt><a name="CtrlInterface-depth"><strong>depth</strong></a>(...)</dt><dd><tt>QPaintDevice.<a href="#CtrlInterface-depth">depth</a>()&nbsp;-&gt;&nbsp;int</tt></dd></dl>
+
+<dl><dt><a name="CtrlInterface-heightMM"><strong>heightMM</strong></a>(...)</dt><dd><tt>QPaintDevice.<a href="#CtrlInterface-heightMM">heightMM</a>()&nbsp;-&gt;&nbsp;int</tt></dd></dl>
+
+<dl><dt><a name="CtrlInterface-logicalDpiX"><strong>logicalDpiX</strong></a>(...)</dt><dd><tt>QPaintDevice.<a href="#CtrlInterface-logicalDpiX">logicalDpiX</a>()&nbsp;-&gt;&nbsp;int</tt></dd></dl>
+
+<dl><dt><a name="CtrlInterface-logicalDpiY"><strong>logicalDpiY</strong></a>(...)</dt><dd><tt>QPaintDevice.<a href="#CtrlInterface-logicalDpiY">logicalDpiY</a>()&nbsp;-&gt;&nbsp;int</tt></dd></dl>
+
+<dl><dt><a name="CtrlInterface-numColors"><strong>numColors</strong></a>(...)</dt><dd><tt>QPaintDevice.<a href="#CtrlInterface-numColors">numColors</a>()&nbsp;-&gt;&nbsp;int</tt></dd></dl>
+
+<dl><dt><a name="CtrlInterface-paintingActive"><strong>paintingActive</strong></a>(...)</dt><dd><tt>QPaintDevice.<a href="#CtrlInterface-paintingActive">paintingActive</a>()&nbsp;-&gt;&nbsp;bool</tt></dd></dl>
+
+<dl><dt><a name="CtrlInterface-physicalDpiX"><strong>physicalDpiX</strong></a>(...)</dt><dd><tt>QPaintDevice.<a href="#CtrlInterface-physicalDpiX">physicalDpiX</a>()&nbsp;-&gt;&nbsp;int</tt></dd></dl>
+
+<dl><dt><a name="CtrlInterface-physicalDpiY"><strong>physicalDpiY</strong></a>(...)</dt><dd><tt>QPaintDevice.<a href="#CtrlInterface-physicalDpiY">physicalDpiY</a>()&nbsp;-&gt;&nbsp;int</tt></dd></dl>
+
+<dl><dt><a name="CtrlInterface-widthMM"><strong>widthMM</strong></a>(...)</dt><dd><tt>QPaintDevice.<a href="#CtrlInterface-widthMM">widthMM</a>()&nbsp;-&gt;&nbsp;int</tt></dd></dl>
+
+<hr>
+Data and other attributes inherited from <a href="PyQt4.QtGui.html#QPaintDevice">PyQt4.QtGui.QPaintDevice</a>:<br>
+<dl><dt><strong>PaintDeviceMetric</strong> = &lt;class 'PyQt4.QtGui.QPaintDevice.PaintDeviceMetric'&gt;</dl>
+
+<dl><dt><strong>PdmDepth</strong> = 6</dl>
+
+<dl><dt><strong>PdmDpiX</strong> = 7</dl>
+
+<dl><dt><strong>PdmDpiY</strong> = 8</dl>
+
+<dl><dt><strong>PdmHeight</strong> = 2</dl>
+
+<dl><dt><strong>PdmHeightMM</strong> = 4</dl>
+
+<dl><dt><strong>PdmNumColors</strong> = 5</dl>
+
+<dl><dt><strong>PdmPhysicalDpiX</strong> = 9</dl>
+
+<dl><dt><strong>PdmPhysicalDpiY</strong> = 10</dl>
+
+<dl><dt><strong>PdmWidth</strong> = 1</dl>
+
+<dl><dt><strong>PdmWidthMM</strong> = 3</dl>
+
+<hr>
+Methods inherited from <a href="sip.html#simplewrapper">sip.simplewrapper</a>:<br>
+<dl><dt><a name="CtrlInterface-__new__"><strong>__new__</strong></a>(*args, **kwargs)<font color="#909090"><font face="helvetica, arial"> from <a href="sip.html#wrappertype">sip.wrappertype</a></font></font></dt><dd><tt>Create&nbsp;and&nbsp;return&nbsp;a&nbsp;new&nbsp;object.&nbsp;&nbsp;See&nbsp;help(type)&nbsp;for&nbsp;accurate&nbsp;signature.</tt></dd></dl>
+
+<hr>
+Data descriptors inherited from <a href="sip.html#simplewrapper">sip.simplewrapper</a>:<br>
+<dl><dt><strong>__dict__</strong></dt>
+</dl>
+</td></tr></table></td></tr></table><p>
+<table width="100%" cellspacing=0 cellpadding=2 border=0 summary="section">
+<tr bgcolor="#eeaa77">
+<td colspan=3 valign=bottom>&nbsp;<br>
+<font color="#ffffff" face="helvetica, arial"><big><strong>Functions</strong></big></font></td></tr>
+    
+<tr><td bgcolor="#eeaa77"><tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</tt></td><td>&nbsp;</td>
+<td width="100%"><dl><dt><a name="-QT_TRANSLATE_NOOP"><strong>QT_TRANSLATE_NOOP</strong></a>(...)</dt><dd><tt><a href="#-QT_TRANSLATE_NOOP">QT_TRANSLATE_NOOP</a>(str,&nbsp;str)&nbsp;-&gt;&nbsp;str</tt></dd></dl>
+ <dl><dt><a name="-QT_TR_NOOP"><strong>QT_TR_NOOP</strong></a>(...)</dt><dd><tt><a href="#-QT_TR_NOOP">QT_TR_NOOP</a>(str)&nbsp;-&gt;&nbsp;str</tt></dd></dl>
+ <dl><dt><a name="-QT_TR_NOOP_UTF8"><strong>QT_TR_NOOP_UTF8</strong></a>(...)</dt><dd><tt><a href="#-QT_TR_NOOP_UTF8">QT_TR_NOOP_UTF8</a>(str)&nbsp;-&gt;&nbsp;str</tt></dd></dl>
+ <dl><dt><a name="-Q_ARG"><strong>Q_ARG</strong></a>(...)</dt><dd><tt><a href="#-Q_ARG">Q_ARG</a>(object,&nbsp;object)&nbsp;-&gt;&nbsp;QGenericArgument</tt></dd></dl>
+ <dl><dt><a name="-Q_CLASSINFO"><strong>Q_CLASSINFO</strong></a>(...)</dt><dd><tt><a href="#-Q_CLASSINFO">Q_CLASSINFO</a>(str,&nbsp;str)</tt></dd></dl>
+ <dl><dt><a name="-Q_ENUMS"><strong>Q_ENUMS</strong></a>(...)</dt><dd><tt><a href="#-Q_ENUMS">Q_ENUMS</a>(...)</tt></dd></dl>
+ <dl><dt><a name="-Q_FLAGS"><strong>Q_FLAGS</strong></a>(...)</dt><dd><tt><a href="#-Q_FLAGS">Q_FLAGS</a>(...)</tt></dd></dl>
+ <dl><dt><a name="-Q_RETURN_ARG"><strong>Q_RETURN_ARG</strong></a>(...)</dt><dd><tt><a href="#-Q_RETURN_ARG">Q_RETURN_ARG</a>(object)&nbsp;-&gt;&nbsp;QGenericReturnArgument</tt></dd></dl>
+ <dl><dt><a name="-SIGNAL"><strong>SIGNAL</strong></a>(...)</dt><dd><tt><a href="#-SIGNAL">SIGNAL</a>(str)&nbsp;-&gt;&nbsp;str</tt></dd></dl>
+ <dl><dt><a name="-SLOT"><strong>SLOT</strong></a>(...)</dt><dd><tt><a href="#-SLOT">SLOT</a>(str)&nbsp;-&gt;&nbsp;str</tt></dd></dl>
+ <dl><dt><a name="-bin_"><strong>bin_</strong></a>(...)</dt><dd><tt><a href="#-bin_">bin_</a>(QTextStream)&nbsp;-&gt;&nbsp;QTextStream</tt></dd></dl>
+ <dl><dt><a name="-bom"><strong>bom</strong></a>(...)</dt><dd><tt><a href="#-bom">bom</a>(QTextStream)&nbsp;-&gt;&nbsp;QTextStream</tt></dd></dl>
+ <dl><dt><a name="-center"><strong>center</strong></a>(...)</dt><dd><tt><a href="#-center">center</a>(QTextStream)&nbsp;-&gt;&nbsp;QTextStream</tt></dd></dl>
+ <dl><dt><a name="-dec"><strong>dec</strong></a>(...)</dt><dd><tt><a href="#-dec">dec</a>(QTextStream)&nbsp;-&gt;&nbsp;QTextStream</tt></dd></dl>
+ <dl><dt><a name="-endl"><strong>endl</strong></a>(...)</dt><dd><tt><a href="#-endl">endl</a>(QTextStream)&nbsp;-&gt;&nbsp;QTextStream</tt></dd></dl>
+ <dl><dt><a name="-fixed"><strong>fixed</strong></a>(...)</dt><dd><tt><a href="#-fixed">fixed</a>(QTextStream)&nbsp;-&gt;&nbsp;QTextStream</tt></dd></dl>
+ <dl><dt><a name="-flush"><strong>flush</strong></a>(...)</dt><dd><tt><a href="#-flush">flush</a>(QTextStream)&nbsp;-&gt;&nbsp;QTextStream</tt></dd></dl>
+ <dl><dt><a name="-forcepoint"><strong>forcepoint</strong></a>(...)</dt><dd><tt><a href="#-forcepoint">forcepoint</a>(QTextStream)&nbsp;-&gt;&nbsp;QTextStream</tt></dd></dl>
+ <dl><dt><a name="-forcesign"><strong>forcesign</strong></a>(...)</dt><dd><tt><a href="#-forcesign">forcesign</a>(QTextStream)&nbsp;-&gt;&nbsp;QTextStream</tt></dd></dl>
+ <dl><dt><a name="-hex_"><strong>hex_</strong></a>(...)</dt><dd><tt><a href="#-hex_">hex_</a>(QTextStream)&nbsp;-&gt;&nbsp;QTextStream</tt></dd></dl>
+ <dl><dt><a name="-left"><strong>left</strong></a>(...)</dt><dd><tt><a href="#-left">left</a>(QTextStream)&nbsp;-&gt;&nbsp;QTextStream</tt></dd></dl>
+ <dl><dt><a name="-lowercasebase"><strong>lowercasebase</strong></a>(...)</dt><dd><tt><a href="#-lowercasebase">lowercasebase</a>(QTextStream)&nbsp;-&gt;&nbsp;QTextStream</tt></dd></dl>
+ <dl><dt><a name="-lowercasedigits"><strong>lowercasedigits</strong></a>(...)</dt><dd><tt><a href="#-lowercasedigits">lowercasedigits</a>(QTextStream)&nbsp;-&gt;&nbsp;QTextStream</tt></dd></dl>
+ <dl><dt><a name="-noforcepoint"><strong>noforcepoint</strong></a>(...)</dt><dd><tt><a href="#-noforcepoint">noforcepoint</a>(QTextStream)&nbsp;-&gt;&nbsp;QTextStream</tt></dd></dl>
+ <dl><dt><a name="-noforcesign"><strong>noforcesign</strong></a>(...)</dt><dd><tt><a href="#-noforcesign">noforcesign</a>(QTextStream)&nbsp;-&gt;&nbsp;QTextStream</tt></dd></dl>
+ <dl><dt><a name="-noshowbase"><strong>noshowbase</strong></a>(...)</dt><dd><tt><a href="#-noshowbase">noshowbase</a>(QTextStream)&nbsp;-&gt;&nbsp;QTextStream</tt></dd></dl>
+ <dl><dt><a name="-oct_"><strong>oct_</strong></a>(...)</dt><dd><tt><a href="#-oct_">oct_</a>(QTextStream)&nbsp;-&gt;&nbsp;QTextStream</tt></dd></dl>
+ <dl><dt><a name="-pyqtPickleProtocol"><strong>pyqtPickleProtocol</strong></a>(...)</dt><dd><tt><a href="#-pyqtPickleProtocol">pyqtPickleProtocol</a>()&nbsp;-&gt;&nbsp;int-or-None</tt></dd></dl>
+ <dl><dt><a name="-pyqtRemoveInputHook"><strong>pyqtRemoveInputHook</strong></a>(...)</dt><dd><tt><a href="#-pyqtRemoveInputHook">pyqtRemoveInputHook</a>()</tt></dd></dl>
+ <dl><dt><a name="-pyqtRestoreInputHook"><strong>pyqtRestoreInputHook</strong></a>(...)</dt><dd><tt><a href="#-pyqtRestoreInputHook">pyqtRestoreInputHook</a>()</tt></dd></dl>
+ <dl><dt><a name="-pyqtSetPickleProtocol"><strong>pyqtSetPickleProtocol</strong></a>(...)</dt><dd><tt><a href="#-pyqtSetPickleProtocol">pyqtSetPickleProtocol</a>(int-or-None)</tt></dd></dl>
+ <dl><dt><a name="-pyqtSignature"><strong>pyqtSignature</strong></a>(...)</dt><dd><tt>@<a href="#-pyqtSignature">pyqtSignature</a>(str&nbsp;signature,&nbsp;&nbsp;str&nbsp;result=None)<br>
+&nbsp;<br>
+This&nbsp;is&nbsp;deprecated,&nbsp;use&nbsp;<a href="#-pyqtSlot">pyqtSlot</a>()&nbsp;instead.<br>
+&nbsp;<br>
+This&nbsp;is&nbsp;a&nbsp;decorator&nbsp;applied&nbsp;to&nbsp;Python&nbsp;methods&nbsp;of&nbsp;a&nbsp;QObject&nbsp;that&nbsp;marks&nbsp;them<br>
+as&nbsp;Qt&nbsp;slots.<br>
+signature&nbsp;is&nbsp;a&nbsp;string&nbsp;specifying&nbsp;the&nbsp;C++&nbsp;signature&nbsp;of&nbsp;the&nbsp;slot.<br>
+result&nbsp;is&nbsp;type&nbsp;of&nbsp;the&nbsp;value&nbsp;returned&nbsp;by&nbsp;the&nbsp;slot.</tt></dd></dl>
+ <dl><dt><a name="-pyqtSlot"><strong>pyqtSlot</strong></a>(...)</dt><dd><tt>@<a href="#-pyqtSlot">pyqtSlot</a>(*types,&nbsp;str&nbsp;name=None,&nbsp;str&nbsp;result=None)<br>
+&nbsp;<br>
+This&nbsp;is&nbsp;a&nbsp;decorator&nbsp;applied&nbsp;to&nbsp;Python&nbsp;methods&nbsp;of&nbsp;a&nbsp;QObject&nbsp;that&nbsp;marks&nbsp;them<br>
+as&nbsp;Qt&nbsp;slots.<br>
+The&nbsp;non-keyword&nbsp;arguments&nbsp;are&nbsp;the&nbsp;types&nbsp;of&nbsp;the&nbsp;slot&nbsp;arguments&nbsp;and&nbsp;each&nbsp;may<br>
+be&nbsp;a&nbsp;Python&nbsp;type&nbsp;object&nbsp;or&nbsp;a&nbsp;string&nbsp;specifying&nbsp;a&nbsp;C++&nbsp;type.<br>
+name&nbsp;is&nbsp;the&nbsp;name&nbsp;of&nbsp;the&nbsp;slot&nbsp;and&nbsp;defaults&nbsp;to&nbsp;the&nbsp;name&nbsp;of&nbsp;the&nbsp;method.<br>
+result&nbsp;is&nbsp;type&nbsp;of&nbsp;the&nbsp;value&nbsp;returned&nbsp;by&nbsp;the&nbsp;slot.</tt></dd></dl>
+ <dl><dt><a name="-qAbs"><strong>qAbs</strong></a>(...)</dt><dd><tt><a href="#-qAbs">qAbs</a>(float)&nbsp;-&gt;&nbsp;float</tt></dd></dl>
+ <dl><dt><a name="-qAddPostRoutine"><strong>qAddPostRoutine</strong></a>(...)</dt><dd><tt><a href="#-qAddPostRoutine">qAddPostRoutine</a>(callable)</tt></dd></dl>
+ <dl><dt><a name="-qAlpha"><strong>qAlpha</strong></a>(...)</dt><dd><tt><a href="#-qAlpha">qAlpha</a>(int)&nbsp;-&gt;&nbsp;int</tt></dd></dl>
+ <dl><dt><a name="-qBlue"><strong>qBlue</strong></a>(...)</dt><dd><tt><a href="#-qBlue">qBlue</a>(int)&nbsp;-&gt;&nbsp;int</tt></dd></dl>
+ <dl><dt><a name="-qChecksum"><strong>qChecksum</strong></a>(...)</dt><dd><tt><a href="#-qChecksum">qChecksum</a>(str)&nbsp;-&gt;&nbsp;int</tt></dd></dl>
+ <dl><dt><a name="-qCompress"><strong>qCompress</strong></a>(...)</dt><dd><tt><a href="#-qCompress">qCompress</a>(QByteArray,&nbsp;int&nbsp;compressionLevel=-1)&nbsp;-&gt;&nbsp;QByteArray</tt></dd></dl>
+ <dl><dt><a name="-qCritical"><strong>qCritical</strong></a>(...)</dt><dd><tt><a href="#-qCritical">qCritical</a>(str)</tt></dd></dl>
+ <dl><dt><a name="-qDebug"><strong>qDebug</strong></a>(...)</dt><dd><tt><a href="#-qDebug">qDebug</a>(str)</tt></dd></dl>
+ <dl><dt><a name="-qDrawBorderPixmap"><strong>qDrawBorderPixmap</strong></a>(...)</dt><dd><tt><a href="#-qDrawBorderPixmap">qDrawBorderPixmap</a>(QPainter,&nbsp;QRect,&nbsp;QMargins,&nbsp;QPixmap)</tt></dd></dl>
+ <dl><dt><a name="-qDrawPlainRect"><strong>qDrawPlainRect</strong></a>(...)</dt><dd><tt><a href="#-qDrawPlainRect">qDrawPlainRect</a>(QPainter,&nbsp;int,&nbsp;int,&nbsp;int,&nbsp;int,&nbsp;QColor,&nbsp;int&nbsp;lineWidth=1,&nbsp;QBrush&nbsp;fill=None)<br>
+<a href="#-qDrawPlainRect">qDrawPlainRect</a>(QPainter,&nbsp;QRect,&nbsp;QColor,&nbsp;int&nbsp;lineWidth=1,&nbsp;QBrush&nbsp;fill=None)</tt></dd></dl>
+ <dl><dt><a name="-qDrawShadeLine"><strong>qDrawShadeLine</strong></a>(...)</dt><dd><tt><a href="#-qDrawShadeLine">qDrawShadeLine</a>(QPainter,&nbsp;int,&nbsp;int,&nbsp;int,&nbsp;int,&nbsp;QPalette,&nbsp;bool&nbsp;sunken=True,&nbsp;int&nbsp;lineWidth=1,&nbsp;int&nbsp;midLineWidth=0)<br>
+<a href="#-qDrawShadeLine">qDrawShadeLine</a>(QPainter,&nbsp;QPoint,&nbsp;QPoint,&nbsp;QPalette,&nbsp;bool&nbsp;sunken=True,&nbsp;int&nbsp;lineWidth=1,&nbsp;int&nbsp;midLineWidth=0)</tt></dd></dl>
+ <dl><dt><a name="-qDrawShadePanel"><strong>qDrawShadePanel</strong></a>(...)</dt><dd><tt><a href="#-qDrawShadePanel">qDrawShadePanel</a>(QPainter,&nbsp;int,&nbsp;int,&nbsp;int,&nbsp;int,&nbsp;QPalette,&nbsp;bool&nbsp;sunken=False,&nbsp;int&nbsp;lineWidth=1,&nbsp;QBrush&nbsp;fill=None)<br>
+<a href="#-qDrawShadePanel">qDrawShadePanel</a>(QPainter,&nbsp;QRect,&nbsp;QPalette,&nbsp;bool&nbsp;sunken=False,&nbsp;int&nbsp;lineWidth=1,&nbsp;QBrush&nbsp;fill=None)</tt></dd></dl>
+ <dl><dt><a name="-qDrawShadeRect"><strong>qDrawShadeRect</strong></a>(...)</dt><dd><tt><a href="#-qDrawShadeRect">qDrawShadeRect</a>(QPainter,&nbsp;int,&nbsp;int,&nbsp;int,&nbsp;int,&nbsp;QPalette,&nbsp;bool&nbsp;sunken=False,&nbsp;int&nbsp;lineWidth=1,&nbsp;int&nbsp;midLineWidth=0,&nbsp;QBrush&nbsp;fill=None)<br>
+<a href="#-qDrawShadeRect">qDrawShadeRect</a>(QPainter,&nbsp;QRect,&nbsp;QPalette,&nbsp;bool&nbsp;sunken=False,&nbsp;int&nbsp;lineWidth=1,&nbsp;int&nbsp;midLineWidth=0,&nbsp;QBrush&nbsp;fill=None)</tt></dd></dl>
+ <dl><dt><a name="-qDrawWinButton"><strong>qDrawWinButton</strong></a>(...)</dt><dd><tt><a href="#-qDrawWinButton">qDrawWinButton</a>(QPainter,&nbsp;int,&nbsp;int,&nbsp;int,&nbsp;int,&nbsp;QPalette,&nbsp;bool&nbsp;sunken=False,&nbsp;QBrush&nbsp;fill=None)<br>
+<a href="#-qDrawWinButton">qDrawWinButton</a>(QPainter,&nbsp;QRect,&nbsp;QPalette,&nbsp;bool&nbsp;sunken=False,&nbsp;QBrush&nbsp;fill=None)</tt></dd></dl>
+ <dl><dt><a name="-qDrawWinPanel"><strong>qDrawWinPanel</strong></a>(...)</dt><dd><tt><a href="#-qDrawWinPanel">qDrawWinPanel</a>(QPainter,&nbsp;int,&nbsp;int,&nbsp;int,&nbsp;int,&nbsp;QPalette,&nbsp;bool&nbsp;sunken=False,&nbsp;QBrush&nbsp;fill=None)<br>
+<a href="#-qDrawWinPanel">qDrawWinPanel</a>(QPainter,&nbsp;QRect,&nbsp;QPalette,&nbsp;bool&nbsp;sunken=False,&nbsp;QBrush&nbsp;fill=None)</tt></dd></dl>
+ <dl><dt><a name="-qErrnoWarning"><strong>qErrnoWarning</strong></a>(...)</dt><dd><tt><a href="#-qErrnoWarning">qErrnoWarning</a>(int,&nbsp;str)<br>
+<a href="#-qErrnoWarning">qErrnoWarning</a>(str)</tt></dd></dl>
+ <dl><dt><a name="-qFatal"><strong>qFatal</strong></a>(...)</dt><dd><tt><a href="#-qFatal">qFatal</a>(str)</tt></dd></dl>
+ <dl><dt><a name="-qFuzzyCompare"><strong>qFuzzyCompare</strong></a>(...)</dt><dd><tt><a href="#-qFuzzyCompare">qFuzzyCompare</a>(float,&nbsp;float)&nbsp;-&gt;&nbsp;bool</tt></dd></dl>
+ <dl><dt><a name="-qGray"><strong>qGray</strong></a>(...)</dt><dd><tt><a href="#-qGray">qGray</a>(int,&nbsp;int,&nbsp;int)&nbsp;-&gt;&nbsp;int<br>
+<a href="#-qGray">qGray</a>(int)&nbsp;-&gt;&nbsp;int</tt></dd></dl>
+ <dl><dt><a name="-qGreen"><strong>qGreen</strong></a>(...)</dt><dd><tt><a href="#-qGreen">qGreen</a>(int)&nbsp;-&gt;&nbsp;int</tt></dd></dl>
+ <dl><dt><a name="-qInf"><strong>qInf</strong></a>(...)</dt><dd><tt><a href="#-qInf">qInf</a>()&nbsp;-&gt;&nbsp;float</tt></dd></dl>
+ <dl><dt><a name="-qInstallMsgHandler"><strong>qInstallMsgHandler</strong></a>(...)</dt><dd><tt><a href="#-qInstallMsgHandler">qInstallMsgHandler</a>(callable)&nbsp;-&gt;&nbsp;callable</tt></dd></dl>
+ <dl><dt><a name="-qIsFinite"><strong>qIsFinite</strong></a>(...)</dt><dd><tt><a href="#-qIsFinite">qIsFinite</a>(float)&nbsp;-&gt;&nbsp;bool</tt></dd></dl>
+ <dl><dt><a name="-qIsGray"><strong>qIsGray</strong></a>(...)</dt><dd><tt><a href="#-qIsGray">qIsGray</a>(int)&nbsp;-&gt;&nbsp;bool</tt></dd></dl>
+ <dl><dt><a name="-qIsInf"><strong>qIsInf</strong></a>(...)</dt><dd><tt><a href="#-qIsInf">qIsInf</a>(float)&nbsp;-&gt;&nbsp;bool</tt></dd></dl>
+ <dl><dt><a name="-qIsNaN"><strong>qIsNaN</strong></a>(...)</dt><dd><tt><a href="#-qIsNaN">qIsNaN</a>(float)&nbsp;-&gt;&nbsp;bool</tt></dd></dl>
+ <dl><dt><a name="-qIsNull"><strong>qIsNull</strong></a>(...)</dt><dd><tt><a href="#-qIsNull">qIsNull</a>(float)&nbsp;-&gt;&nbsp;bool</tt></dd></dl>
+ <dl><dt><a name="-qQNaN"><strong>qQNaN</strong></a>(...)</dt><dd><tt><a href="#-qQNaN">qQNaN</a>()&nbsp;-&gt;&nbsp;float</tt></dd></dl>
+ <dl><dt><a name="-qRed"><strong>qRed</strong></a>(...)</dt><dd><tt><a href="#-qRed">qRed</a>(int)&nbsp;-&gt;&nbsp;int</tt></dd></dl>
+ <dl><dt><a name="-qRegisterResourceData"><strong>qRegisterResourceData</strong></a>(...)</dt><dd><tt><a href="#-qRegisterResourceData">qRegisterResourceData</a>(int,&nbsp;str,&nbsp;str,&nbsp;str)&nbsp;-&gt;&nbsp;bool</tt></dd></dl>
+ <dl><dt><a name="-qRemovePostRoutine"><strong>qRemovePostRoutine</strong></a>(...)</dt><dd><tt><a href="#-qRemovePostRoutine">qRemovePostRoutine</a>(callable)</tt></dd></dl>
+ <dl><dt><a name="-qRgb"><strong>qRgb</strong></a>(...)</dt><dd><tt><a href="#-qRgb">qRgb</a>(int,&nbsp;int,&nbsp;int)&nbsp;-&gt;&nbsp;int</tt></dd></dl>
+ <dl><dt><a name="-qRgba"><strong>qRgba</strong></a>(...)</dt><dd><tt><a href="#-qRgba">qRgba</a>(int,&nbsp;int,&nbsp;int,&nbsp;int)&nbsp;-&gt;&nbsp;int</tt></dd></dl>
+ <dl><dt><a name="-qRound"><strong>qRound</strong></a>(...)</dt><dd><tt><a href="#-qRound">qRound</a>(float)&nbsp;-&gt;&nbsp;int</tt></dd></dl>
+ <dl><dt><a name="-qRound64"><strong>qRound64</strong></a>(...)</dt><dd><tt><a href="#-qRound64">qRound64</a>(float)&nbsp;-&gt;&nbsp;int</tt></dd></dl>
+ <dl><dt><a name="-qSNaN"><strong>qSNaN</strong></a>(...)</dt><dd><tt><a href="#-qSNaN">qSNaN</a>()&nbsp;-&gt;&nbsp;float</tt></dd></dl>
+ <dl><dt><a name="-qScriptConnect"><strong>qScriptConnect</strong></a>(...)</dt><dd><tt><a href="#-qScriptConnect">qScriptConnect</a>(QObject,&nbsp;<a href="#-SIGNAL">SIGNAL</a>(),&nbsp;QScriptValue,&nbsp;QScriptValue)&nbsp;-&gt;&nbsp;bool</tt></dd></dl>
+ <dl><dt><a name="-qScriptDisconnect"><strong>qScriptDisconnect</strong></a>(...)</dt><dd><tt><a href="#-qScriptDisconnect">qScriptDisconnect</a>(QObject,&nbsp;<a href="#-SIGNAL">SIGNAL</a>(),&nbsp;QScriptValue,&nbsp;QScriptValue)&nbsp;-&gt;&nbsp;bool</tt></dd></dl>
+ <dl><dt><a name="-qSetFieldWidth"><strong>qSetFieldWidth</strong></a>(...)</dt><dd><tt><a href="#-qSetFieldWidth">qSetFieldWidth</a>(int)&nbsp;-&gt;&nbsp;QTextStreamManipulator</tt></dd></dl>
+ <dl><dt><a name="-qSetPadChar"><strong>qSetPadChar</strong></a>(...)</dt><dd><tt><a href="#-qSetPadChar">qSetPadChar</a>(str)&nbsp;-&gt;&nbsp;QTextStreamManipulator</tt></dd></dl>
+ <dl><dt><a name="-qSetRealNumberPrecision"><strong>qSetRealNumberPrecision</strong></a>(...)</dt><dd><tt><a href="#-qSetRealNumberPrecision">qSetRealNumberPrecision</a>(int)&nbsp;-&gt;&nbsp;QTextStreamManipulator</tt></dd></dl>
+ <dl><dt><a name="-qSharedBuild"><strong>qSharedBuild</strong></a>(...)</dt><dd><tt><a href="#-qSharedBuild">qSharedBuild</a>()&nbsp;-&gt;&nbsp;bool</tt></dd></dl>
+ <dl><dt><a name="-qSwap"><strong>qSwap</strong></a>(...)</dt><dd><tt><a href="#-qSwap">qSwap</a>(QBitArray,&nbsp;QBitArray)<br>
+<a href="#-qSwap">qSwap</a>(QByteArray,&nbsp;QByteArray)<br>
+<a href="#-qSwap">qSwap</a>(QUrl,&nbsp;QUrl)</tt></dd></dl>
+ <dl><dt><a name="-qUncompress"><strong>qUncompress</strong></a>(...)</dt><dd><tt><a href="#-qUncompress">qUncompress</a>(QByteArray)&nbsp;-&gt;&nbsp;QByteArray</tt></dd></dl>
+ <dl><dt><a name="-qUnregisterResourceData"><strong>qUnregisterResourceData</strong></a>(...)</dt><dd><tt><a href="#-qUnregisterResourceData">qUnregisterResourceData</a>(int,&nbsp;str,&nbsp;str,&nbsp;str)&nbsp;-&gt;&nbsp;bool</tt></dd></dl>
+ <dl><dt><a name="-qVersion"><strong>qVersion</strong></a>(...)</dt><dd><tt><a href="#-qVersion">qVersion</a>()&nbsp;-&gt;&nbsp;str</tt></dd></dl>
+ <dl><dt><a name="-qWarning"><strong>qWarning</strong></a>(...)</dt><dd><tt><a href="#-qWarning">qWarning</a>(str)</tt></dd></dl>
+ <dl><dt><a name="-qWebKitMajorVersion"><strong>qWebKitMajorVersion</strong></a>(...)</dt><dd><tt><a href="#-qWebKitMajorVersion">qWebKitMajorVersion</a>()&nbsp;-&gt;&nbsp;int</tt></dd></dl>
+ <dl><dt><a name="-qWebKitMinorVersion"><strong>qWebKitMinorVersion</strong></a>(...)</dt><dd><tt><a href="#-qWebKitMinorVersion">qWebKitMinorVersion</a>()&nbsp;-&gt;&nbsp;int</tt></dd></dl>
+ <dl><dt><a name="-qWebKitVersion"><strong>qWebKitVersion</strong></a>(...)</dt><dd><tt><a href="#-qWebKitVersion">qWebKitVersion</a>()&nbsp;-&gt;&nbsp;str</tt></dd></dl>
+ <dl><dt><a name="-qrand"><strong>qrand</strong></a>(...)</dt><dd><tt><a href="#-qrand">qrand</a>()&nbsp;-&gt;&nbsp;int</tt></dd></dl>
+ <dl><dt><a name="-qsrand"><strong>qsrand</strong></a>(...)</dt><dd><tt><a href="#-qsrand">qsrand</a>(int)</tt></dd></dl>
+ <dl><dt><a name="-qt_x11_wait_for_window_manager"><strong>qt_x11_wait_for_window_manager</strong></a>(...)</dt><dd><tt><a href="#-qt_x11_wait_for_window_manager">qt_x11_wait_for_window_manager</a>(<a href="PyQt4.QtGui.html#QWidget">QWidget</a>)</tt></dd></dl>
+ <dl><dt><a name="-reset"><strong>reset</strong></a>(...)</dt><dd><tt><a href="#-reset">reset</a>(QTextStream)&nbsp;-&gt;&nbsp;QTextStream</tt></dd></dl>
+ <dl><dt><a name="-right"><strong>right</strong></a>(...)</dt><dd><tt><a href="#-right">right</a>(QTextStream)&nbsp;-&gt;&nbsp;QTextStream</tt></dd></dl>
+ <dl><dt><a name="-scientific"><strong>scientific</strong></a>(...)</dt><dd><tt><a href="#-scientific">scientific</a>(QTextStream)&nbsp;-&gt;&nbsp;QTextStream</tt></dd></dl>
+ <dl><dt><a name="-showbase"><strong>showbase</strong></a>(...)</dt><dd><tt><a href="#-showbase">showbase</a>(QTextStream)&nbsp;-&gt;&nbsp;QTextStream</tt></dd></dl>
+ <dl><dt><a name="-uppercasebase"><strong>uppercasebase</strong></a>(...)</dt><dd><tt><a href="#-uppercasebase">uppercasebase</a>(QTextStream)&nbsp;-&gt;&nbsp;QTextStream</tt></dd></dl>
+ <dl><dt><a name="-uppercasedigits"><strong>uppercasedigits</strong></a>(...)</dt><dd><tt><a href="#-uppercasedigits">uppercasedigits</a>(QTextStream)&nbsp;-&gt;&nbsp;QTextStream</tt></dd></dl>
+ <dl><dt><a name="-ws"><strong>ws</strong></a>(...)</dt><dd><tt><a href="#-ws">ws</a>(QTextStream)&nbsp;-&gt;&nbsp;QTextStream</tt></dd></dl>
+</td></tr></table><p>
+<table width="100%" cellspacing=0 cellpadding=2 border=0 summary="section">
+<tr bgcolor="#55aa55">
+<td colspan=3 valign=bottom>&nbsp;<br>
+<font color="#ffffff" face="helvetica, arial"><big><strong>Data</strong></big></font></td></tr>
+    
+<tr><td bgcolor="#55aa55"><tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</tt></td><td>&nbsp;</td>
+<td width="100%"><strong>PYQT_CONFIGURATION</strong> = {'sip_flags': '-t WS_X11 -t Qt_4_8_6'}<br>
+<strong>PYQT_VERSION</strong> = 264963<br>
+<strong>PYQT_VERSION_STR</strong> = '4.11.3'<br>
+<strong>QPyDeclarativeListProperty</strong> = 'QDeclarativeListProperty&lt;QObject&gt;'<br>
+<strong>QT_VERSION</strong> = 264198<br>
+<strong>QT_VERSION_STR</strong> = '4.8.6'<br>
+<strong>QtCriticalMsg</strong> = 2<br>
+<strong>QtDebugMsg</strong> = 0<br>
+<strong>QtFatalMsg</strong> = 3<br>
+<strong>QtSystemMsg</strong> = 2<br>
+<strong>QtWarningMsg</strong> = 1<br>
+<strong>qApp</strong> = &lt;PyQt4.QtGui.QApplication object&gt;</td></tr></table>
+</body></html>

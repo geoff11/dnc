@@ -1,0 +1,33 @@
+2015-04-16 02:08:35,702 INFO     Connexion OK
+2015-04-16 02:08:35,757 INFO     Login please:
+2015-04-16 02:08:37,911 INFO     Login successful !! Let's get started
+2015-04-16 02:08:39,032 INFO     toto:: hey
+2015-04-16 02:08:48,982 INFO     Connexion OK
+2015-04-16 02:08:49,139 INFO     Login please:
+2015-04-16 02:08:51,246 INFO     * tutu:: is online *
+2015-04-16 02:08:51,246 INFO     Login successful !! Let's get started
+2015-04-16 02:08:52,817 INFO     tutu:: cc
+2015-04-16 02:08:52,817 INFO     tutu:: cc
+2015-04-16 02:08:55,795 INFO     *  toto tutu *
+2015-04-16 02:09:05,916 INFO     * Your request has been sent to 'toto' *
+2015-04-16 02:09:05,921 INFO     * tutu:: wants to share a file with you. /fileacc tutu or /fileden tutu ? *
+2015-04-16 02:09:10,719 INFO     * toto:: allows download. Great 100%. *
+2015-04-16 02:09:10,722 INFO     * File download with success ! *
+2015-04-16 02:09:16,425 INFO     Connexion OK
+2015-04-16 02:09:16,580 INFO     Login please:
+2015-04-16 02:09:18,649 INFO     * titi:: is online *
+2015-04-16 02:09:18,651 INFO     * titi:: is online *
+2015-04-16 02:09:18,655 INFO     Login successful !! Let's get started
+2015-04-16 02:09:19,797 INFO     titi:: hey
+2015-04-16 02:09:19,800 INFO     titi:: hey
+2015-04-16 02:09:19,801 INFO     titi:: hey
+2015-04-16 02:09:24,825 INFO     * Your request has been sent to titi *
+2015-04-16 02:09:24,825 INFO     * tutu:: wants to chat with you in private for the session. /acceptpc tutu or /denypc tutu ?  *
+2015-04-16 02:09:29,329 INFO     * titi:: Private connexion opened between titi and you *
+2015-04-16 02:09:29,329 INFO     * Now, you can speak to 'tutu' in private with : /mp tutu<msg> *
+2015-04-16 02:09:41,391 INFO     * tutu:: MP => mpprtoi *
+2015-04-16 02:09:41,392 INFO     * MP was sent to 'titi' successfully *
+2015-04-16 02:09:46,701 INFO     tutu:: generalchat
+2015-04-16 02:09:46,716 INFO     tutu:: generalchat
+2015-04-16 02:09:46,717 INFO     tutu:: generalchat
+2015-04-16 02:09:51,571 INFO     * With '/' you can use : sleep, list, quit, wake, logchange, private, acceptpc, denypc, mp, stoppc, filesend, fileacc, fileden */quit

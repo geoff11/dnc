@@ -18,7 +18,7 @@ class Thread_client(threading.Thread):
     
     def __init__(self, pAdr, pConn, pChat):
         '''
-            
+            init thread client
         '''
         self.adr = pAdr
         self.chat = pChat
@@ -27,13 +27,16 @@ class Thread_client(threading.Thread):
         
         
     def run(self):
+        '''
+            run au lancement du thread : identification client puis boucle infinie sur les messages
+        '''
         
         conn = self.conn
         addr = self.adr
         
         print('Client connected with ' + addr[0] + ':' + str(addr[1]))
         userActif = self.identifyClient()
-        self.sendToAll(userActif, "is online")
+        self.sendToAllExceptUserActif(userActif, "is online")
         
         while True:
             try:
@@ -47,12 +50,12 @@ class Thread_client(threading.Thread):
                     
                     if message[0] == "/quit":
                         if len(message) > 1:
-                            reponseAll = self.chat.quit(userActif, message[1])
+                            reponseAllExceptUserActif = self.chat.quit(userActif, message[1])
                         else:
-                            reponseAll = self.chat.quit(userActif)
+                            reponseAllExceptUserActif = self.chat.quit(userActif)
                         reponseClient = userActif.quit()
                         self.conn.send(reponseClient.encode())
-                        self.sendToAll(userActif, reponseAll)
+                        self.sendToAllExceptUserActif(userActif, reponseAllExceptUserActif)
                         break   
                 else:
                     error = "Error : please type something"
@@ -70,6 +73,10 @@ class Thread_client(threading.Thread):
             
                 
     def identifyClient(self):
+        '''
+            fonction pour identifier le client tant qu un pseudo n est pas prit
+        '''
+        
         # Recuperation de la requete du client
         pseudo = self.conn.recv(TAILLE_TAMPON).decode()
         logDispo = self.chat.verifLogin(pseudo)
@@ -97,8 +104,12 @@ class Thread_client(threading.Thread):
 
 
     def manageCommands(self, userActif, message):
-                
+        '''
+            fonction phare qui gere toutes les commandes saisies, ainsi que les envois
+        '''
+        
         reponseAll = "" # Construction de la reponse pour tous les clients
+        reponseAllExceptUserActif = ""  # Construction de la reponse pour tous les clients exepte user actif
         reponseClient = "" # Construction de la reponse au client actif   
         reponseSpecifyClient = "" # Construction de la reponse d un client specifique : mp 
         otherPseudo = ""
@@ -111,9 +122,9 @@ class Thread_client(threading.Thread):
             
             if cmd == "sleep":
                 if len(message) > 1:
-                    reponseAll = self.chat.sleep(userActif, message[1])
+                    reponseAllExceptUserActif = self.chat.sleep(userActif, message[1])
                 else:
-                    reponseAll = self.chat.sleep(userActif)
+                    reponseAllExceptUserActif = self.chat.sleep(userActif)
                 reponseClient = userActif.sleep()
                 
             elif cmd == "list":
@@ -121,16 +132,16 @@ class Thread_client(threading.Thread):
                 
             elif cmd == "wake":
                 if len(message) > 1:
-                    reponseAll = self.chat.wake(userActif, message[1])
+                    reponseAllExceptUserActif = self.chat.wake(userActif, message[1])
                 else:
-                    reponseAll = self.chat.wake(userActif)
+                    reponseAllExceptUserActif = self.chat.wake(userActif)
                 reponseClient = userActif.wake()
                 
             elif cmd == "logchange":
                 if len(message) > 1:
                     newPseudo = message[1]
-                    reponseAll = self.chat.logchange(userActif, newPseudo)
-                    if reponseAll != "" :
+                    reponseAllExceptUserActif = self.chat.logchange(userActif, newPseudo)
+                    if reponseAllExceptUserActif != "" :
                         reponseClient = userActif.logchange(newPseudo)
                     else:
                         reponseClient = "Pseudo already used, please choose another one"
@@ -262,45 +273,61 @@ class Thread_client(threading.Thread):
         # d'abord rep a tlm en cas de deconnexion
         if reponseAll != "" :
             self.sendToAll(userActif, reponseAll)
+        
+        if reponseAllExceptUserActif != "" :
+            self.sendToAllExceptUserActif(userActif, reponseAllExceptUserActif)
             
         # Envoi de la reponseClient au client
         # !! Si une reponse doit etre envoyee a un seul client
         if reponseClient != "":
-            self.conn.send(reponseClient.encode())
+            self.conn.send("* ".encode() + reponseClient.encode() + " *".encode())
         
         if reponseSpecifyClient != "":
             self.sendToAClient(myPseudo, otherPseudo, reponseSpecifyClient)
                 
     
-    def sendToAll(self, userActif, message):
+    def sendToAllExceptUserActif(self, userActif, message):
         '''
-            Envoi du message a tous les users actifs excepte l'emetteur
+            Envoi du message a tous les users actifs excepte l'emetteur not sleeping
         '''
         myPseudo = userActif.getPseudo()
         
         for u in self.chat.listeClients:
             if userActif != u and u.getNumState() == 1 and userActif.getNumState() == 1 :
-                u.getConn().send(myPseudo.encode() + ": ".encode() + message.encode())
+                u.getConn().send("* ".encode() + myPseudo.encode() + ":: ".encode() + message.encode() + " *".encode())
+    
+    def sendToAll(self, userActif, message):
+        '''
+            Envoi du message a tous les users actifs not sleeping
+        '''
+        myPseudo = userActif.getPseudo()
+        
+        for u in self.chat.listeClients:
+            if u.getNumState() == 1 and userActif.getNumState() == 1 :
+                u.getConn().send(myPseudo.encode() + ":: ".encode() + message.encode())
     
     def sendToAClient(self, pseudoEm, otherPseudo, msg):
+        '''
+            Le user actif envoi un message a un autre user
+        '''
         
         for u in self.chat.listeClients:
             if otherPseudo == u.getPseudo() :
-                u.getConn().send(pseudoEm.encode() + ": ".encode() + msg.encode())
+                u.getConn().send("* ".encode() + pseudoEm.encode() + ":: ".encode() + msg.encode() + " *".encode())
     
                 
 
 if __name__ == '__main__':
-  
+    '''
+        main serveur : lancement
+    '''
+    
     if len(sys.argv) != 2 :
         print("Usage: {} <port>".format(sys.argv[0]))
         sys.exit(1)
     
     TAILLE_TAMPON = 1024
     
-    
-    # Ouverture en ecriture du fichier de log
-    logs = open("serveur.log", "w")
     maSock = socket(AF_INET, SOCK_STREAM)
     
     try:
@@ -309,7 +336,7 @@ if __name__ == '__main__':
         print('Bind failed %s' % (error))
         sys.exit()
     
-    maSock.listen(4)
+    maSock.listen(50)
     
     print('Waiting for connections on port %s' % (int(sys.argv[1])))
     chat = Chat.Chat() # création du chat
