@@ -33,12 +33,13 @@ class Thread_client(threading.Thread):
         
         conn = self.conn
         addr = self.adr
+        continueLoop = True
         
         print('Client connected with ' + addr[0] + ':' + str(addr[1]))
         userActif = self.identifyClient()
         self.sendToAllExceptUserActif(userActif, "is online")
         
-        while True:
+        while continueLoop:
             try:
                 # Recuperation de la commande
                 recu = conn.recv(TAILLE_TAMPON)
@@ -46,17 +47,7 @@ class Thread_client(threading.Thread):
                 
                 # Gestion du cas ou le client ne tape rien
                 if len(message) > 0:
-                    self.manageCommands(userActif, message) 
-                    
-                    if message[0] == "/quit":
-                        if len(message) > 1:
-                            reponseAllExceptUserActif = self.chat.quit(userActif, message[1])
-                        else:
-                            reponseAllExceptUserActif = self.chat.quit(userActif)
-                        reponseClient = userActif.quit()
-                        self.conn.send(reponseClient.encode())
-                        self.sendToAllExceptUserActif(userActif, reponseAllExceptUserActif)
-                        break   
+                    continueLoop = self.manageCommands(userActif, message) 
                 else:
                     error = "Error : please type something"
                     conn.send(error.encode())
@@ -115,12 +106,23 @@ class Thread_client(threading.Thread):
         otherPseudo = ""
         myPseudo = userActif.getPseudo()
         mess = message[0]
+        retour = True
                     
         if len(mess) > 0 and str(mess[0]) == "/" :
             
             cmd = str(mess[1:]) 
             
-            if cmd == "sleep":
+            if cmd == "quit":
+                if len(message) > 1:
+                    reponseAllExceptUserActif = self.chat.quit(userActif, message[1])
+                else:
+                    reponseAllExceptUserActif = self.chat.quit(userActif)
+                    
+                reponseClient = userActif.quit()
+                
+                retour = False # fin du loop par quit
+                    
+            elif cmd == "sleep":
                 if len(message) > 1:
                     reponseAllExceptUserActif = self.chat.sleep(userActif, message[1])
                 else:
@@ -284,6 +286,8 @@ class Thread_client(threading.Thread):
         
         if reponseSpecifyClient != "":
             self.sendToAClient(myPseudo, otherPseudo, reponseSpecifyClient)
+        
+        return retour
                 
     
     def sendToAllExceptUserActif(self, userActif, message):

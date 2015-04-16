@@ -9,7 +9,7 @@ import sys
 # et la réception des messages (utilisation de 2 THREADS).
 
 
-appli = "" # variable globale
+appli = "" # variable globale contenant les donnes de l appli
 
 class Thread_Reception(threading.Thread):
     '''
@@ -25,9 +25,8 @@ class Thread_Reception(threading.Thread):
         
         while True:
             recu = self.connexion.recv(TAILLE_TAMPON).decode()
-            message = recu.lower().split() # on découpe le message en tableau de mots
                 
-            if message[0] == "/quit": # Pb ici
+            if recu == "* /quit *" :
                 appli.printConsole("Logout successful")
                 self.connexion.close()
                 break
@@ -37,10 +36,11 @@ class Thread_Reception(threading.Thread):
             
         # Le thread <réception> se termine ici.
         # On force la fermeture du thread <émission> :
-        th_E._Thread__stop()
-        appli.printConsole("Client stopped. Connexion interrupt.")
+        #th_E._Thread__stop() # ne fonctionne pas
+        
+        appli.printConsole("Client stopped.")
         self.connexion.close()
-        sys.exit()
+        sys.exit() # il faut reussir a arreter le thread emission correctement pour que cette ligne fonctionne
         
             
 class Thread_Emission(threading.Thread):
@@ -54,7 +54,7 @@ class Thread_Emission(threading.Thread):
         self.connexion = conn   # réf. du socket de connexion
     
     def run(self):
-        while 1:
+        while 1 :
             if appli.getState():
                 msg = appli.bufferInput.encode()
                 self.connexion.send(msg)
@@ -67,7 +67,7 @@ if __name__ == '__main__':
     Programme principal - Établissement de la connexion par socket
     '''
     
-    if len(sys.argv) > 3:
+    if len(sys.argv) != 3:
         print("Usage: {} <ip> <port>".format(sys.argv[0]))
         sys.exit(1)
 
@@ -78,6 +78,7 @@ if __name__ == '__main__':
     appli = CtrlInterface.CtrlInterface()
     appli.iniFenPrincipale()
     
+    '''
     if len(sys.argv) == 3:
         appli.setHost(sys.argv[1])
         appli.setPort(int(sys.argv[2]))
@@ -88,7 +89,11 @@ if __name__ == '__main__':
             
     port = appli.getPort()
     host = appli.getHost()
+    '''
     
+    host = sys.argv[1]
+    port = int(sys.argv[2])
+        
     ''' Lancement de la socket '''
     connexion = socket.socket(socket.AF_INET, socket.SOCK_STREAM)    
     

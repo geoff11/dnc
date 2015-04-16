@@ -11,8 +11,8 @@ class CtrlInterface(QWidget):
         self.fenPrincipale = QMainWindow()
         self.bufferInput= "" # Buffer de l'entree standard du client (saisie des commandes)
         self.state = False
-        self.host = ""
-        self.port = ""
+        #self.host = ""
+        #self.port = ""
         
         self.ui1 = FenClient.Ui_FenClient()
         self.ui1.setupUi(self.fenPrincipale)
@@ -44,6 +44,8 @@ class CtrlInterface(QWidget):
         
     def clearConsole(self):
         self.ui1.ecranMain.clear()
+    
+    '''
         
     def setPseudo(self, pseudo):
         self.ui1.pseudo = pseudo
@@ -64,4 +66,5 @@ class CtrlInterface(QWidget):
     
     def getAllCompleted(self):
         return (self.host != "" and self.port != "")
+    '''
         
