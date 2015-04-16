@@ -114,7 +114,7 @@ class Thread_client(threading.Thread):
             
             if cmd == "quit":
                 if len(message) > 1:
-                    reponseAllExceptUserActif = self.chat.quit(userActif, message[1])
+                    reponseAllExceptUserActif = self.chat.quit(userActif, self.messToString(message[1:]))
                 else:
                     reponseAllExceptUserActif = self.chat.quit(userActif)
                     
@@ -124,7 +124,7 @@ class Thread_client(threading.Thread):
                     
             elif cmd == "sleep":
                 if len(message) > 1:
-                    reponseAllExceptUserActif = self.chat.sleep(userActif, message[1])
+                    reponseAllExceptUserActif = self.chat.sleep(userActif, self.messToString(message[1:]))
                 else:
                     reponseAllExceptUserActif = self.chat.sleep(userActif)
                 reponseClient = userActif.sleep()
@@ -134,9 +134,10 @@ class Thread_client(threading.Thread):
                 
             elif cmd == "wake":
                 if len(message) > 1:
-                    reponseAllExceptUserActif = self.chat.wake(userActif, message[1])
+                    reponseAllExceptUserActif = self.chat.wake(userActif, self.messToString(message[1:]))
                 else:
                     reponseAllExceptUserActif = self.chat.wake(userActif)
+                    
                 reponseClient = userActif.wake()
                 
             elif cmd == "logchange":
@@ -207,13 +208,13 @@ class Thread_client(threading.Thread):
                     reponseClient = "Usage : /stoppc <pseudo>"
             
             elif cmd == "mp":
-                if len(message) == 3:
+                if len(message) >= 3:
                     otherPseudo = message[1] # peut etre l emetteur ou le recepteur d origine
                     user2 = self.chat.getClientByPseudo(otherPseudo)
                     reponseClient = userActif.mp(user2)
                     
                     if reponseClient != "":
-                        reponseSpecifyClient = "MP => " + message[2]
+                        reponseSpecifyClient = "MP => " + self.messToString(message[2:])
                 else :
                     reponseClient = "Usage : /mp <pseudo> <msg>"
                     
@@ -269,11 +270,7 @@ class Thread_client(threading.Thread):
                 reponseClient = "With '/' you can use : sleep, list, quit, wake, logchange, private, acceptpc, denypc, mp, stoppc, filesend, fileacc, fileden"
                 
         else :
-            messComplet = ""
-            for m in message :
-                messComplet += m + " "
-                
-            reponseAll = messComplet
+            reponseAll = self.messToString(message)
         
         
         # d'abord rep a tlm en cas de deconnexion
@@ -323,7 +320,18 @@ class Thread_client(threading.Thread):
             if otherPseudo == u.getPseudo() :
                 u.getConn().send("* ".encode() + pseudoEm.encode() + " :: ".encode() + msg.encode() + " *".encode())
     
-                
+     
+    def messToString(self, message):
+        '''
+            Converti une liste de string en un string avec des espaces
+        '''
+        
+        messComplet = ""
+        
+        for m in message :
+            messComplet += m + " "  
+            
+        return messComplet         
 
 if __name__ == '__main__':
     '''
